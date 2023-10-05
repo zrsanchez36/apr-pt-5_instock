@@ -1,0 +1,27 @@
+/* mobile media query*/
+@mixin small {
+    @media only screen and (max-width:576px) {
+        @content;
+    }
+}
+
+/* tablet media query */
+@mixin medium {
+    @media only screen and (min-width:768px) {
+        @content;
+    }
+}
+
+/* desktop media query medium pixel dpi */
+@mixin large {
+    @media only screen and (min-width:1024px) {
+        @content;
+    }
+}
+
+/* desktop media query high pixel dpi */
+@mixin huge {
+    @media only screen and (min-width:1440px) {
+        @content;
+    }
+}
