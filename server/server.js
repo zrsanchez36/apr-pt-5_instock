@@ -1,5 +1,12 @@
-const express = require('express');
+
+const express = require('express')
 const app = express();
+const PORT = process.env.PORT || 8080;
+
+
+app.listen(PORT, () => {
+    console.log(`Listening on ${PORT}`)
+})
 const cors = require('cors');
 const bodyParser = require('body-parser');
 require('dotenv').config();
@@ -11,8 +18,4 @@ app.use(cors({
     origin: CORS_ORIGIN
 }));
 
-const PORT = 8081;
-app.listen(PORT, () => {
-    console.log(`Server Started on http://localhost:${PORT}`);
-    console.log('Press CTRL + C to stop server');
-});
+

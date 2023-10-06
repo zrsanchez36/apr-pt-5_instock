@@ -1,10 +1,18 @@
-import Header from "./components/Header/Header";
-import React from "react";
+import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+// Importing components
+import WarehouseList from "./components/WarehouseList/WarehouseList";
+import Inventory from "./components/Inventory/Inventory";
 
 function App() {
   return (
-    <Header/>
-    
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<WarehouseList />} />
+        <Route path="/inventory" element={<Inventory />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
