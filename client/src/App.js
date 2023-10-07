@@ -1,5 +1,6 @@
-import "./App.css";
+import "./App.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 
 // Importing components
 import WarehouseList from "./components/WarehouseList/WarehouseList";
