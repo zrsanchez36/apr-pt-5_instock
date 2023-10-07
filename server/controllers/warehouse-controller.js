@@ -1,5 +1,6 @@
 const knex = require("knex")(require("../knexfile"));
 
+// function for getting details of a single Warehouse
 const getSingleWarehouse = (req, res) => {
   knex("warehouses")
     .where({ id: req.params.id })
@@ -17,6 +18,7 @@ const getSingleWarehouse = (req, res) => {
     });
 };
 
+// function for getting list of inventory for a single warehouse based on ID
 const getInventoryFromWarehouse = (req, res) => {
   knex("inventories")
     .where({ warehouse_id: req.params.id })
