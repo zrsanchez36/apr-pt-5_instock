@@ -1,6 +1,4 @@
-const express = require("express");
-const router = express.router();
+const router = require("express").Router();
+const inventoryController = require("../controllers/inventory-controller");
 
-router.get("/inventory", (req, res) => {
-  console.log("inventory route");
-});
+module.exports = router;
