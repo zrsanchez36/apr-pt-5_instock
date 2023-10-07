@@ -1,0 +1,14 @@
+@use './styles/partials/breakpoints';
+@use './styles/partials/colors';
+@use './styles/partials/fonts';
+
+html, body {
+    font-family: TitilliumWebRegular;
+    box-sizing: border-box;
+    color: $black-color;
+}
+
+*, *:before, *:after {
+    margin: 0;
+    box-sizing: inherit;
+}
