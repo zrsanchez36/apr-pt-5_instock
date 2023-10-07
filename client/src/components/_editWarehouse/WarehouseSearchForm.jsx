@@ -1,5 +1,5 @@
 import React from "react";
-import SearchIcon from "../../assets/assets/Icons/search-24px.svg";
+import {ReactComponent as SearchIcon } from "../../assets/assets/Icons/search-24px.svg";
 import WarehouseButton from "./WarehouseButton";
 
 
