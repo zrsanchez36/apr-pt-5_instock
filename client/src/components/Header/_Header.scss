@@ -1,5 +1,31 @@
-.Header {
-    color: #232940;
+.header {
     background-color: #232940;
-    height: 100%;
+    height: 8rem;
+    font-family: TitilliumWebRegular;
+    font-size: 15px;
+    padding-top: 1.5rem;
+
+    @include medium {
+        display: flex;
+        justify-content: space-between;
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+    }
+
+    &__logo {
+        display: flex;
+        justify-content: center;
+        padding-top: 1.5rem;
+    
+        &-link {
+          display: block;
+          height: fit-content;
+        }
+      }
 }
+
+.nav {
+    padding-top: 1.25rem;
+    display: flex;
+    justify-content: center;
+  }
