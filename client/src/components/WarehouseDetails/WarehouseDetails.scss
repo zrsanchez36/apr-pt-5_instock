@@ -1,0 +1,56 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/colors" as *;
+
+* {
+  font-family: "TitilliumWebRegular";
+}
+
+.warehouse-details {
+  &__info {
+    display: flex;
+    flex-direction: column;
+
+    &__text {
+      font-size: 11px;
+      line-height: 16px;
+      color: $black-color;
+    }
+
+    &__header {
+      display: inline;
+      font-size: 28px;
+      line-height: 36px;
+    }
+
+    &__table-header {
+      color: $slate-color;
+      font-weight: 600;
+      font-size: 11px;
+      line-height: 16px;
+    }
+
+    &__upper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin-left: 32px;
+      margin-right: 32px;
+
+      &--left {
+        width: 300px;
+      }
+    }
+    &__lower {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      &-right {
+        display: flex;
+        flex-direction: row;
+      }
+    }
+  }
+}
