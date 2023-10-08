@@ -7,6 +7,7 @@ import Inventory from "./components/Inventory/Inventory";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import EditWarehouse from "./components/_editWarehouse/EditWarehouse";
+import AddWarehouse from "./components/_editWarehouse/AddWarehouse";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<WarehouseList />} />
           <Route path="/inventory" element={<Inventory />} />
           <Route path="/EditWarehouse" element={<EditWarehouse />} />
+          <Route path= "/AddWarehouse" element = {<AddWarehouse />} />
         </Routes>
       <Footer />
       </div>
