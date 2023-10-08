@@ -1,0 +1,95 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/colors" as *;
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+li {
+  border-radius: 3px;
+  padding: 16px 24px 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.material-icons.blue {
+  color: $indigo-color;
+  padding-left: 8px;
+}
+.material-icons.red {
+  color: $red-color;
+}
+.material-icons.md-18 {
+  font-size: 18px;
+}
+
+.inventory-list {
+  &__items {
+    font-size: 11px;
+    line-height: 16px;
+  }
+
+  &__item-name {
+    font-size: 11px;
+    line-height: 16px;
+    color: $indigo-color;
+    font-weight: 600;
+    margin: 0;
+
+    & span {
+      padding-left: 5px;
+    }
+  }
+}
+.col {
+  text-align: left;
+}
+.col-1 {
+  flex-basis: 20%;
+
+  p {
+    display: inline;
+    margin-top: 0;
+    vertical-align: top;
+  }
+}
+.col-2 {
+  flex-basis: 20%;
+}
+.col-3 {
+  flex-basis: 20%;
+
+  p {
+    display: inline;
+    margin-top: 0;
+    vertical-align: top;
+    margin: 0;
+  }
+}
+.col-4 {
+  flex-basis: 20%;
+}
+.col-5 {
+  flex-basis: 20%;
+}
+
+.inStock {
+  font-size: 11px;
+  line-height: 16px;
+  color: $green-color;
+  font-weight: 600;
+  margin: 0;
+  background-color: rgba(21, 132, 00, 0.3);
+  border-radius: 20px;
+  padding: 5px;
+}
+
+.OutOfStock {
+  font-size: 11px;
+  line-height: 16px;
+  color: $red-color;
+  font-weight: 600;
+  margin: 0;
+  background-color: rgba(201, 69, 21, 0.3);
+  border-radius: 20px;
+  padding: 5px;
+}
