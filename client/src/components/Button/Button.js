@@ -14,7 +14,7 @@ export default function BackButton(props) {
     return (
       <Link to={"/"}>
         <div className="button__edit">
-          <span className="material-icons md-18">edit</span>
+          <span className="material-icons md-18 edit">edit</span>
           <p className="button-text">Edit</p>
         </div>
       </Link>
