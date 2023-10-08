@@ -7,6 +7,8 @@ app.use(express.json());
 app.use("/warehouse", warehouseRoutes);
 app.use("/inventories", inventoryRoutes);
 
+app.use(warehouseRoutes);
+
 app.listen(PORT, () => {
   console.log(`Listening on ${PORT}`);
 });

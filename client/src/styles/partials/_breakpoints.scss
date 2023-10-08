@@ -1,20 +1,20 @@
 /* mobile media query*/
 @mixin small {
-    @media only screen and (max-width:576px) {
+    @media only screen and (max-width:767px) {
         @content;
     }
 }
 
 /* tablet media query */
 @mixin medium {
-    @media only screen and (min-width:768px) {
+    @media only screen and (min-width:768px) and (max-width:1023px) {
         @content;
     }
 }
 
 /* desktop media query medium pixel dpi */
 @mixin large {
-    @media only screen and (min-width:1024px) {
+    @media only screen and (min-width:1024px) and (max-width:1439px) {
         @content;
     }
 }
