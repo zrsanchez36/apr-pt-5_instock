@@ -32,7 +32,7 @@ body {
   border: none;
 }
 
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 767px) {
   .edit__warehouse--section {
     margin: 0 auto;
     width: 90%;
@@ -87,7 +87,7 @@ body {
   }
 }
 
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 767px) {
   .edit__warehouse--form {
     display: flex;
     flex-direction: column;
@@ -118,7 +118,7 @@ body {
   }
 }
 
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 767px) {
   .edit__warehouse--header {
     display: flex;
     flex-direction: row;
@@ -156,7 +156,7 @@ body {
   }
 }
 
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 767px) {
   .edit__warehouse--header svg {
     align-items: center;
     align-self: center;
@@ -181,7 +181,7 @@ body {
   }
 }
 
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 767px) {
   .edit__warehouse--header h1 {
     font-size: 1.75rem;
     line-height: 2.25rem;
@@ -206,13 +206,13 @@ body {
   }
 }
 
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 767px) {
   .edit__warehouse--container {
     width: 100%;
   }
 }
 
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 767px) {
   .edit__warehouse--container h3 {
     margin: 0;
     line-height: 20px;
@@ -245,7 +245,7 @@ body {
   }
 }
 
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 767px) {
   .warehouse__details {
     flex: 1;
     flex-direction: column;
@@ -286,7 +286,7 @@ body {
   }
 }
 
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 767px) {
   .contact__details {
     flex: 1;
     flex-direction: column;
@@ -323,7 +323,7 @@ body {
   }
 }
 
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 767px) {
   .form__warehouse--actions {
     display: flex;
     position: absolute;
@@ -380,7 +380,7 @@ body {
   }
 }
 
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 767px) {
   .cancel__button {
     height: 36px;
     box-sizing: border-box;
@@ -426,7 +426,7 @@ body {
   }
 }
 
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 767px) {
   .warehouse__button--container {
     width: 100%;
     padding-left: 1rem;
@@ -434,7 +434,7 @@ body {
   }
 }
 
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 767px) {
   .add__warehouse--button {
     height: 36px;
     box-sizing: border-box;
@@ -492,7 +492,7 @@ body {
   }
 }
 
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 767px) {
   .default__form--field {
     height: 2.25rem;
     border-radius: 20px;

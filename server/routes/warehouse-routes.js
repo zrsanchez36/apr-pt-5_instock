@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.router();
 const { body, validationResult } = require('express-validator');
-const knex = require("knex")(require("../knexfile")); // Adjust the path to your knex configuration
+const knex = require("knex")(require("../knexfile"));
 
 router.get("/", (req, res) => {
   console.log("Warehouse route");
@@ -28,6 +28,11 @@ router.put('/api/warehouses/:id',
         const data = req.body;
 
         try {
+            // Ensure the ID isn't replaced
+            if (data.id && data.id !== id) {
+                return res.status(400).json({ error: 'ID replacement is not allowed.' });
+            }
+            
             const rowsUpdated = await knex('warehouses')
                 .where('id', id)
                 .update(data);
@@ -36,7 +41,12 @@ router.put('/api/warehouses/:id',
                 return res.status(404).json({ error: 'Warehouse ID not found' });
             }
 
-            return res.status(200).json(data);
+            const updatedWarehouse = await knex('warehouses')
+                .select('*')
+                .where('id', id)
+                .first();
+
+            return res.status(200).json(updatedWarehouse);
         } catch (error) {
             return res.status(500).json({ error: 'Database error' });
         }
