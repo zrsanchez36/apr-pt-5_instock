@@ -1,0 +1,16 @@
+@import './styles/partials/breakpoints';
+@import './styles/partials/colors';
+@import './styles/partials/fonts';
+
+html, body {
+    font-family: TitilliumWebRegular;
+    box-sizing: border-box;
+    color: $black-color;
+    height: 100%; 
+    width: 100%;
+    margin: 0;   
+    padding: 0; 
+}
+
+@import './components/Header/Header';
+@import './components/Footer/Footer';

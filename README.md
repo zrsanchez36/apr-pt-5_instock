@@ -16,3 +16,8 @@ Possible Errors
 If users get this error: "package.jsonProblems loading reference 'https://json.schemastore.org/package': Unable to load schema from 'https://json.schemastore.org/package': getaddrinfo ENOTFOUND json.schemastore.org."
 
 Refer to this article for fix: https://stackoverflow.com/questions/75558543/vscode-unable-to-load-schema-for-package-json
+
+
+notes:
+
+I installed express-validator for validation, Are there alternatives?
