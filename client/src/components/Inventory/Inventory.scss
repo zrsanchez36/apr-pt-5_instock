@@ -3,53 +3,47 @@
 @use "../../styles/partials/colors" as *;
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
-table {
+ul {
   width: 100%;
   border-collapse: collapse;
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
 }
 
-th {
-  color: $slate-color;
-  text-align: left;
-  font-size: 11px;
-  line-height: 16px;
-  padding: 0;
-}
-
-td {
-  vertical-align: middle;
-}
-
-.material-icons.blue {
-  color: $indigo-color;
-}
-.material-icons.red {
-  color: $red-color;
-}
-.material-icons.md-18 {
-  font-size: 18px;
+li {
+  border-radius: 3px;
+  padding: 16px 24px 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 18px;
 }
 
 .inventory-list {
   &__headers {
     background-color: $grey-color;
-  }
-
-  &__items {
+    color: $slate-color;
+    text-align: left;
     font-size: 11px;
     line-height: 16px;
   }
-
-  &__item-name {
-    font-size: 11px;
-    line-height: 16px;
-    color: $indigo-color;
-    font-weight: 600;
-    margin: auto;
-    vertical-align: middle;
-
-    & span {
-      padding-left: 5px;
-    }
-  }
+}
+.col {
+  text-align: left;
+}
+.col-1 {
+  flex-basis: 20%;
+}
+.col-2 {
+  flex-basis: 20%;
+}
+.col-3 {
+  flex-basis: 20%;
+}
+.col-4 {
+  flex-basis: 20%;
+}
+.col-5 {
+  flex-basis: 20%;
 }

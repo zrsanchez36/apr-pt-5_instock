@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./Inventory.scss";
+import InventoryRow from "../InventoryRow/InventoryRow";
 
 function Inventory(props) {
   const [InventoryList, SetInventoryList] = useState([]);
@@ -22,36 +23,24 @@ function Inventory(props) {
 
     return (
       <div className="inventory">
-        <table className="inventory-list">
-          <thead>
-            <tr className="inventory-list__headers">
-              <th>INVENTORY ITEM</th>
-              <th>CATEGORY</th>
-              <th>STATUS</th>
-              <th>QUANTITY</th>
-              <th>ACTIONS</th>
-            </tr>
-          </thead>
-          <tbody>
-            {InventoryList.map((inventory) => (
-              <tr className="inventory-list__items" key={inventory.id}>
-                <td className="inventory-list__item-name">
-                  {inventory.item_name}
-                  <span className="material-icons md-18"> chevron_right</span>
-                </td>
-                <td>{inventory.category}</td>
-                <td className="inventory-list__status">{inventory.status}</td>
-                <td>{inventory.quantity}</td>
-                <td>
-                  <span className="material-icons red md-18">
-                    delete_outline
-                  </span>
-                  <span className="material-icons blue md-18">edit</span>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <ul className="inventory-list">
+          <li className="inventory-list__headers">
+            <div className="col col-1 header">INVENTORY ITEM</div>
+            <div className="col col-2 header">CATEGORY</div>
+            <div className="col col-3 header">STATUS</div>
+            <div className="col col-4 header">QUANTITY</div>
+            <div className="col col-5 header">ACTIONS</div>
+          </li>
+          {InventoryList.map((inventory) => (
+            <InventoryRow
+              key={inventory.id}
+              itemName={inventory.item_name}
+              category={inventory.category}
+              status={inventory.status}
+              quantity={inventory.quantity}
+            />
+          ))}
+        </ul>
       </div>
     );
   }
