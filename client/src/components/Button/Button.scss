@@ -1,0 +1,41 @@
+@use "../../styles/partials/colors" as *;
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+a {
+  text-decoration: none;
+}
+
+.button {
+  height: 36px;
+
+  &__edit {
+    @extend .button;
+    background-color: $indigo-color;
+    color: $white-color;
+    padding: 5px;
+    width: 100px;
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+  }
+}
+
+.material-icons.edit {
+  display: inline;
+  vertical-align: middle;
+}
+
+.material-icons.indigo-blue {
+  color: $indigo-color;
+}
+
+.button-text {
+  text-decoration: none;
+  display: inline;
+  vertical-align: middle;
+  font-size: 18px;
+  line-height: 24px;
+  margin: 0;
+  padding-left: 5px;
+  text-decoration: none;
+}
