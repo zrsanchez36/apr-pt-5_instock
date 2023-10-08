@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import "./WarehouseDetails.scss";
 import axios from "axios";
-import BackButton from "../BackButton/BackButton";
+import Button from "../Button/Button";
 
 export default function WarehouseDetails() {
   const { warehouseId } = useParams();
@@ -22,12 +22,12 @@ export default function WarehouseDetails() {
       <div className="warehouse-details__info">
         <div className="warehouse-details__info__upper">
           <div className="warehouse-details__info__upper--left">
-            <BackButton page="warehouse" />
+            <Button page="warehouse" />
             <h1 className="warehouse-details__info__header">
               {WarehouseDetails.warehouse_name}
             </h1>
           </div>
-          <span>Edit</span>
+          <Button page="editwarehouse" />
         </div>
         <div className="warehouse-details__info__lower">
           <div className="warehouse-details__info__lower-left">
@@ -35,7 +35,7 @@ export default function WarehouseDetails() {
               Warehouse Address:
             </h3>
             <p className="warehouse-details__info__text">
-              {WarehouseDetails.address}
+              {WarehouseDetails.address},
             </p>
             <p className="warehouse-details__info__text">
               {WarehouseDetails.city}, {WarehouseDetails.country}

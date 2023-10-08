@@ -8,7 +8,6 @@ import Inventory from "./components/Inventory/Inventory";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
 
 function App() {
-  <Header />;
   return (
     <BrowserRouter>
       <Routes>

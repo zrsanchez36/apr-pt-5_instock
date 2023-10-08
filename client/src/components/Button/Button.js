@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import "./BackButton.scss";
-import ArrowBack from "../../assets/assets/arrow_back_black_24dp.svg";
+import "./Button.scss";
 
 export default function BackButton(props) {
   if (props.page === "warehouse") {
@@ -10,10 +9,13 @@ export default function BackButton(props) {
       </Link>
     );
   }
-  if (props.page === "warehouse") {
+
+  if (props.page === "editwarehouse") {
     return (
       <Link to={"/"}>
-        <span className="BackBtn">Back</span>;
+        <span class="material-icons md-18 edit">
+          edit <p className="button-text">Edit</p>
+        </span>
       </Link>
     );
   }
