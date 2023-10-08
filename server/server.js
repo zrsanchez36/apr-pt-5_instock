@@ -5,7 +5,7 @@ const warehouseRoutes = require("./routes/warehouse-routes");
 const inventoryRoutes = require("./routes/inventory-routes");
 app.use(express.json());
 app.use("/warehouse", warehouseRoutes);
-app.use("/inventory", inventoryRoutes);
+app.use("/inventories", inventoryRoutes);
 
 app.listen(PORT, () => {
   console.log(`Listening on ${PORT}`);
