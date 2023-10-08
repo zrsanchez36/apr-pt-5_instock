@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import "./WarehouseDetails.scss";
 import axios from "axios";
+import Inventory from "../Inventory/Inventory";
 import Button from "../Button/Button";
 
 export default function WarehouseDetails() {
@@ -32,7 +33,7 @@ export default function WarehouseDetails() {
         <div className="warehouse-details__info__lower">
           <div className="warehouse-details__info__lower-left">
             <h3 className="warehouse-details__info__table-header">
-              Warehouse Address:
+              WAREHOUSE ADDRESS:
             </h3>
             <p className="warehouse-details__info__text">
               {WarehouseDetails.address},
@@ -44,7 +45,7 @@ export default function WarehouseDetails() {
           <div className="warehouse-details__info__lower-right">
             <div className="warehouse-details__info__lower-right--contact">
               <h3 className="warehouse-details__info__table-header">
-                Contact Name:
+                CONTACT NAME:
               </h3>
               <p className="warehouse-details__info__text">
                 {WarehouseDetails.contact_name}
@@ -55,7 +56,7 @@ export default function WarehouseDetails() {
             </div>
             <div className="warehouse-details__info__lower-right--contact">
               <h3 className="warehouse-details__info__table-header">
-                Contact Information:
+                CONTACT INFORMATION:
               </h3>
               <p className="warehouse-details__info__text">
                 {WarehouseDetails.contact_phone}
@@ -67,6 +68,7 @@ export default function WarehouseDetails() {
           </div>
         </div>
       </div>
+      <Inventory WarehouseInventory={warehouseId} />
     </div>
   );
 }

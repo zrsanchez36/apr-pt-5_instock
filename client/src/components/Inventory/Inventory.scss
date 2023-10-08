@@ -1,0 +1,55 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/colors" as *;
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  color: $slate-color;
+  text-align: left;
+  font-size: 11px;
+  line-height: 16px;
+  padding: 0;
+}
+
+td {
+  vertical-align: middle;
+}
+
+.material-icons.blue {
+  color: $indigo-color;
+}
+.material-icons.red {
+  color: $red-color;
+}
+.material-icons.md-18 {
+  font-size: 18px;
+}
+
+.inventory-list {
+  &__headers {
+    background-color: $grey-color;
+  }
+
+  &__items {
+    font-size: 11px;
+    line-height: 16px;
+  }
+
+  &__item-name {
+    font-size: 11px;
+    line-height: 16px;
+    color: $indigo-color;
+    font-weight: 600;
+    margin: auto;
+    vertical-align: middle;
+
+    & span {
+      padding-left: 5px;
+    }
+  }
+}

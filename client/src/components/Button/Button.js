@@ -5,7 +5,7 @@ export default function BackButton(props) {
   if (props.page === "warehouse") {
     return (
       <Link to={"/"}>
-        <span class="material-icons md-24 indigo-blue">arrow_back</span>
+        <span className="material-icons md-24 indigo-blue">arrow_back</span>
       </Link>
     );
   }
@@ -13,7 +13,7 @@ export default function BackButton(props) {
   if (props.page === "editwarehouse") {
     return (
       <Link to={"/"}>
-        <span class="material-icons md-18 edit">
+        <span className="material-icons md-18 edit">
           edit <p className="button-text">Edit</p>
         </span>
       </Link>
