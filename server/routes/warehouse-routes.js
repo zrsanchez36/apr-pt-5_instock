@@ -1,8 +1,8 @@
-const express = require("express");
-const router = express.router();
+const router = require("express").Router();
+const warehouseController = require("../controllers/warehouse-controller");
 
-router.get("/", (req, res) => {
-  console.log("Warehouse route");
-});
-
-
+router.route("/:id").get(warehouseController.getSingleWarehouse);
+router
+  .route("/:id/inventories")
+  .get(warehouseController.getInventoryFromWarehouse);
+module.exports = router;
