@@ -7,10 +7,13 @@ import "./WarehouseList.scss";
 import sorticon from "../../assets/Icons/sort-24px.svg";
 import deleteicon from "../../assets/Icons/delete_outline-24px.svg";
 import editicon from "../../assets/Icons/edit-24px.svg";
+import WarehouseDelete from "../WarehouseDelete/WarehouseDelete";
 
 function WarehouseList() {
+  const { warehouseId } = useParams();
   const [warehouses, setWarehouses] = useState([]);
-  const [deleteWarehouse, setDeleteWarehouse] = useState({});
+  const [deleteModalInfo, setDeleteModalInfo] = useState({});
+  
 
   const api = process.env.REACT_APP_BASEURL;
 
@@ -29,18 +32,46 @@ function WarehouseList() {
     getWarehouseList();
   }, []);
 
+  function deleteWarehouse(id) {
+    axios
+      .delete(`${api}/warehouses/${id}`)
+      .then((response) => {
+        getWarehouseList(id);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
   function deleteButtonClick(warehouse) {
     const info = {
       id: warehouse.id,
       title: `Delete ${warehouse.warehouse_name} warehouse?`,
       text: `Please confirm that you’d like to delete ${warehouse.warehouse_name} from the list of warehouses. You won’t be able to undo this action.`,
     };
+    console.log("I am clicked");
+    setDeleteModalInfo(info);
+    console.log(info);
+   
+  }
 
-    setDeleteWarehouse(info);
+  function onDeleteModalCancel() {
+    setDeleteModalInfo({});
+  }
+
+  function onDeleteModalConfirm(id) {
+    deleteWarehouse(id);
+    setDeleteModalInfo({});
   }
 
   return (
     <div className="warehouseList">
+      <WarehouseDelete
+        deleteModalInfo={deleteModalInfo}
+        onCancel={onDeleteModalCancel}
+        onConfirm={onDeleteModalConfirm}
+      />
       <div className="warehouseList__box">
         <div className="warehouseList__search">
           <h1 className="warehouseList__title">Warehouses</h1>
