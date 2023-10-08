@@ -13,9 +13,10 @@ export default function BackButton(props) {
   if (props.page === "editwarehouse") {
     return (
       <Link to={"/"}>
-        <span className="material-icons md-18 edit">
-          edit <p className="button-text">Edit</p>
-        </span>
+        <div className="button__edit">
+          <span className="material-icons md-18">edit</span>
+          <p className="button-text">Edit</p>
+        </div>
       </Link>
     );
   }
