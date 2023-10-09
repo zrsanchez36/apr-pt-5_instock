@@ -8,7 +8,7 @@ import WarehouseList from "./components/WarehouseList/WarehouseList";
 import Inventory from "./components/Inventory/Inventory";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
 
-import Header from "./components/Header/Header";
+
 import Footer from "./components/Footer/Footer";
 import EditWarehouse from "./components/_editWarehouse/EditWarehouse";
 import AddWarehouse from "./components/_editWarehouse/AddWarehouse";

@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+a {
+  text-decoration: none;
+}
+
+.button, .button__edit {
+  height: 36px;
+}
+.button__edit {
+  background-color: #2e66e5;
+  color: white;
+  padding: 5px;
+  width: 100px;
+  border-radius: 20px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.material-icons.edit {
+  display: inline;
+  vertical-align: middle;
+}
+
+.material-icons.indigo-blue {
+  color: #2e66e5;
+}
+
+.button-text {
+  text-decoration: none;
+  display: inline;
+  vertical-align: middle;
+  font-size: 18px;
+  line-height: 24px;
+  margin: 0;
+  padding-left: 5px;
+  text-decoration: none;
+}/*# sourceMappingURL=Button.css.map */
