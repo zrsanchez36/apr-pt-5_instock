@@ -7,7 +7,7 @@ app.use(express.json());
 const cors = require("cors");
 const bodyParser = require("body-parser");
 app.use(cors());
-app.use("/warehouse", warehouseRoutes);
+app.use("/warehouses", warehouseRoutes);
 app.use("/inventories", inventoryRoutes);
 
 app.use(warehouseRoutes);

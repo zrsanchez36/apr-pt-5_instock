@@ -5,7 +5,7 @@ import "../WarehouseDelete/WarehouseDelete.scss";
 
 function WarehouseDelete({ deleteModalInfo, onCancel, onConfirm }) {
   const modalIsOpen = Object.keys(deleteModalInfo).length > 0;
-  console.log(modalIsOpen);
+  // console.log(modalIsOpen);
 
   return (
     <Modal

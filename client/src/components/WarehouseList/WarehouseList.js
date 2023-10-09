@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
@@ -14,7 +13,6 @@ function WarehouseList() {
   const { warehouseId } = useParams();
   const [warehouses, setWarehouses] = useState([]);
   const [deleteModalInfo, setDeleteModalInfo] = useState({});
-  
 
   const api = process.env.REACT_APP_BASEURL;
 
@@ -51,10 +49,7 @@ function WarehouseList() {
       title: `Delete ${warehouse.warehouse_name} warehouse?`,
       text: `Please confirm that you’d like to delete ${warehouse.warehouse_name} from the list of warehouses. You won’t be able to undo this action.`,
     };
-    console.log("I am clicked");
     setDeleteModalInfo(info);
-    console.log(info);
-   
   }
 
   function onDeleteModalCancel() {
@@ -178,7 +173,6 @@ function WarehouseList() {
         </ul>
       ))}
     </div>
-
   );
 }
 
