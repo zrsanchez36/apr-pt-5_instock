@@ -1,3 +1,4 @@
+
 const router = require("express").Router();
 const { body, validationResult } = require("express-validator");
 const knex = require("knex")(require("../knexfile"));
@@ -12,6 +13,7 @@ const index = (_req, res) => {
     );
 };
 
+
 // function for getting details of a single Warehouse
 const getSingleWarehouse = (req, res) => {
   knex("warehouses")
@@ -22,7 +24,12 @@ const getSingleWarehouse = (req, res) => {
           message: `Warehouse with ID: ${req.params.id} does not exist`,
         });
       }
+          const { created_at, updated_at, ...rest } = warehouseDetails[0];
+
+      const warehouseData = rest;
+      res.status(200).json(warehouseData);
     });
+};
 
   router.put(
     "/api/warehouses/:id",
@@ -62,8 +69,7 @@ const getSingleWarehouse = (req, res) => {
         if (rowsUpdated === 0) {
           return res.status(404).json({ error: "Warehouse ID not found" });
         }
-
-        const updatedWarehouse = await knex("warehouses")
+                const updatedWarehouse = await knex("warehouses")
           .select("*")
           .where("id", id)
           .first();
@@ -74,6 +80,8 @@ const getSingleWarehouse = (req, res) => {
       }
     }
   );
+        
+
 
   // function for getting list of inventory for a single warehouse based on ID
   const getInventoryFromWarehouse = (req, res) => {
@@ -96,6 +104,7 @@ const getSingleWarehouse = (req, res) => {
   };
 };
 
+
 const deleteWarehouse = (req, res) => {
   knex("warehouses")
     .delete()
@@ -115,8 +124,10 @@ const deleteWarehouse = (req, res) => {
         .send(`Error: unable to remove warehouse ${req.params.id} ${err}`)
     );
 };
+
 module.exports = {
   router,
   index,
-  deleteWarehouse,
+  deleteWarehouse, getSingleWarehouse, getInventoryFromWarehouse
 };
+
