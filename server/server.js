@@ -8,7 +8,9 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 app.use(cors());
 app.use("/warehouse", warehouseRoutes);
-app.use("/inventory", inventoryRoutes);
+app.use("/inventories", inventoryRoutes);
+
+app.use(warehouseRoutes);
 
 app.listen(PORT, () => {
   console.log(`Listening on ${PORT}`);
