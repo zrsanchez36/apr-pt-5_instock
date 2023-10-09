@@ -6,25 +6,25 @@
   font-family: "TitilliumWebRegular";
   font-style: normal;
   font-weight: 400;
-  src: url("../../assets/fonts/TitilliumWeb-Regular.ttf");
+  src: url("./assets/fonts/TitilliumWeb-Regular.ttf");
 }
 @font-face {
   font-family: "TitilliumWebItalic";
   font-style: italic;
   font-weight: 400;
-  src: url("../../assets/fonts/TitilliumWeb-Italic.ttf");
+  src: url("./assets/fonts/TitilliumWeb-Italic.ttf");
 }
 @font-face {
   font-family: "TitilliumWebBold";
   font-style: normal;
   font-weight: 700;
-  src: url("../../assets/fonts/TitilliumWeb-Bold.ttf");
+  src: url("./assets/fonts/TitilliumWeb-Bold.ttf");
 }
 @font-face {
   font-family: "TitilliumWebBoldItalic";
   font-style: italic;
   font-weight: 700;
-  src: url("../../assets/fonts/TitilliumWeb-BoldItalic.ttf");
+  src: url("./assets/fonts/TitilliumWeb-BoldItalic.ttf");
 }
 html, body {
   font-family: TitilliumWebRegular;
