@@ -1,0 +1,185 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/colors" as *;
+
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/colors" as *;
+
+.edit-inventory {
+  position: relative;
+  margin: 0 auto;
+  top: 0;
+  bottom: 0;
+  width: auto;
+  min-height: 800px;
+  border-radius: 5px;
+  &__header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 24px;
+    border-bottom: 1px $cloud-color solid;
+
+    &--text {
+      font-size: 28px;
+      line-height: 36px;
+      margin: 0 0 0 24px;
+    }
+  }
+  &__subheader {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  &__form {
+    width: 100%;
+
+    &__top {
+      &--item-name {
+        width: 100%;
+      }
+    }
+
+    &__bottom {
+      &--status {
+        display: flex;
+        flex-direction: column;
+
+        &--radios {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          width: 70%;
+        }
+
+        input {
+          margin: 5px;
+          border: 1px $cloud-color solid;
+        }
+      }
+    }
+    &__label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 5px;
+      font-size: 13px;
+      line-height: 20px;
+    }
+
+    &--input {
+      border-radius: 15px;
+
+      border: 1px $cloud-color solid;
+      height: 25px;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+
+      &::placeholder {
+        padding-top: 1rem;
+        padding-left: 1rem;
+        text-align: left;
+      }
+    }
+
+    &--textarea {
+      border-radius: 15px;
+      //   padding: 5px 10px;
+      border: 1px $cloud-color solid;
+      padding: 0;
+      width: 100%;
+      text-align: left;
+      color: black;
+      &::placeholder {
+        padding-top: 1rem;
+        padding-left: 1rem;
+        text-align: left;
+      }
+    }
+    &--category {
+      width: 100%;
+      border-radius: 15px;
+      padding: 5px 10px;
+      border: 1px $cloud-color solid;
+    }
+    &__top--item-name {
+      width: 100%;
+    }
+
+    &__buttons {
+      padding: 24px 0;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__container {
+    padding: 0 24px;
+    &__text {
+      font-size: 11px;
+      line-height: 16px;
+      color: $black-color;
+      margin: 0;
+    }
+
+    &__table-header {
+      color: $slate-color;
+      font-weight: 600;
+      font-size: 11px;
+      line-height: 16px;
+      margin: 0;
+    }
+
+    &__upper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 0;
+      border-bottom: $cloud-color solid 1px;
+
+      &--left {
+        width: 300px;
+      }
+    }
+    &__lower {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 24px;
+
+      &-right {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        border-left: $cloud-color solid 1px;
+        width: 70%;
+      }
+    }
+  }
+}
+
+.editButton {
+  font-size: 13px;
+  line-height: 20px;
+  width: 47%;
+  border-radius: 20px;
+  border: none;
+  height: 36px;
+  font-weight: 600;
+
+  &--cancel {
+    @extend .editButton;
+    background-color: white;
+    border: 1px $cloud-color solid;
+    color: $slate-color;
+  }
+  &--submit {
+    @extend .editButton;
+    background-color: $indigo-color;
+    color: white;
+  }
+}

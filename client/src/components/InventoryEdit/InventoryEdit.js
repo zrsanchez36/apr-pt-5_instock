@@ -50,15 +50,15 @@ export default function InventoryEdit(props) {
   };
 
   return (
-    <section className="edit-inventory--section">
-      <div className="edit-inventory--header">
+    <section className="edit-inventory">
+      <div className="edit-inventory__header">
         <Button page="back" />
-        <h1>Edit Inventory Item</h1>
+        <h1 className="edit-inventory__header--text">Edit Inventory Item</h1>
       </div>
-      <div className="edit-inventory--container">
+      <div className="edit-inventory__container">
         <form className="edit-inventory__form" onSubmit={FormHandler}>
           <div className="edit-inventory__form__top">
-            <h2>Item Details</h2>
+            <h2 className="edit-inventory__subheader">Item Details</h2>
             <div className="edit-inventory__form__top--item-name">
               <label className="edit-inventory__form__label">Item Name</label>
               <input
@@ -71,57 +71,85 @@ export default function InventoryEdit(props) {
             </div>
             <div className="edit-inventory__form__top--item-name">
               <label className="edit-inventory__form__label">Description</label>
-              <input
-                type="textarea"
+              <textarea
                 name="itemDescription"
+                rows="6"
                 id="itemDescription"
                 className="edit-inventory__form--textarea"
                 placeholder={InventoryDetails.description}
-              ></input>
+              />
             </div>
             <div className="edit-inventory__form__top--item-name">
               <label className="edit-inventory__form__label">Category</label>
-              <select name="category" id="category">
-                {uniqueCategory.map((category) => (
-                  <option value={category.category}>{category.category}</option>
+              <select
+                name="category"
+                id="category"
+                className="edit-inventory__form--category"
+              >
+                {uniqueCategory.map((category, index) => (
+                  <option key={index} value={category.category}>
+                    {category.category}
+                  </option>
                 ))}
               </select>
             </div>
           </div>
           <div className="edit-inventory__form__bottom">
-            <h2>Item Availability</h2>
+            <h2 className="edit-inventory__subheader">Item Availability</h2>
             <div className="edit-inventory__form__bottom--status">
               <label className="edit-inventory__form__label">Status</label>
-              <input
-                type="radio"
-                id="inStock"
-                name="itemStatus"
-                value="In Stock"
-              />
-              <label className="edit-inventory__form__label">In Stock</label>
-              <input
-                type="radio"
-                id="outOfStock"
-                name="itemStatus"
-                value="Out of Stock"
-              />
-              <label className="edit-inventory__form__label">
-                Out of Stock
-              </label>
+              <div className="edit-inventory__form__bottom--status--radios">
+                <div className="edit-inventory__form__bottom--status--radios--input">
+                  <input
+                    type="radio"
+                    id="inStock"
+                    name="itemStatus"
+                    value="In Stock"
+                  />
+                  <label className="edit-inventory__form__label--status">
+                    In Stock
+                  </label>
+                </div>
+                <div className="edit-inventory__form__bottom--status--radios--input">
+                  <input
+                    type="radio"
+                    id="outOfStock"
+                    name="itemStatus"
+                    value="Out of Stock"
+                  />
+                  <label className="edit-inventory__form__label--status">
+                    Out of Stock
+                  </label>
+                </div>
+              </div>
             </div>
             <div className="edit-inventory__form__bottom--warehouse">
               <label className="edit-inventory__form__label">Warehouse</label>
-              <select name="category" id="category">
-                {uniqueWarehouses.map((warehouse) => (
-                  <option value={warehouse.id}>
+              <select
+                name="category"
+                id="category"
+                className="edit-inventory__form--category"
+              >
+                {uniqueWarehouses.map((warehouse, index) => (
+                  <option key={index} value={warehouse.id}>
                     {warehouse.warehouse_name}
                   </option>
                 ))}
               </select>
             </div>
           </div>
-          <input type="button" value="Cancel"></input>
-          <input type="submit" value="Save"></input>
+          <div className="edit-inventory__form__buttons">
+            <input
+              className="editButton--cancel"
+              type="button"
+              value="Cancel"
+            ></input>
+            <input
+              className="editButton--submit"
+              type="submit"
+              value="Save"
+            ></input>
+          </div>
         </form>
       </div>
     </section>
