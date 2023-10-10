@@ -78,16 +78,40 @@ const getSingleInventory = (req, res) => {
 
 // Function updates inventory item based on changed values
 const EditInventory = (req, res) => {
+  if (
+    !req.body.warehouse_id ||
+    !req.body.item_name ||
+    !req.body.description ||
+    !req.body.category ||
+    !req.body.status ||
+    !req.body.quantity
+  ) {
+    return res.status(400).json({
+      message: `Missing Properties in request`,
+    });
+  }
+  if (isNaN(req.body.quantity)) {
+    return res.status(400).json({
+      message: `Quantity must be an number`,
+    });
+  }
   knex("inventories")
     .where({ id: req.params.id })
-    .update(req.body)
-    .then(() => {
-      return knex("inventories").where({
-        id: req.params.id,
-      });
-    })
-    .then((updatedInventory) => {
-      res.json(updatedInventory[0]);
+    .then((matchedItems) => {
+      if (matchedItems.length === 0) {
+        return res.status(404).json({
+          message: `Inventory Item with ID: ${req.params.id} does not exist`,
+        });
+      }
+      knex("inventories")
+        .where({ id: req.params.id })
+        .update(req.body)
+        .then(() => {
+          return knex("inventories").where({ id: req.params.id });
+        })
+        .then((updatedInventory) => {
+          res.json(updatedInventory[0]);
+        });
     });
 };
 
