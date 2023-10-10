@@ -126,10 +126,19 @@ const deleteWarehouse = (req, res) => {
     );
 };
 
+const getDistinctWarehouseLocations = (req, res) => {
+  knex("warehouses")
+    .distinct("id", "warehouse_name")
+    .then((uniqueWarehouses) => {
+      res.status(200).json(uniqueWarehouses);
+    });
+};
+
 module.exports = {
   router,
   index,
   deleteWarehouse,
   getSingleWarehouse,
   getInventoryFromWarehouse,
+  getDistinctWarehouseLocations,
 };

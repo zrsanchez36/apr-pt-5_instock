@@ -115,4 +115,19 @@ const EditInventory = (req, res) => {
     });
 };
 
-module.exports = { addNewInventory, getSingleInventory, EditInventory };
+// Function get all unique categories from inventory table
+
+const getUniqueCategory = (req, res) => {
+  knex("inventories")
+    .distinct("category")
+    .then((uniqueCategory) => {
+      res.status(200).json(uniqueCategory);
+    });
+};
+
+module.exports = {
+  addNewInventory,
+  getSingleInventory,
+  EditInventory,
+  getUniqueCategory,
+};

@@ -6,4 +6,5 @@ router
   .route("/:id")
   .get(inventoryController.getSingleInventory)
   .put(inventoryController.EditInventory);
+router.route("/category/unique").get(inventoryController.getUniqueCategory);
 module.exports = router;
