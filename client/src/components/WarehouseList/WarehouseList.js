@@ -79,7 +79,7 @@ function WarehouseList() {
                 className="warehouseList__text"
               />
             </div>
-            <Link to={""} className="warehouseList__btn">
+            <Link to={"/AddWarehouse"} className="warehouseList__btn">
               + Add New Warehouse
             </Link>
           </form>
