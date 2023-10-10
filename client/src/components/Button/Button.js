@@ -1,26 +1,23 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Button.scss";
 
 export default function BackButton(props) {
-  if (props.page === "warehouse") {
-    return (
-      <Link to={"/"}>
-        <span className="material-icons md-24 indigo-blue">arrow_back</span>
-      </Link>
-    );
-  }
+  const navigate = useNavigate();
 
-  if (props.page === "inventory") {
+  if (props.page === "back") {
     return (
-      <Link to={"/inventory"}>
-        <span className="material-icons md-24 indigo-blue">arrow_back</span>
-      </Link>
+      <span
+        className="material-icons md-24 indigo-blue"
+        onClick={() => navigate(-1)}
+      >
+        arrow_back
+      </span>
     );
   }
 
   if (props.page === "editwarehouse") {
     return (
-      <Link to={"/"}>
+      <Link to={`/warehouses/${props.warehouseId}/edit`}>
         <div className="button__edit">
           <span className="material-icons md-24 edit">edit</span>
           <p className="button-text">Edit</p>
@@ -28,9 +25,10 @@ export default function BackButton(props) {
       </Link>
     );
   }
+
   if (props.page === "editinventory") {
     return (
-      <Link to={"/"}>
+      <Link to={`/inventory/${props.inventoryId}/edit`}>
         <div className="button__edit">
           <span className="material-icons md-24 edit">edit</span>
           <p className="button-text">Edit</p>

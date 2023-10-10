@@ -23,7 +23,7 @@ export default function WarehouseDetails() {
       <div className="warehouse-details__info">
         <div className="warehouse-details__info__upper">
           <div className="warehouse-details__info__upper--left">
-            <Button page="warehouse" />
+            <Button page="back" />
             <h1 className="warehouse-details__info__header">
               {WarehouseDetails.warehouse_name}
             </h1>

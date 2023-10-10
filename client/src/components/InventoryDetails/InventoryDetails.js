@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import "./InventoryDetails.scss";
 import axios from "axios";
 import Button from "../Button/Button";
+import InventoryDetailsStatus from "../InventoryDetailsStatus/InventoryDetailsStatus";
 
 export default function InventoryDetails() {
   const { inventoryId } = useParams();
@@ -33,45 +34,41 @@ export default function InventoryDetails() {
       <div className="inventory-details__info">
         <div className="inventory-details__info__upper">
           <div className="inventory-details__info__upper--left">
-            <Button page="inventory" />
+            <Button page="back" />
             <h1 className="inventory-details__info__header">
               {InventoryDetails.item_name}
             </h1>
           </div>
-          <Button
-            page="editinventory"
-            inventoryDetails={InventoryDetails}
-            inventoryId={InventoryDetails.id}
-          />
+          <Button page="editinventory" inventoryId={InventoryDetails.id} />
         </div>
       </div>
 
       <div className="inventory-details__info__lower">
         <div className="inventory-details__info__lower-left">
-          <h3 className="inventory-details__info__table-header">
+          <h3 className="inventory-details__info__info-header">
             ITEM DESCRIPTION:
           </h3>
           <p className="inventory-details__info__text">
             {InventoryDetails.description}
           </p>
-          <h3 className="inventory-details__info__table-header">CATEGORY:</h3>
+          <h3 className="inventory-details__info__info-header">CATEGORY:</h3>
           <p className="inventory-details__info__text">
             {InventoryDetails.category}
           </p>
         </div>
         <div className="inventory-details__info__lower-right">
-          <div className="inventory-details__info__lower-right--top">
-            <h3 className="inventory-details__info__table-header">STATUS:</h3>
-            <p className="inventory-details__info__text">
-              {InventoryDetails.status}
-            </p>
-            <h3 className="inventory-details__info__table-header">QUANTITY:</h3>
-            <p className="inventory-details__info__text">
-              {InventoryDetails.quantity}
-            </p>
+          <div className="inventory-details__info__lower-right--statusandquantity">
+            <InventoryDetailsStatus status={InventoryDetails.status} />
+            <div className="inventory-details__info__lower-right--quantity">
+              <h3 className="inventory-details__info__info-header">
+                QUANTITY:
+              </h3>
+              <p className="inventory-details__info__text">
+                {InventoryDetails.quantity}
+              </p>
+            </div>
           </div>
-
-          <h3 className="inventory-details__info__table-header">WAREHOUSE:</h3>
+          <h3 className="inventory-details__info__info-header">WAREHOUSE:</h3>
           <p className="inventory-details__info__text">{WarehouseName}</p>
         </div>
       </div>
