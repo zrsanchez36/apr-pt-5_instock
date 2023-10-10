@@ -31,8 +31,7 @@ const getSingleWarehouse = (req, res) => {
     });
 };
 
-  router.put(
-    "/api/warehouses/:id",
+  const putWarehouse = (req, res) => {
     [
       body("warehouse_name").notEmpty(),
       body("address").notEmpty(),
@@ -79,7 +78,7 @@ const getSingleWarehouse = (req, res) => {
         return res.status(500).json({ error: "Database error" });
       }
     }
-  );
+  
         
 
 
@@ -128,6 +127,6 @@ const deleteWarehouse = (req, res) => {
 module.exports = {
   router,
   index,
-  deleteWarehouse, getSingleWarehouse, getInventoryFromWarehouse
+  deleteWarehouse, getSingleWarehouse, getInventoryFromWarehouse, putWarehouse
 };
 
