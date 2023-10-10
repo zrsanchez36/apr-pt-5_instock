@@ -7,7 +7,7 @@ const warehouseController = require("../controllers/warehouse-controller");
 router.route("/:id").get(warehouseController.getSingleWarehouse);
 router.route("/").get(warehouseController.index);
 router.route("/:id").delete(warehouseController.deleteWarehouse);
-router.route()
+router.route("/:id").put(warehouseController.putWarehouse);
 
 router
   .route("/:id/inventories")

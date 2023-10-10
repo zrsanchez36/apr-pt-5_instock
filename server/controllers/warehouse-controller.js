@@ -38,8 +38,8 @@ const getSingleWarehouse = (req, res) => {
       body("contact_name").notEmpty(),
       body("contact_position").notEmpty(),
       body("contact_phone")
-        .notEmpty()
-        .matches(/^\+\d{1,3} \(\d{1,4}\) \d{3}-\d{4}$/),
+        .notEmpty(),
+        // .matches(/^\+\d{1,3} \(\d{1,4}\) \d{3}-\d{4}$/),
       body("contact_email").isEmail(),
     ],
     async (req, res) => {
