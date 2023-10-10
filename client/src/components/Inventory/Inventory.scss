@@ -32,6 +32,18 @@ li {
 }
 .col {
   text-align: left;
+
+  &.header {
+    background-color: $grey-color;
+    color: $slate-color;
+    text-align: left;
+    font-size: 11px;
+    line-height: 16px;
+    font-weight: 600;
+    display: initial;
+    height: 1rem;
+    padding: 0;
+  }
 }
 .col-1 {
   flex-basis: 20%;
