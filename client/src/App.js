@@ -25,7 +25,7 @@ function App() {
             element={<WarehouseDetails />}
           />
           <Route path="/inventory" element={<Inventory />} />
-          <Route path="/EditWarehouse" element={<EditWarehouse />} />
+          <Route path="/warehouses/edit/:id" element={<EditWarehouse />} />
           <Route path="/AddWarehouse" element={<AddWarehouse />} />
         </Routes>
         <Footer />

@@ -1,4 +1,3 @@
-
 const router = require("express").Router();
 const { body, validationResult } = require("express-validator");
 const knex = require("knex")(require("../knexfile"));
@@ -13,7 +12,6 @@ const index = (_req, res) => {
     );
 };
 
-
 // function for getting details of a single Warehouse
 const getSingleWarehouse = (req, res) => {
   knex("warehouses")
@@ -24,7 +22,7 @@ const getSingleWarehouse = (req, res) => {
           message: `Warehouse with ID: ${req.params.id} does not exist`,
         });
       }
-          const { created_at, updated_at, ...rest } = warehouseDetails[0];
+      const { created_at, updated_at, ...rest } = warehouseDetails[0];
 
       const warehouseData = rest;
       res.status(200).json(warehouseData);
@@ -50,28 +48,26 @@ const getSingleWarehouse = (req, res) => {
         return res.status(400).json({ errors: errors.array() });
       }
 
-      const id = req.params.id;
-      const data = req.body;
+    const id = req.params.id;
+    const data = req.body;
 
-      try {
-        // Ensure the ID isn't replaced
-        if (data.id && data.id !== id) {
-          return res
-            .status(400)
-            .json({ error: "ID replacement is not allowed." });
-        }
+    try {
+      // Ensure the ID isn't replaced
+      if (data.id && data.id !== id) {
+        return res
+          .status(400)
+          .json({ error: "ID replacement is not allowed." });
+      }
 
-        const rowsUpdated = await knex("warehouses")
-          .where("id", id)
-          .update(data);
+      const rowsUpdated = await knex("warehouses").where("id", id).update(data);
 
-        if (rowsUpdated === 0) {
-          return res.status(404).json({ error: "Warehouse ID not found" });
-        }
-                const updatedWarehouse = await knex("warehouses")
-          .select("*")
-          .where("id", id)
-          .first();
+      if (rowsUpdated === 0) {
+        return res.status(404).json({ error: "Warehouse ID not found" });
+      }
+      const updatedWarehouse = await knex("warehouses")
+        .select("*")
+        .where("id", id)
+        .first();
 
         return res.status(200).json(updatedWarehouse);
       } catch (error) {
@@ -82,27 +78,25 @@ const getSingleWarehouse = (req, res) => {
         
 
 
-  // function for getting list of inventory for a single warehouse based on ID
-  const getInventoryFromWarehouse = (req, res) => {
-    knex("inventories")
-      .where({ warehouse_id: req.params.id })
-      .then((WarehouseInventoryList) => {
-        if (WarehouseInventoryList === 0) {
-          return res.status(404).json({
-            message: `Warehouse with ID: ${req.params.id} does not exist`,
-          });
-        }
-        let updatedArray = [];
-        for (i in WarehouseInventoryList) {
-          const { created_at, updated_at, ...rest } = WarehouseInventoryList[i];
-          const newArray = rest;
-          updatedArray.push(newArray);
-        }
-        res.status(200).json(updatedArray);
-      });
-  };
+// function for getting list of inventory for a single warehouse based on ID
+const getInventoryFromWarehouse = (req, res) => {
+  knex("inventories")
+    .where({ warehouse_id: req.params.id })
+    .then((WarehouseInventoryList) => {
+      if (WarehouseInventoryList === 0) {
+        return res.status(404).json({
+          message: `Warehouse with ID: ${req.params.id} does not exist`,
+        });
+      }
+      let updatedArray = [];
+      for (i in WarehouseInventoryList) {
+        const { created_at, updated_at, ...rest } = WarehouseInventoryList[i];
+        const newArray = rest;
+        updatedArray.push(newArray);
+      }
+      res.status(200).json(updatedArray);
+    });
 };
-
 
 const deleteWarehouse = (req, res) => {
   knex("warehouses")
@@ -129,4 +123,3 @@ module.exports = {
   index,
   deleteWarehouse, getSingleWarehouse, getInventoryFromWarehouse, putWarehouse
 };
-

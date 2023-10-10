@@ -12,7 +12,7 @@ export default function WarehouseDetails() {
   // Use Effect to get Warehouse ID from param and receieve warehouse details
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/warehouse/${warehouseId}`)
+      .get(`http://localhost:8080/warehouses/${warehouseId}`)
       .then((response) => {
         setWarehouseDetails(response.data);
       });
