@@ -3,12 +3,7 @@
 @use "../../styles/partials/colors" as *;
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
-li {
-  border-radius: 3px;
-  padding: 16px 24px 16px 24px;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 18px;
+li.inventory-list__items {
 }
 
 .material-icons.blue {
@@ -27,7 +22,20 @@ li {
     font-size: 11px;
     line-height: 16px;
   }
-
+  &__headers {
+    border-radius: 3px;
+    padding: 16px 24px 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 18px;
+  }
+  &__items {
+    border-radius: 3px;
+    padding: 16px 24px 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 18px;
+  }
   &__item-name {
     font-size: 11px;
     line-height: 16px;
