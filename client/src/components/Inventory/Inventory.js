@@ -10,7 +10,7 @@ function Inventory(props) {
     if (props.WarehouseInventory) {
       axios
         .get(
-          `http://localhost:8080/warehouse/${props.WarehouseInventory}/inventories`
+          `http://localhost:8080/warehouses/${props.WarehouseInventory}/inventories`
         )
         .then((response) => {
           SetInventoryList(response.data);

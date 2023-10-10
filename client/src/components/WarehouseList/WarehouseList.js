@@ -114,7 +114,10 @@ function WarehouseList() {
               <div className="warehouseList__item">
                 <div className="warehouseList__subtitle"> warehouse</div>
                 <div className="warehouseList__info">
-                  <Link to={""} className="warehouseList__link">
+                  <Link
+                    to={`/warehouse/${warehouse.id}`}
+                    className="warehouseList__link"
+                  >
                     <h3>
                       {warehouse.warehouse_name}
                       <img
