@@ -1,15 +1,19 @@
+import { Link } from "react-router-dom";
 import "./InventoryRow.scss";
 
 function InventoryRow({ id, itemName, category, status, quantity }) {
+  console.log(id)
   if (status === "In Stock") {
     return (
       <li className="inventory-list__items" key={id}>
         <div className="inventory-list__items--top">
           <div className="inventory-list__items--divider">
+<Link to={`/inventory/${id}`}>
             <div className="inventory-list__item-name col col-1">
               <p>{itemName}</p>
               <span className="material-icons md-18"> chevron_right</span>
             </div>
+            </Link>
             <div className="col col-2">{category}</div>
           </div>
           <div className="inventory-list__items--divider">

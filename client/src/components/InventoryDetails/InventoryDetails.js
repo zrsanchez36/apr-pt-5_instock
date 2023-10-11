@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "./InventoryDetails.scss";
 import axios from "axios";
 import Button from "../Button/Button";
