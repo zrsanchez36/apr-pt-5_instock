@@ -2,10 +2,6 @@
 @use "../../styles/partials/breakpoints" as *;
 @use "../../styles/partials/colors" as *;
 
-@use "../../styles/partials/fonts" as *;
-@use "../../styles/partials/breakpoints" as *;
-@use "../../styles/partials/colors" as *;
-
 .edit-inventory {
   position: relative;
   margin: 0 auto;
@@ -45,15 +41,18 @@
       &--status {
         display: flex;
         flex-direction: column;
+        color: $slate-color;
 
         &--radios {
           display: flex;
           flex-direction: row;
           justify-content: space-between;
           width: 70%;
-          input {
-            margin: 5px;
-            border: 1px $cloud-color solid;
+
+          &--buttons {
+            height: 15px;
+            width: 15px;
+            accent-color: $indigo-color;
           }
         }
       }
@@ -64,6 +63,17 @@
       margin-bottom: 5px;
       font-size: 13px;
       line-height: 20px;
+      color: black;
+
+      &--status {
+        &.active {
+          color: black;
+        }
+        input {
+          margin: 5px;
+          border: 1px $cloud-color solid;
+        }
+      }
     }
 
     &--input {

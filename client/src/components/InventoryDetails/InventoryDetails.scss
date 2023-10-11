@@ -5,13 +5,15 @@
 .inventory-details {
   position: relative;
   margin: 0 24px;
+  padding: 24px 0 0 0;
   top: 20%;
   bottom: 0;
-  width: auto;
+  width: 90%;
   background-color: white;
   border-radius: 5px;
+
   @include medium {
-    min-height: 800px;
+    min-height: 400px;
     border-radius: 5px;
     padding: 24px 0;
   }
@@ -80,12 +82,19 @@
         justify-content: space-between;
         margin-top: 24px;
       }
+
+      &-left {
+        @include medium {
+          padding-right: 24px;
+        }
+      }
       &-right {
         @include medium {
           display: flex;
           flex-direction: column;
           justify-content: space-evenly;
           border-left: $cloud-color solid 1px;
+          padding-left: 24px;
           width: 70%;
         }
 
@@ -95,6 +104,7 @@
           width: 80%;
           justify-content: space-between;
           @include medium {
+            width: 50%;
           }
         }
       }

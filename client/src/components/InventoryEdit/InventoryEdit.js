@@ -44,12 +44,23 @@ export default function InventoryEdit(props) {
         ".edit-inventory__form__top--quantity"
       );
       quantitySection.classList.remove("invisible");
+
+      const inStockStatus = document.querySelector(".instock");
+      const outOfStockStatus = document.querySelector(".outofstock");
+
+      inStockStatus.classList.add("active");
+      outOfStockStatus.classList.remove("active");
     }
     if (stockStatus === false) {
       const quantitySection = document.querySelector(
         ".edit-inventory__form__top--quantity"
       );
       quantitySection.classList.add("invisible");
+      const inStockStatus = document.querySelector(".instock");
+      const outOfStockStatus = document.querySelector(".outofstock");
+
+      inStockStatus.classList.remove("active");
+      outOfStockStatus.classList.add("active");
     }
   }, [stockStatus]);
 
@@ -182,29 +193,34 @@ export default function InventoryEdit(props) {
               <label className="edit-inventory__form__label">Status</label>
               <div className="edit-inventory__form__bottom--status--radios">
                 <div className="edit-inventory__form__bottom--status--radios--input">
-                  <input
-                    type="radio"
-                    id="inStock"
-                    name="itemStatus"
-                    value="In Stock"
-                    checked={stockStatus === true}
-                    onClick={() => setStockStatus(true)}
-                  />
-                  <label className="edit-inventory__form__label--status">
-                    In Stock
+                  <label className="edit-inventory__form__label--status instock">
+                    <input
+                      type="radio"
+                      id="inStock"
+                      name="itemStatus"
+                      value="In Stock"
+                      className="edit-inventory__form__bottom--status--radios--buttons"
+                      checked={stockStatus === true}
+                      onClick={() => setStockStatus(true)}
+                    />
+                    In stock
                   </label>
                 </div>
                 <div className="edit-inventory__form__bottom--status--radios--input">
-                  <input
-                    type="radio"
-                    id="outOfStock"
-                    name="itemStatus"
-                    value="Out of Stock"
-                    checked={stockStatus === false}
-                    onClick={() => setStockStatus(false)}
-                  />
-                  <label className="edit-inventory__form__label--status">
-                    Out of Stock
+                  <label
+                    for="outOfStock"
+                    className="edit-inventory__form__label--status outofstock"
+                  >
+                    <input
+                      type="radio"
+                      id="outOfStock"
+                      name="itemStatus"
+                      value="Out of Stock"
+                      className="edit-inventory__form__bottom--status--radios--buttons"
+                      checked={stockStatus === false}
+                      onClick={() => setStockStatus(false)}
+                    />
+                    Out of stock
                   </label>
                 </div>
               </div>
