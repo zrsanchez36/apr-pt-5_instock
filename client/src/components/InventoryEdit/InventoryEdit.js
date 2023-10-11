@@ -151,7 +151,7 @@ export default function InventoryEdit(props) {
             <div className="edit-inventory__form__top">
               <h2 className="edit-inventory__subheader">Item Details</h2>
               <div className="edit-inventory__form__top--item-name">
-                <label className="edit-inventory__form__label">Item Name</label>
+                <label className="edit-inventory__form__label" for="itemName">Item Name</label>
                 <input
                   type="text"
                   name="itemName"
@@ -160,10 +160,10 @@ export default function InventoryEdit(props) {
                   value={InventoryDetails.item_name}
                   placeholder={InventoryDetails.item_name}
                   onChange={(e) => textHandler(e)}
-                ></input>
+               />
               </div>
               <div className="edit-inventory__form__top--item-name">
-                <label className="edit-inventory__form__label">
+                <label className="edit-inventory__form__label" for="itemDescription">
                   Description
                 </label>
                 <textarea
@@ -177,7 +177,7 @@ export default function InventoryEdit(props) {
                 />
               </div>
               <div className="edit-inventory__form__top--item-name">
-                <label className="edit-inventory__form__label">Category</label>
+                <label className="edit-inventory__form__label" for="category">Category</label>
                 <select
                   name="category"
                   id="category"
@@ -215,7 +215,7 @@ export default function InventoryEdit(props) {
                   </div>
                   <div className="edit-inventory__form__bottom--status--radios--input">
                     <label
-                      for="outOfStock"
+                      
                       className="edit-inventory__form__label--status outofstock"
                     >
                       <input
@@ -232,7 +232,7 @@ export default function InventoryEdit(props) {
                   </div>
                 </div>
                 <div className="edit-inventory__form__top--quantity">
-                  <label className="edit-inventory__form__label">
+                  <label className="edit-inventory__form__label" for="quantity">
                     Quantity
                   </label>
                   <input
