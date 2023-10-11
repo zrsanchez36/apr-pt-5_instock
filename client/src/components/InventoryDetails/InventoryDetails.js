@@ -34,7 +34,7 @@ export default function InventoryDetails() {
       <div className="inventory-details__info">
         <div className="inventory-details__info__upper">
           <div className="inventory-details__info__upper--left">
-            <Button page="back" />
+            <Button type="back" page="inventory" />
             <h1 className="inventory-details__info__header">
               {InventoryDetails.item_name}
             </h1>

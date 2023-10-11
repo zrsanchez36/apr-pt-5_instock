@@ -126,7 +126,7 @@ export default function InventoryEdit(props) {
   return (
     <section className="edit-inventory">
       <div className="edit-inventory__header">
-        <Button page="back" />
+        <Button type="back" page="inventoryDetails" inventoryId={inventoryId} />
         <h1 className="edit-inventory__header--text">Edit Inventory Item</h1>
       </div>
       <div className="edit-inventory__container">
@@ -245,6 +245,7 @@ export default function InventoryEdit(props) {
               className="editButton--cancel"
               type="button"
               value="Cancel"
+              onClick={() => navigate(`/inventory/${inventoryId}`)}
             ></input>
             <input
               className="editButton--submit"

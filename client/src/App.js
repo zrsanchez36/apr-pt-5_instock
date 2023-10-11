@@ -30,7 +30,7 @@ function App() {
             element={<InventoryDetails />}
           />
           <Route
-            path="/inventory/:inventoryId/edit"
+            path="/inventory/edit/:inventoryId"
             element={<InventoryEdit />}
           />
           <Route path="/warehouses/:id/edit" element={<EditWarehouse />} />

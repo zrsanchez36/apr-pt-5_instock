@@ -4,20 +4,52 @@ import "./Button.scss";
 export default function BackButton(props) {
   const navigate = useNavigate();
 
-  if (props.page === "back") {
-    return (
-      <span
-        className="material-icons md-24 indigo-blue"
-        onClick={() => navigate(-1)}
-      >
-        arrow_back
-      </span>
-    );
+  if (props.type === "back") {
+    if (props.page === "inventory") {
+      return (
+        <span
+          className="material-icons md-24 indigo-blue"
+          onClick={() => navigate("/inventory")}
+        >
+          arrow_back
+        </span>
+      );
+    }
+    if (props.page === "inventoryDetails") {
+      return (
+        <span
+          className="material-icons md-24 indigo-blue"
+          onClick={() => navigate(`/inventory/${props.inventoryId}`)}
+        >
+          arrow_back
+        </span>
+      );
+    }
+    if (props.page === "warehouse") {
+      return (
+        <span
+          className="material-icons md-24 indigo-blue"
+          onClick={() => navigate("/warehouses")}
+        >
+          arrow_back
+        </span>
+      );
+    }
+    if (props.page === "warehouseDetails") {
+      return (
+        <span
+          className="material-icons md-24 indigo-blue"
+          onClick={() => navigate("/inventory")}
+        >
+          arrow_back
+        </span>
+      );
+    }
   }
 
   if (props.page === "editwarehouse") {
     return (
-      <Link to={`/warehouses/${props.warehouseId}/edit`}>
+      <Link to={`/warehouses/edit/${props.warehouseId}`}>
         <div className="button__edit">
           <span className="material-icons md-24 edit">edit</span>
           <p className="button-text">Edit</p>
@@ -28,7 +60,7 @@ export default function BackButton(props) {
 
   if (props.page === "editinventory") {
     return (
-      <Link to={`/inventory/${props.inventoryId}/edit`}>
+      <Link to={`/inventory/edit/${props.inventoryId}`}>
         <div className="button__edit">
           <span className="material-icons md-24 edit">edit</span>
           <p className="button-text">Edit</p>

@@ -23,12 +23,12 @@ export default function WarehouseDetails() {
       <div className="warehouse-details__info">
         <div className="warehouse-details__info__upper">
           <div className="warehouse-details__info__upper--left">
-            <Button page="back" />
+            <Button type="back" page="warehouse" />
             <h1 className="warehouse-details__info__header">
               {WarehouseDetails.warehouse_name}
             </h1>
           </div>
-          <Button page="editwarehouse" />
+          <Button page="editwarehouse" warehouseId={warehouseId} />
         </div>
         <div className="warehouse-details__info__lower">
           <div className="warehouse-details__info__lower-left">
