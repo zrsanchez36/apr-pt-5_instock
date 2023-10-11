@@ -11,6 +11,7 @@ export default function InventoryEdit(props) {
   const [uniqueCategory, getUniqueCategory] = useState([]);
   const [InventoryDetails, setInventoryDetails] = useState([]);
   const [WarehouseId, setWarehouseId] = useState("");
+  const [WarehouseName, setWarehouseName] = useState("");
   const [stockStatus, setStockStatus] = useState(false);
 
   useEffect(() => {
@@ -19,7 +20,7 @@ export default function InventoryEdit(props) {
       .then((response) => {
         setInventoryDetails(response.data);
         setWarehouseId(response.data.warehouse_id);
-        getWarehouseList();
+        getWarehouseList(response.data.warehouse_id);
         if (response.data.status == "Out of Stock") {
           setStockStatus(false);
         } else {
@@ -65,11 +66,16 @@ export default function InventoryEdit(props) {
   }, [stockStatus]);
 
   // gets every unique warehouse location
-  const getWarehouseList = () => {
+  const getWarehouseList = (warehouse_id) => {
     axios
       .get(`http://localhost:8080/warehouses/locations/unique`)
       .then((response) => {
         getUniqueWarehouses(response.data);
+        for (let i in response.data) {
+          if (response.data[i].id === warehouse_id) {
+            setWarehouseName(response.data[i].warehouse_name);
+          }
+        }
       });
   };
 
@@ -126,7 +132,6 @@ export default function InventoryEdit(props) {
         quantity: currentQuantity,
       })
       .then((response) => {
-        console.log(response);
         navigate(`/inventory/${inventoryId}`);
       })
       .catch((error) => {
@@ -178,12 +183,11 @@ export default function InventoryEdit(props) {
                   id="category"
                   className="edit-inventory__form--category"
                 >
+                  <option value="" selected disabled hidden>
+                    {InventoryDetails.category}
+                  </option>
                   {uniqueCategory.map((category, index) => (
-                    <option
-                      key={index}
-                      value={category.category}
-                      selected={category.category == InventoryDetails.category}
-                    >
+                    <option key={index} value={category.category}>
                       {category.category}
                     </option>
                   ))}
@@ -243,18 +247,19 @@ export default function InventoryEdit(props) {
                 </div>
               </div>
               <div className="edit-inventory__form__bottom--warehouse">
-                <label className="edit-inventory__form__label">Warehouse</label>
+                <label className="edit-inventory__form__label" for="warehouse">
+                  Warehouse
+                </label>
                 <select
                   name="warehouse"
                   id="warehouse"
                   className="edit-inventory__form--category"
                 >
+                  <option value="" selected disabled hidden>
+                    {WarehouseName}
+                  </option>
                   {uniqueWarehouses.map((warehouse, index) => (
-                    <option
-                      key={index}
-                      value={warehouse.id}
-                      selected={warehouse.id == InventoryDetails.warehouse_id}
-                    >
+                    <option key={index} value={warehouse.id}>
                       {warehouse.warehouse_name}
                     </option>
                   ))}

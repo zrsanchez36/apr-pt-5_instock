@@ -44,6 +44,12 @@
         flex-direction: row;
         justify-content: space-around;
       }
+      option {
+        width: 100%;
+        text-wrap: wrap;
+        overflow: hidden;
+        font-size: 11px;
+      }
     }
 
     &__top {
@@ -55,11 +61,16 @@
       }
       &--item-name {
         width: 100%;
+        box-sizing: border-box;
         @include medium {
+          width: 100%;
           margin-bottom: 24px;
+          box-sizing: border-box;
         }
         @include large {
+          width: 100%;
           margin-bottom: 24px;
+          box-sizing: border-box;
         }
       }
       &--quantity {
@@ -143,11 +154,17 @@
       text-align: left;
       color: black;
     }
+
     &--category {
       width: 100%;
       border-radius: 15px;
       padding: 5px 10px;
       border: 1px $cloud-color solid;
+      text-wrap: pretty;
+
+      &:not(:-internal-list-box) {
+        overflow: hidden;
+      }
     }
     &__top--item-name {
       width: 100%;
