@@ -7,10 +7,9 @@
   color: $indigo-color;
   padding-left: 8px;
 }
-.material-icons.red {
-  color: $red-color;
-}
+
 .material-icons.md-18 {
+  color: $indigo-color;
   font-size: 18px;
 }
 
@@ -83,6 +82,7 @@
       flex-direction: row;
       justify-content: space-between;
       margin-bottom: 18px;
+      border-bottom: 1px solid $slate-color;
     }
     .col-5 {
       display: flex;
@@ -92,6 +92,9 @@
       }
       @include large {
         display: initial;
+      }
+      .material-icons.red {
+        color: $red-color;
       }
     }
 
@@ -106,7 +109,7 @@
       }
       @include large {
         flex-basis: 80%;
-        height: 50px;
+        height: 5px;
         justify-content: space-between;
       }
     }
@@ -212,6 +215,8 @@
     display: inline;
     margin-top: 0;
     vertical-align: top;
+    color: $indigo-color;
+    font-weight: 600;
 
     @include small {
       &:before {
