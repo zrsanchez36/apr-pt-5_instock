@@ -20,18 +20,37 @@
     line-height: 16px;
   }
   &__headers {
-    border-radius: 3px;
-    padding: 16px 24px 16px 24px;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 18px;
+    display: none;
+    @include medium {
+      border-radius: 3px;
+      padding: 16px 24px 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
   }
   &__items {
-    border-radius: 3px;
-    padding: 16px 24px 16px 24px;
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 18px;
+    flex-direction: column;
+    @include medium {
+      border-radius: 3px;
+      padding: 16px 24px 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+
+    &--top {
+      display: flex;
+      height: 100px;
+      margin-bottom: 24px;
+    }
+    &--divider {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 100%;
+    }
   }
   &__item-name {
     font-size: 11px;
@@ -55,26 +74,65 @@
     display: inline;
     margin-top: 0;
     vertical-align: top;
+
+    @include small {
+      &:before {
+        content: "INVENTORY ITEM";
+        display: block;
+        color: $slate-color;
+        margin-bottom: 5px;
+        font-weight: 600;
+      }
+    }
   }
 }
 .col-2 {
-  flex-basis: 20%;
+  @include small {
+    &:before {
+      content: "CATEGORY";
+      display: block;
+      color: $slate-color;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+  }
 }
 .col-3 {
-  flex-basis: 20%;
+  padding-bottom: 8px;
+  @include small {
+    &:before {
+      content: "STATUS";
+      display: block;
+      color: $slate-color;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+  }
 
   p {
     display: inline;
     margin-top: 0;
     vertical-align: top;
     margin: 0;
+    @include small {
+      margin-bottom: 5px;
+    }
   }
 }
 .col-4 {
-  flex-basis: 20%;
+  @include small {
+    &:before {
+      content: "QTY";
+      display: block;
+      color: $slate-color;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+  }
 }
 .col-5 {
-  flex-basis: 20%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .inStock {
@@ -83,7 +141,7 @@
   color: $green-color;
   font-weight: 600;
   margin: 0;
-  background-color: rgba(21, 132, 00, 0.3);
+  background-color: rgba(21, 132, 00, 0.2);
   border-radius: 20px;
   padding: 5px;
 }
@@ -94,7 +152,7 @@
   color: $red-color;
   font-weight: 600;
   margin: 0;
-  background-color: rgba(201, 69, 21, 0.3);
+  background-color: rgba(201, 69, 21, 0.2);
   border-radius: 20px;
   padding: 5px;
 }
