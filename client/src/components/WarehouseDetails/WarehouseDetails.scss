@@ -20,6 +20,9 @@
     @include medium {
       border-bottom: none;
     }
+    @include large {
+      border-bottom: none;
+    }
 
     &__text {
       font-size: 11px;

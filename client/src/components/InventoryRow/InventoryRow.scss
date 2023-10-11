@@ -15,10 +15,6 @@
 }
 
 .inventory-list {
-  &__items {
-    font-size: 11px;
-    line-height: 16px;
-  }
   &__headers {
     display: none;
     @include medium {
@@ -28,36 +24,172 @@
       justify-content: space-between;
       margin-bottom: 18px;
     }
-  }
-  &__items {
-    display: flex;
-    flex-direction: column;
-    @include medium {
+    @include large {
       border-radius: 3px;
       padding: 16px 24px 16px 24px;
       display: flex;
       justify-content: space-between;
       margin-bottom: 18px;
     }
+  }
+
+  &__status.col-3 {
+    padding-bottom: 8px;
+    @include small {
+      &:before {
+        content: "STATUS";
+        display: block;
+        color: $slate-color;
+        margin-bottom: 5px;
+        font-weight: 600;
+      }
+    }
+    @include medium {
+      flex-basis: 50%;
+    }
+    @include large {
+      flex-basis: 50%;
+    }
+
+    p {
+      display: inline;
+      margin-top: 0;
+      vertical-align: top;
+      margin: 0;
+      @include small {
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  &__items {
+    font-size: 11px;
+    line-height: 16px;
+    display: flex;
+    flex-direction: column;
+    @include medium {
+      border-radius: 3px;
+      padding: 16px 24px 16px 24px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+
+    @include large {
+      border-radius: 3px;
+      padding: 16px 24px 16px 24px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+    .col-5 {
+      display: flex;
+      justify-content: space-between;
+      @include medium {
+        display: initial;
+      }
+      @include large {
+        display: initial;
+      }
+    }
 
     &--top {
       display: flex;
       height: 100px;
       margin-bottom: 24px;
+      @include medium {
+        flex-basis: 80%;
+        height: 50px;
+        justify-content: space-between;
+      }
+      @include large {
+        flex-basis: 80%;
+        height: 50px;
+        justify-content: space-between;
+      }
     }
     &--divider {
       display: flex;
       flex-direction: column;
       justify-content: space-around;
       width: 100%;
+      @include medium {
+        width: 100%;
+        flex-basis: 50%;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      @include large {
+        width: 100%;
+        flex-basis: 50%;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .col-2 {
+        @include small {
+          &:before {
+            content: "CATEGORY";
+            display: block;
+            color: $slate-color;
+            margin-bottom: 5px;
+            font-weight: 600;
+          }
+        }
+        @include medium {
+          flex-basis: 50%;
+        }
+        @include large {
+          flex-basis: 50%;
+        }
+      }
+      .col-4 {
+        @include small {
+          &:before {
+            content: "QTY";
+            display: block;
+            color: $slate-color;
+            margin-bottom: 5px;
+            font-weight: 600;
+          }
+        }
+        @include medium {
+          flex-basis: 50%;
+        }
+        @include large {
+          flex-basis: 50%;
+        }
+      }
     }
-  }
-  &__item-name {
-    font-size: 11px;
-    line-height: 16px;
-    color: $indigo-color;
-    font-weight: 600;
-    margin: 0;
+    &__item-name {
+      font-size: 11px;
+      line-height: 16px;
+      color: $indigo-color;
+      font-weight: 600;
+      margin: 0;
+      @include medium {
+        text-align: left;
+        width: 40%;
+        font-size: 11px;
+        line-height: 16px;
+        font-weight: 600;
+        display: initial;
+        height: 1rem;
+        padding: 0;
+      }
+      @include large {
+        text-align: left;
+        width: 40%;
+        font-size: 11px;
+        line-height: 16px;
+        font-weight: 600;
+        display: initial;
+        height: 1rem;
+        padding: 0;
+      }
+    }
 
     & span {
       padding-left: 5px;
@@ -67,8 +199,14 @@
 .col {
   text-align: left;
 }
-.col-1 {
+.inventory-list__item-name.col-1 {
   flex-basis: 20%;
+  @include medium {
+    flex-basis: 50%;
+  }
+  @include large {
+    flex-basis: 50%;
+  }
 
   p {
     display: inline;
@@ -85,54 +223,6 @@
       }
     }
   }
-}
-.col-2 {
-  @include small {
-    &:before {
-      content: "CATEGORY";
-      display: block;
-      color: $slate-color;
-      margin-bottom: 5px;
-      font-weight: 600;
-    }
-  }
-}
-.col-3 {
-  padding-bottom: 8px;
-  @include small {
-    &:before {
-      content: "STATUS";
-      display: block;
-      color: $slate-color;
-      margin-bottom: 5px;
-      font-weight: 600;
-    }
-  }
-
-  p {
-    display: inline;
-    margin-top: 0;
-    vertical-align: top;
-    margin: 0;
-    @include small {
-      margin-bottom: 5px;
-    }
-  }
-}
-.col-4 {
-  @include small {
-    &:before {
-      content: "QTY";
-      display: block;
-      color: $slate-color;
-      margin-bottom: 5px;
-      font-weight: 600;
-    }
-  }
-}
-.col-5 {
-  display: flex;
-  justify-content: space-between;
 }
 
 .inStock {
