@@ -20,9 +20,18 @@
 
     &__text {
       font-size: 11px;
+      display: inline-block;
+      margin: 0 3px 0 0;
       line-height: 16px;
       color: $black-color;
-      margin: 0;
+
+      @include medium {
+        font-size: 11px;
+        line-height: 16px;
+        display: block;
+        color: $black-color;
+        margin: 0;
+      }
     }
 
     &__header {
@@ -54,16 +63,32 @@
     }
     &__lower {
       display: flex;
-      flex-direction: row;
-      justify-content: space-between;
+      flex-direction: column;
       margin-top: 24px;
+
+      @include medium {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 24px;
+      }
 
       &-right {
         display: flex;
         flex-direction: row;
-        justify-content: space-evenly;
-        border-left: $cloud-color solid 1px;
-        width: 70%;
+        justify-content: space-between;
+        margin-top: 24px;
+        @include medium {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-evenly;
+          border-left: $cloud-color solid 1px;
+          width: 70%;
+        }
+        &--contact {
+          display: flex;
+          flex-direction: column;
+        }
       }
     }
   }
