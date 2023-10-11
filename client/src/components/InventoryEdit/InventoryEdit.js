@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./InventoryEdit.scss";
 import axios from "axios";
 import Button from "../Button/Button";
 
 export default function InventoryEdit(props) {
+  const navigate = useNavigate();
   const { inventoryId } = useParams();
   const [uniqueWarehouses, getUniqueWarehouses] = useState([]);
   const [uniqueCategory, getUniqueCategory] = useState([]);
   const [InventoryDetails, setInventoryDetails] = useState([]);
   const [WarehouseId, setWarehouseId] = useState("");
-  const [WarehouseName, setWarehouseName] = useState("");
+  const [stockStatus, setStockStatus] = useState(false);
 
   useEffect(() => {
     axios
@@ -18,16 +19,16 @@ export default function InventoryEdit(props) {
       .then((response) => {
         setInventoryDetails(response.data);
         setWarehouseId(response.data.warehouse_id);
+        getWarehouseList();
+        if (response.data.status == "Out of Stock") {
+          setStockStatus(false);
+        } else {
+          setStockStatus(true);
+        }
       });
   }, []);
 
-  useEffect(() => {
-    axios
-      .get(`http://localhost:8080/warehouses/${WarehouseId}`)
-      .then((response) => {
-        setWarehouseName(response.data.warehouse_name);
-      });
-  }, [WarehouseId]);
+  // gets every unique category in Inventories Tables
 
   useEffect(() => {
     axios
@@ -38,15 +39,88 @@ export default function InventoryEdit(props) {
   }, []);
 
   useEffect(() => {
+    if (stockStatus === true) {
+      const quantitySection = document.querySelector(
+        ".edit-inventory__form__top--quantity"
+      );
+      quantitySection.classList.remove("invisible");
+    }
+    if (stockStatus === false) {
+      const quantitySection = document.querySelector(
+        ".edit-inventory__form__top--quantity"
+      );
+      quantitySection.classList.add("invisible");
+    }
+  }, [stockStatus]);
+
+  // gets every unique warehouse location
+  const getWarehouseList = () => {
     axios
       .get(`http://localhost:8080/warehouses/locations/unique`)
       .then((response) => {
         getUniqueWarehouses(response.data);
       });
-  }, []);
+  };
+
+  const textHandler = (e) => {
+    console.log(e.target.value);
+    let updatedText = { item_name: e.target.value };
+    setInventoryDetails({ ...InventoryDetails, ...updatedText });
+  };
+
+  const textAreaHandler = (e) => {
+    console.log(e.target.value);
+    let updatedTextArea = { description: e.target.value };
+    setInventoryDetails({ ...InventoryDetails, ...updatedTextArea });
+  };
+  const QuantityHandler = (e) => {
+    console.log(e.target.value);
+    let updatedQuantity = { quantity: e.target.value };
+    setInventoryDetails({ ...InventoryDetails, ...updatedQuantity });
+  };
 
   const FormHandler = (event) => {
     event.preventDefault();
+    let currentStatus = "";
+    let currentQuantity = 0;
+    if (stockStatus === true) {
+      currentStatus = "In Stock";
+      currentQuantity = InventoryDetails.quantity;
+    } else if (stockStatus === false) {
+      currentStatus = "Out of Stock";
+      currentQuantity = "0";
+    }
+
+    if (!InventoryDetails.item_name) {
+      console.log("Item Name is Empty");
+      return;
+    }
+    if (!InventoryDetails.description) {
+      console.log("Description is Empty");
+      return;
+    }
+    if (!currentQuantity) {
+      console.log("Quantity is Empty");
+      console.log(typeof currentQuantity);
+      return;
+    }
+
+    axios
+      .put(`http://localhost:8080/inventories/${inventoryId}`, {
+        warehouse_id: event.target.warehouse.value,
+        item_name: InventoryDetails.item_name,
+        description: InventoryDetails.description,
+        category: event.target.category.value,
+        status: currentStatus,
+        quantity: currentQuantity,
+      })
+      .then((response) => {
+        console.log(response);
+        navigate(`/inventory/${inventoryId}`);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -66,7 +140,9 @@ export default function InventoryEdit(props) {
                 name="itemName"
                 id="itemName"
                 className="edit-inventory__form--input"
+                value={InventoryDetails.item_name}
                 placeholder={InventoryDetails.item_name}
+                onChange={(e) => textHandler(e)}
               ></input>
             </div>
             <div className="edit-inventory__form__top--item-name">
@@ -76,7 +152,9 @@ export default function InventoryEdit(props) {
                 rows="6"
                 id="itemDescription"
                 className="edit-inventory__form--textarea"
+                value={InventoryDetails.description}
                 placeholder={InventoryDetails.description}
+                onChange={(e) => textAreaHandler(e)}
               />
             </div>
             <div className="edit-inventory__form__top--item-name">
@@ -87,7 +165,11 @@ export default function InventoryEdit(props) {
                 className="edit-inventory__form--category"
               >
                 {uniqueCategory.map((category, index) => (
-                  <option key={index} value={category.category}>
+                  <option
+                    key={index}
+                    value={category.category}
+                    selected={category.category == InventoryDetails.category}
+                  >
                     {category.category}
                   </option>
                 ))}
@@ -105,6 +187,8 @@ export default function InventoryEdit(props) {
                     id="inStock"
                     name="itemStatus"
                     value="In Stock"
+                    checked={stockStatus === true}
+                    onClick={() => setStockStatus(true)}
                   />
                   <label className="edit-inventory__form__label--status">
                     In Stock
@@ -116,22 +200,40 @@ export default function InventoryEdit(props) {
                     id="outOfStock"
                     name="itemStatus"
                     value="Out of Stock"
+                    checked={stockStatus === false}
+                    onClick={() => setStockStatus(false)}
                   />
                   <label className="edit-inventory__form__label--status">
                     Out of Stock
                   </label>
                 </div>
               </div>
+              <div className="edit-inventory__form__top--quantity">
+                <label className="edit-inventory__form__label">Quantity</label>
+                <input
+                  type="text"
+                  name="quantity"
+                  id="quantity"
+                  className="edit-inventory__form--input"
+                  value={InventoryDetails.quantity}
+                  placeholder={InventoryDetails.quantity}
+                  onChange={(e) => QuantityHandler(e)}
+                ></input>
+              </div>
             </div>
             <div className="edit-inventory__form__bottom--warehouse">
               <label className="edit-inventory__form__label">Warehouse</label>
               <select
-                name="category"
-                id="category"
+                name="warehouse"
+                id="warehouse"
                 className="edit-inventory__form--category"
               >
                 {uniqueWarehouses.map((warehouse, index) => (
-                  <option key={index} value={warehouse.id}>
+                  <option
+                    key={index}
+                    value={warehouse.id}
+                    selected={warehouse.id == InventoryDetails.warehouse_id}
+                  >
                     {warehouse.warehouse_name}
                   </option>
                 ))}
