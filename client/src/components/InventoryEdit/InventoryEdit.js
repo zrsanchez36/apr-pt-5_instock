@@ -142,118 +142,124 @@ export default function InventoryEdit(props) {
       </div>
       <div className="edit-inventory__container">
         <form className="edit-inventory__form" onSubmit={FormHandler}>
-          <div className="edit-inventory__form__top">
-            <h2 className="edit-inventory__subheader">Item Details</h2>
-            <div className="edit-inventory__form__top--item-name">
-              <label className="edit-inventory__form__label">Item Name</label>
-              <input
-                type="text"
-                name="itemName"
-                id="itemName"
-                className="edit-inventory__form--input"
-                value={InventoryDetails.item_name}
-                placeholder={InventoryDetails.item_name}
-                onChange={(e) => textHandler(e)}
-              ></input>
-            </div>
-            <div className="edit-inventory__form__top--item-name">
-              <label className="edit-inventory__form__label">Description</label>
-              <textarea
-                name="itemDescription"
-                rows="6"
-                id="itemDescription"
-                className="edit-inventory__form--textarea"
-                value={InventoryDetails.description}
-                placeholder={InventoryDetails.description}
-                onChange={(e) => textAreaHandler(e)}
-              />
-            </div>
-            <div className="edit-inventory__form__top--item-name">
-              <label className="edit-inventory__form__label">Category</label>
-              <select
-                name="category"
-                id="category"
-                className="edit-inventory__form--category"
-              >
-                {uniqueCategory.map((category, index) => (
-                  <option
-                    key={index}
-                    value={category.category}
-                    selected={category.category == InventoryDetails.category}
-                  >
-                    {category.category}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
-          <div className="edit-inventory__form__bottom">
-            <h2 className="edit-inventory__subheader">Item Availability</h2>
-            <div className="edit-inventory__form__bottom--status">
-              <label className="edit-inventory__form__label">Status</label>
-              <div className="edit-inventory__form__bottom--status--radios">
-                <div className="edit-inventory__form__bottom--status--radios--input">
-                  <label className="edit-inventory__form__label--status instock">
-                    <input
-                      type="radio"
-                      id="inStock"
-                      name="itemStatus"
-                      value="In Stock"
-                      className="edit-inventory__form__bottom--status--radios--buttons"
-                      checked={stockStatus === true}
-                      onClick={() => setStockStatus(true)}
-                    />
-                    In stock
-                  </label>
-                </div>
-                <div className="edit-inventory__form__bottom--status--radios--input">
-                  <label
-                    for="outOfStock"
-                    className="edit-inventory__form__label--status outofstock"
-                  >
-                    <input
-                      type="radio"
-                      id="outOfStock"
-                      name="itemStatus"
-                      value="Out of Stock"
-                      className="edit-inventory__form__bottom--status--radios--buttons"
-                      checked={stockStatus === false}
-                      onClick={() => setStockStatus(false)}
-                    />
-                    Out of stock
-                  </label>
-                </div>
-              </div>
-              <div className="edit-inventory__form__top--quantity">
-                <label className="edit-inventory__form__label">Quantity</label>
+          <div className="edit-inventory__form__information">
+            <div className="edit-inventory__form__top">
+              <h2 className="edit-inventory__subheader">Item Details</h2>
+              <div className="edit-inventory__form__top--item-name">
+                <label className="edit-inventory__form__label">Item Name</label>
                 <input
                   type="text"
-                  name="quantity"
-                  id="quantity"
+                  name="itemName"
+                  id="itemName"
                   className="edit-inventory__form--input"
-                  value={InventoryDetails.quantity}
-                  placeholder={InventoryDetails.quantity}
-                  onChange={(e) => QuantityHandler(e)}
+                  value={InventoryDetails.item_name}
+                  placeholder={InventoryDetails.item_name}
+                  onChange={(e) => textHandler(e)}
                 ></input>
               </div>
+              <div className="edit-inventory__form__top--item-name">
+                <label className="edit-inventory__form__label">
+                  Description
+                </label>
+                <textarea
+                  name="itemDescription"
+                  rows="6"
+                  id="itemDescription"
+                  className="edit-inventory__form--textarea"
+                  value={InventoryDetails.description}
+                  placeholder={InventoryDetails.description}
+                  onChange={(e) => textAreaHandler(e)}
+                />
+              </div>
+              <div className="edit-inventory__form__top--item-name">
+                <label className="edit-inventory__form__label">Category</label>
+                <select
+                  name="category"
+                  id="category"
+                  className="edit-inventory__form--category"
+                >
+                  {uniqueCategory.map((category, index) => (
+                    <option
+                      key={index}
+                      value={category.category}
+                      selected={category.category == InventoryDetails.category}
+                    >
+                      {category.category}
+                    </option>
+                  ))}
+                </select>
+              </div>
             </div>
-            <div className="edit-inventory__form__bottom--warehouse">
-              <label className="edit-inventory__form__label">Warehouse</label>
-              <select
-                name="warehouse"
-                id="warehouse"
-                className="edit-inventory__form--category"
-              >
-                {uniqueWarehouses.map((warehouse, index) => (
-                  <option
-                    key={index}
-                    value={warehouse.id}
-                    selected={warehouse.id == InventoryDetails.warehouse_id}
-                  >
-                    {warehouse.warehouse_name}
-                  </option>
-                ))}
-              </select>
+            <div className="edit-inventory__form__bottom">
+              <h2 className="edit-inventory__subheader">Item Availability</h2>
+              <div className="edit-inventory__form__bottom--status">
+                <label className="edit-inventory__form__label">Status</label>
+                <div className="edit-inventory__form__bottom--status--radios">
+                  <div className="edit-inventory__form__bottom--status--radios--input">
+                    <label className="edit-inventory__form__label--status instock">
+                      <input
+                        type="radio"
+                        id="inStock"
+                        name="itemStatus"
+                        value="In Stock"
+                        className="edit-inventory__form__bottom--status--radios--buttons"
+                        checked={stockStatus === true}
+                        onClick={() => setStockStatus(true)}
+                      />
+                      In stock
+                    </label>
+                  </div>
+                  <div className="edit-inventory__form__bottom--status--radios--input">
+                    <label
+                      for="outOfStock"
+                      className="edit-inventory__form__label--status outofstock"
+                    >
+                      <input
+                        type="radio"
+                        id="outOfStock"
+                        name="itemStatus"
+                        value="Out of Stock"
+                        className="edit-inventory__form__bottom--status--radios--buttons"
+                        checked={stockStatus === false}
+                        onClick={() => setStockStatus(false)}
+                      />
+                      Out of stock
+                    </label>
+                  </div>
+                </div>
+                <div className="edit-inventory__form__top--quantity">
+                  <label className="edit-inventory__form__label">
+                    Quantity
+                  </label>
+                  <input
+                    type="text"
+                    name="quantity"
+                    id="quantity"
+                    className="edit-inventory__form--input"
+                    value={InventoryDetails.quantity}
+                    placeholder={InventoryDetails.quantity}
+                    onChange={(e) => QuantityHandler(e)}
+                  ></input>
+                </div>
+              </div>
+              <div className="edit-inventory__form__bottom--warehouse">
+                <label className="edit-inventory__form__label">Warehouse</label>
+                <select
+                  name="warehouse"
+                  id="warehouse"
+                  className="edit-inventory__form--category"
+                >
+                  {uniqueWarehouses.map((warehouse, index) => (
+                    <option
+                      key={index}
+                      value={warehouse.id}
+                      selected={warehouse.id == InventoryDetails.warehouse_id}
+                    >
+                      {warehouse.warehouse_name}
+                    </option>
+                  ))}
+                </select>
+              </div>
             </div>
           </div>
           <div className="edit-inventory__form__buttons">

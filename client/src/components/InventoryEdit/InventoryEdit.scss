@@ -30,18 +30,65 @@
 
   &__form {
     width: 100%;
+    box-sizing: content-box;
+
+    &__information {
+      padding: 0 24px 24px 24px;
+      @include medium {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+      }
+      @include large {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+      }
+    }
 
     &__top {
+      @include medium {
+        width: 45%;
+      }
+      @include large {
+        width: 45%;
+      }
       &--item-name {
         width: 100%;
+        @include medium {
+          margin-bottom: 24px;
+        }
+        @include large {
+          margin-bottom: 24px;
+        }
+      }
+      &--quantity {
+        @include medium {
+          margin-top: 24px;
+        }
+        @include large {
+          margin-top: 24px;
+        }
       }
     }
 
     &__bottom {
+      @include medium {
+        width: 45%;
+      }
+      @include large {
+        width: 45%;
+      }
       &--status {
         display: flex;
         flex-direction: column;
         color: $slate-color;
+        @include medium {
+          margin-bottom: 24px;
+        }
+        @include large {
+          margin-bottom: 24px;
+        }
 
         &--radios {
           display: flex;
@@ -107,16 +154,23 @@
     }
 
     &__buttons {
-      padding: 24px 0;
       width: 100%;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      background: $grey-color;
+      padding: 24px 0;
+
+      @include medium {
+        justify-content: flex-end;
+      }
+      @include large {
+        justify-content: flex-end;
+      }
     }
   }
 
   &__container {
-    padding: 0 24px;
     &__text {
       font-size: 11px;
       line-height: 16px;
@@ -164,11 +218,25 @@
 .editButton {
   font-size: 13px;
   line-height: 20px;
-  width: 47%;
+  width: 45%;
   border-radius: 20px;
   border: none;
   height: 36px;
   font-weight: 600;
+  margin-left: 24px;
+  margin-right: 24px;
+  @include medium {
+    width: 10%;
+    margin: 0 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  @include large {
+    width: 8%;
+    margin: 0 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 
   &--cancel {
     @extend .editButton;
