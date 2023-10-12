@@ -4,7 +4,8 @@ const addNewInventory = (req, res) => {
     console.log("reqbody", req.body)
     const requiredFields = ['warehouse_id', 'item_name', 'description', 'category', 'status', 'quantity'];
     for (let field of requiredFields) {
-        if (!req.body[field]) {
+        console.log('req.body[field] ', req.body[field])
+        if (req.body[field] === undefined || req.body[field] === null) {
             return res.status(400).json({ message: `Missing ${field} in request body` });
         }
     }
@@ -18,7 +19,6 @@ const addNewInventory = (req, res) => {
             if (!warehouseExists) {
                 throw new Error('Provided warehouse_id does not exist.');
             }
-
             return knex("inventories")
                 .insert({
                     warehouse_id: req.body.warehouse_id,
