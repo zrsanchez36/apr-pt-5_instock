@@ -6,21 +6,40 @@ import InventoryRow from "../InventoryRow/InventoryRow";
 function Inventory(props) {
   const [InventoryList, SetInventoryList] = useState([]);
 
+  const api = process.env.REACT_APP_BASEURL;
+  console.log(api);
+
+  // Use Effect to get Warehouse ID from param and receieve warehouse details
   useEffect(() => {
     if (props.WarehouseInventory) {
       axios
-        .get(
-          `http://localhost:8080/warehouses/${props.WarehouseInventory}/inventories`
-        )
+        .get(`${api}/warehouses/${props.WarehouseInventory}/inventories`)
         .then((response) => {
           SetInventoryList(response.data);
         });
     }
   }, []);
 
-  if (props.WarehouseInventory) {
-    // Use Effect to get Warehouse ID from param and receieve warehouse details
+  // Delete inventory item
+  function deleteInventoryItem() {
+    axios
+      .delete(`${api}/inventories/${props.WarehouseInventory}`)
+      .then((response) => {
+        InventoryList(props.WarehouseInventory);
+      })
+      .catch((err) => console.log(err));
+  }
 
+  // function deleteButtonClick(InventoryList) {
+  //   const info = {
+  //     id: InventoryList.id,
+  //     title: `Delete ${InventoryList.item_name} inventory item?`,
+  //     text: `Please confirm that you’d like to delete ${InventoryList.item_name} from the inventory list. You won’t be able to undo this action.`,
+  //   };
+
+  // }
+
+  if (props.WarehouseInventory) {
     return (
       <div className="inventory">
         <ul className="inventory-list">
@@ -38,6 +57,7 @@ function Inventory(props) {
               category={inventory.category}
               status={inventory.status}
               quantity={inventory.quantity}
+              // handleClickDelete={deleteInventoryItem}
             />
           ))}
         </ul>

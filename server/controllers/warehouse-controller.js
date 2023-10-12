@@ -97,6 +97,7 @@ const getInventoryFromWarehouse = (req, res) => {
     });
 };
 
+// Deleting warehouse
 const deleteWarehouse = (req, res) => {
   knex("warehouses")
     .delete()

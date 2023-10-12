@@ -1,6 +1,13 @@
 import "./InventoryRow.scss";
 
-function InventoryRow({ id, itemName, category, status, quantity }) {
+function InventoryRow({
+  id,
+  itemName,
+  category,
+  status,
+  quantity,
+  handleClickDelete,
+}) {
   if (status === "In Stock") {
     return (
       <li className="inventory-list__items" key={id}>
@@ -32,7 +39,12 @@ function InventoryRow({ id, itemName, category, status, quantity }) {
         </div>
         <div className="col col-4">{quantity}</div>
         <div className="col col-5">
-          <span className="material-icons red md-18">delete_outline</span>
+          <span
+            className="material-icons red md-18"
+            // onClick={handleClickDelete}
+          >
+            delete_outline
+          </span>
           <span className="material-icons blue md-18">edit</span>
         </div>
       </li>
