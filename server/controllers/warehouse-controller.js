@@ -38,8 +38,8 @@ const getSingleWarehouse = (req, res) => {
       body("contact_name").notEmpty(),
       body("contact_position").notEmpty(),
       body("contact_phone")
-        .notEmpty(),
-        // .matches(/^\+\d{1,3} \(\d{1,4}\) \d{3}-\d{4}$/),
+        .notEmpty()
+        .matches(/^\+\d{1,3} \(\d{1,4}\) \d{3}-\d{4}$/),
       body("contact_email").isEmail(),
     ],
     async (req, res) => {
@@ -118,8 +118,34 @@ const deleteWarehouse = (req, res) => {
     );
 };
 
+
+
+const addNewWarehouse = async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+  }
+
+  const newWarehouse = req.body;
+
+  try {
+      const [newWarehouseId] = await knex('warehouses').insert(newWarehouse);
+      const newWarehouseRecord = await knex('warehouses').where('id', newWarehouseId).first();
+      res.status(201).json(newWarehouseRecord); 
+  } catch (error) {
+      console.error("Error adding warehouse:", error);
+      res.status(500).json({ error: 'Database error' });
+  }
+};
+
+
+
+
+
+
+
 module.exports = {
   router,
   index,
-  deleteWarehouse, getSingleWarehouse, getInventoryFromWarehouse, putWarehouse
+  deleteWarehouse, getSingleWarehouse, getInventoryFromWarehouse, putWarehouse, addNewWarehouse
 };

@@ -56,6 +56,17 @@ li {
 .col {
   text-align: left;
 }
+.col.header {
+  background-color: #f7f8f9;
+  color: #5c667e;
+  text-align: left;
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 600;
+  display: initial;
+  height: 1rem;
+  padding: 0;
+}
 
 .col-1 {
   flex-basis: 20%;

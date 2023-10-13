@@ -45,4 +45,33 @@ const addNewInventory = (req, res) => {
         });
 };
 
-module.exports = { addNewInventory };
+
+//function to get all inventories
+const getAllInventories = async (req, res) => {
+    try {
+        const inventories = await knex('inventories')  
+            .join('warehouses', 'inventories.warehouse_id', 'warehouses.id')  
+            .select('inventories.*', 'warehouses.warehouse_name');  
+        
+        res.status(200).json(inventories);
+    } catch (error) {
+        console.error("Error fetching inventories:", error); 
+        return res.status(500).json({ error: 'Database error' });
+    }
+};
+
+//This is a simple version of the get all inventories code 
+// const getAllInventories = (_req, res) => {
+//     knex("inventories")
+//         .then((data) => {
+//             res.status(200).json(data);
+//         })
+//         .catch((err) => {
+//             res.status(400).send(`Error retrieving Inventories: ${err}`);
+//         });
+// };
+
+
+
+
+module.exports = { addNewInventory, getAllInventories};

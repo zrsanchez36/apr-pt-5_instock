@@ -25,6 +25,10 @@ a {
   color: #2e66e5;
 }
 
+.material-icons.md-24 {
+  font-size: 24px;
+}
+
 .button-text {
   text-decoration: none;
   display: inline;

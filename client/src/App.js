@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 // Importing components
 import Header from "./components/Header/Header";
 import WarehouseList from "./components/WarehouseList/WarehouseList";
+import InventoryList from "./components/InventoryList/InventoryList";
 import Inventory from "./components/Inventory/Inventory";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
 
@@ -27,6 +28,7 @@ function App() {
           <Route path="/inventory" element={<Inventory />} />
           <Route path="/warehouses/edit/:id" element={<EditWarehouse />} />
           <Route path="/AddWarehouse" element={<AddWarehouse />} />
+          <Route path="/inventoryList" element={<InventoryList />} />
         </Routes>
         <Footer />
       </div>
