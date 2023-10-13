@@ -29,52 +29,40 @@ const getSingleWarehouse = (req, res) => {
     });
 };
 
-  const putWarehouse = (req, res) => {
-    [
-      body("warehouse_name").notEmpty(),
-      body("address").notEmpty(),
-      body("city").notEmpty(),
-      body("country").notEmpty(),
-      body("contact_name").notEmpty(),
-      body("contact_position").notEmpty(),
-      body("contact_phone")
-        .notEmpty()
-        .matches(/^\+\d{1,3} \(\d{1,4}\) \d{3}-\d{4}$/),
-      body("contact_email").isEmail(),
-    ],
-    async (req, res) => {
-      const errors = validationResult(req);
-      if (!errors.isEmpty()) {
-        return res.status(400).json({ errors: errors.array() });
-      }
+//Put request API
+const putWarehouse = async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+  }
 
-    const id = req.params.id;
-    const data = req.body;
+  const id = req.params.id;
+  const updatedWarehouseData = req.body;
 
-    try {
+  try {
       // Ensure the ID isn't replaced
-      if (data.id && data.id !== id) {
-        return res
-          .status(400)
-          .json({ error: "ID replacement is not allowed." });
+      if (updatedWarehouseData.id && updatedWarehouseData.id !== id) {
+          return res.status(400).json({ error: 'ID replacement is not allowed.' });
       }
 
-      const rowsUpdated = await knex("warehouses").where("id", id).update(data);
+      const rowsUpdated = await knex('warehouses')
+          .where('id', id)
+          .update(updatedWarehouseData);
 
       if (rowsUpdated === 0) {
-        return res.status(404).json({ error: "Warehouse ID not found" });
+          return res.status(404).json({ error: 'Warehouse ID not found' });
       }
-      const updatedWarehouse = await knex("warehouses")
-        .select("*")
-        .where("id", id)
-        .first();
 
-        return res.status(200).json(updatedWarehouse);
-      } catch (error) {
-        return res.status(500).json({ error: "Database error" });
-      }
-    }
+      const updatedWarehouse = await knex('warehouses')
+          .where('id', id)
+          .first();
+
+      res.status(200).json(updatedWarehouse);
+  } catch (error) {
+      console.error("Error updating warehouse:", error);
+      res.status(500).json({ error: 'Database error' });
   }
+};
         
 
 
@@ -119,7 +107,7 @@ const deleteWarehouse = (req, res) => {
 };
 
 
-
+//Add warehouse function 
 const addNewWarehouse = async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {

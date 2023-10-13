@@ -60,16 +60,6 @@ const getAllInventories = async (req, res) => {
     }
 };
 
-//This is a simple version of the get all inventories code 
-// const getAllInventories = (_req, res) => {
-//     knex("inventories")
-//         .then((data) => {
-//             res.status(200).json(data);
-//         })
-//         .catch((err) => {
-//             res.status(400).send(`Error retrieving Inventories: ${err}`);
-//         });
-// };
 
 
 
