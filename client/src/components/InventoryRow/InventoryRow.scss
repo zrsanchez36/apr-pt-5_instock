@@ -2,6 +2,7 @@
 @use "../../styles/partials/breakpoints" as *;
 @use "../../styles/partials/colors" as *;
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import "../../styles/partials/mixins";
 
 .material-icons.blue {
   color: $indigo-color;
@@ -15,6 +16,7 @@
 }
 
 .inventory-list {
+  position: relative;
   &__items {
     font-size: 11px;
     line-height: 16px;
@@ -97,4 +99,92 @@
   background-color: rgba(201, 69, 21, 0.3);
   border-radius: 20px;
   padding: 5px;
+}
+.delete-modal {
+  padding: 1rem;
+  position: absolute;
+  background-color: $white-color;
+
+  @include tabletView {
+    padding: 2rem 4rem;
+    top: 202px;
+    left: 48px;
+    right: 48px;
+    height: 19rem;
+  }
+  @include desktopView {
+    padding: 2rem 4rem;
+    top: 220px;
+    left: 265px;
+    right: 265px;
+  }
+
+  &__overlay {
+    // position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $white-color;
+
+    @include tabletView {
+      background-color: rgba(19, 24, 44, 0.7);
+    }
+  }
+  &__title {
+    margin: 3.75rem 0 1rem;
+    font-size: 1.75rem;
+
+    @include tabletView {
+      margin-bottom: 2rem;
+      font-size: 2rem;
+    }
+  }
+
+  &__text {
+    margin-bottom: 22rem;
+    font-size: 0.9375rem;
+
+    @include tabletView {
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__btns {
+    display: flex;
+    justify-content: right;
+    gap: 1rem;
+    cursor: pointer;
+  }
+
+  &__btn {
+    all: unset;
+    width: 100%;
+    min-height: 2.25rem;
+    border-radius: 1.25rem;
+    color: $slate-color;
+    font-weight: 600;
+    border: 0.0625rem solid #bdc5d5;
+    text-align: center;
+
+    @include tabletView {
+      height: 2.375rem;
+      width: 8.625rem;
+    }
+
+    &--delete {
+      background-color: $red-color;
+      color: $white-color;
+      border: none;
+    }
+  }
+  &__close-btn {
+    position: absolute;
+    top: 1.3125rem;
+    right: 1rem;
+    border: none;
+    width: auto;
+    height: auto;
+    cursor: pointer;
+  }
 }

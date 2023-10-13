@@ -4,10 +4,9 @@ import "./Inventory.scss";
 import InventoryRow from "../InventoryRow/InventoryRow";
 
 function Inventory(props) {
-  const [InventoryList, SetInventoryList] = useState([]);
+  const [inventoryList, setInventoryList] = useState([]);
 
   const api = process.env.REACT_APP_BASEURL;
-  console.log(api);
 
   // Use Effect to get Warehouse ID from param and receieve warehouse details
   useEffect(() => {
@@ -15,29 +14,28 @@ function Inventory(props) {
       axios
         .get(`${api}/warehouses/${props.WarehouseInventory}/inventories`)
         .then((response) => {
-          SetInventoryList(response.data);
+          setInventoryList(response.data);
         });
     }
-  }, []);
+  }, [props.WarehouseInventory]);
 
   // Delete inventory item
-  function deleteInventoryItem() {
+  function deleteInventoryItem(id) {
     axios
-      .delete(`${api}/inventories/${props.WarehouseInventory}`)
-      .then((response) => {
-        InventoryList(props.WarehouseInventory);
+      .delete(`${api}/inventories/${id}`)
+      .then(() => {
+        // Update the InventoryList by filtering out the deleted item
+        setInventoryList((prevInventoryList) =>
+          prevInventoryList.filter((item) => item.id !== id)
+        );
       })
       .catch((err) => console.log(err));
   }
 
-  // function deleteButtonClick(InventoryList) {
-  //   const info = {
-  //     id: InventoryList.id,
-  //     title: `Delete ${InventoryList.item_name} inventory item?`,
-  //     text: `Please confirm that you’d like to delete ${InventoryList.item_name} from the inventory list. You won’t be able to undo this action.`,
-  //   };
-
-  // }
+  // on confirming the delte 
+  function confirmDeleteItem(id) {
+    deleteInventoryItem(id);
+  }
 
   if (props.WarehouseInventory) {
     return (
@@ -50,14 +48,16 @@ function Inventory(props) {
             <div className="col col-4 header">QUANTITY</div>
             <div className="col col-5 header">ACTIONS</div>
           </li>
-          {InventoryList.map((inventory) => (
+          {inventoryList.map((inventory) => (
             <InventoryRow
               key={inventory.id}
               itemName={inventory.item_name}
               category={inventory.category}
               status={inventory.status}
               quantity={inventory.quantity}
-              // handleClickDelete={deleteInventoryItem}
+              onConfirm={confirmDeleteItem}
+              inventoryList={inventoryList}
+              inventoryId={inventory.id}
             />
           ))}
         </ul>

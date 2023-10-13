@@ -56,28 +56,18 @@ const addNewInventory = (req, res) => {
 
 // DELETE AN INVENTORY ITEM
 const deleteInventory = (req, res) => {
-  knex("warehouses")
+  knex("inventories")
+    .where({ id: req.params.id })
     .delete()
-    .where({ id: req.params.warehouse_id })
-    .then((affectedRows) => {
-      if (affectedRows === 0) {
-        res
-          .status(400)
-          .send(`Inventory with id: ${req.params.warehouse_id} not found`);
-      } else {
-        res
-          .status(204)
-          .send(
-            `Inventory with id: ${req.params.warehouse_id} has been removed`
-          );
-      }
-    })
-    .catch((error) => {
+    .then(() => {
       res
-        .status(400)
-        .send(
-          `Error: unable to remove inventory ${req.params.warehouse_id} ${error}`
-        );
+        .status(200)
+        .send(`Inventory item with id: ${req.params.id} has been deleted`);
+    })
+    .catch((err) => {
+      res
+        .status(404)
+        .send(`Could not delete inventory item ${req.params.id}. ${err}`);
     });
 };
 
