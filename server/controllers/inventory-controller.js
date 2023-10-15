@@ -101,6 +101,10 @@ const getSingleInventory = (req, res) => {
         quantity: inventoryDetails[0].quantity,
       };
       res.status(200).json(InventoryData);
+    })
+    .catch(error => {
+      console.error("Error fetching inventory:", error);
+      res.status(500).json({ error: 'Database error' });
     });
 };
 

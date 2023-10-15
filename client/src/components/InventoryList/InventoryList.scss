@@ -1,11 +1,13 @@
 @import "../../styles/partials/colors";
 @import "../../styles/partials/mixins";
+@import "../../styles/partials/breakpoints";
+
 
 a {
   text-decoration: none;
 }
 
-.warehouseList {
+.inventory__page {
   display: flex;
   flex-direction: column;
   border-radius: 0.1875rem;
@@ -288,3 +290,21 @@ a {
 h3:hover .warehouseList__icon {
   transform: translateX(4px);
 }
+
+//zsoreign
+
+.inventoryList__container{
+  @include small {
+    display: flex;
+  }
+
+}
+
+.inventory__page {
+  position: relative;
+  width: 90;
+}
+
+// .warehouseList__item {
+
+// }
