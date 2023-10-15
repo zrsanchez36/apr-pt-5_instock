@@ -18,7 +18,7 @@ const addNewInventory = (req, res) => {
         .first()
         .then(warehouseExists => {
             if (!warehouseExists) {
-                throw new Error('Provided warehouse_id does not exist.');
+                throw new Error(`Provided ${req.body.warehouse_id} does not exist.`);
             }
             return knex("inventories")
                 .insert({
