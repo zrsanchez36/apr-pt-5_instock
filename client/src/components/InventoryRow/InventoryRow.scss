@@ -2,38 +2,206 @@
 @use "../../styles/partials/breakpoints" as *;
 @use "../../styles/partials/colors" as *;
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
-
-li {
-  border-radius: 3px;
-  padding: 16px 24px 16px 24px;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 18px;
-}
+@import "../../styles/partials/mixins";
 
 .material-icons.blue {
   color: $indigo-color;
   padding-left: 8px;
 }
-.material-icons.red {
-  color: $red-color;
-}
+
 .material-icons.md-18 {
+  color: $indigo-color;
   font-size: 18px;
 }
 
 .inventory-list {
+  position: relative;
   &__items {
     font-size: 11px;
     line-height: 16px;
   }
+  &__headers {
+    display: none;
+    @include medium {
+      border-radius: 3px;
+      padding: 16px 24px 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+    @include large {
+      border-radius: 3px;
+      padding: 16px 24px 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+  }
 
-  &__item-name {
+  &__status.col-3 {
+    padding-bottom: 8px;
+    @include small {
+      &:before {
+        content: "STATUS";
+        display: block;
+        color: $slate-color;
+        margin-bottom: 5px;
+        font-weight: 600;
+      }
+    }
+    @include medium {
+      flex-basis: 50%;
+    }
+    @include large {
+      flex-basis: 50%;
+    }
+
+    p {
+      display: inline;
+      margin-top: 0;
+      vertical-align: top;
+      margin: 0;
+      @include small {
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  &__items {
     font-size: 11px;
     line-height: 16px;
-    color: $indigo-color;
-    font-weight: 600;
-    margin: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    border-bottom: 1px solid $slate-color;
+    @include medium {
+      border-radius: 3px;
+      padding: 16px 24px 16px 24px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+
+    @include large {
+      border-radius: 3px;
+      padding: 16px 24px 16px 24px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-bottom: 18px;
+      border-bottom: 1px solid $slate-color;
+    }
+    .col-5 {
+      display: flex;
+      justify-content: space-between;
+      @include medium {
+        display: initial;
+      }
+      @include large {
+        display: initial;
+      }
+      .material-icons.red {
+        color: $red-color;
+        padding-left: 0;
+      }
+    }
+
+    &--top {
+      display: flex;
+      height: 100px;
+      margin-bottom: 24px;
+      @include medium {
+        flex-basis: 80%;
+        height: 50px;
+        justify-content: space-between;
+      }
+      @include large {
+        flex-basis: 80%;
+        height: 5px;
+        justify-content: space-between;
+      }
+    }
+    &--divider {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 100%;
+      @include medium {
+        width: 100%;
+        flex-basis: 50%;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      @include large {
+        width: 100%;
+        flex-basis: 50%;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .col-2 {
+        @include small {
+          &:before {
+            content: "CATEGORY";
+            display: block;
+            color: $slate-color;
+            margin-bottom: 5px;
+            font-weight: 600;
+          }
+        }
+        @include medium {
+          flex-basis: 50%;
+        }
+        @include large {
+          flex-basis: 50%;
+        }
+      }
+      .col-4 {
+        @include small {
+          &:before {
+            content: "QTY";
+            display: block;
+            color: $slate-color;
+            margin-bottom: 5px;
+            font-weight: 600;
+          }
+        }
+        @include medium {
+          flex-basis: 50%;
+        }
+        @include large {
+          flex-basis: 50%;
+        }
+      }
+    }
+    &__item-name {
+      font-size: 11px;
+      line-height: 16px;
+      color: $indigo-color;
+      font-weight: 600;
+      margin: 0;
+      @include medium {
+        text-align: left;
+        width: 40%;
+        font-size: 11px;
+        line-height: 16px;
+        font-weight: 600;
+        display: initial;
+        height: 1rem;
+        padding: 0;
+      }
+      @include large {
+        text-align: left;
+        width: 40%;
+        font-size: 11px;
+        line-height: 16px;
+        font-weight: 600;
+        display: initial;
+        height: 1rem;
+        padding: 0;
+      }
+    }
 
     & span {
       padding-left: 5px;
@@ -43,33 +211,32 @@ li {
 .col {
   text-align: left;
 }
-.col-1 {
+.inventory-list__item-name.col-1 {
   flex-basis: 20%;
+  @include medium {
+    flex-basis: 50%;
+  }
+  @include large {
+    flex-basis: 50%;
+  }
 
   p {
     display: inline;
     margin-top: 0;
     vertical-align: top;
-  }
-}
-.col-2 {
-  flex-basis: 20%;
-}
-.col-3 {
-  flex-basis: 20%;
+    color: $indigo-color;
+    font-weight: 600;
 
-  p {
-    display: inline;
-    margin-top: 0;
-    vertical-align: top;
-    margin: 0;
+    @include small {
+      &:before {
+        content: "INVENTORY ITEM";
+        display: block;
+        color: $slate-color;
+        margin-bottom: 5px;
+        font-weight: 600;
+      }
+    }
   }
-}
-.col-4 {
-  flex-basis: 20%;
-}
-.col-5 {
-  flex-basis: 20%;
 }
 
 .inStock {
@@ -78,7 +245,7 @@ li {
   color: $green-color;
   font-weight: 600;
   margin: 0;
-  background-color: rgba(21, 132, 00, 0.3);
+  background-color: rgba(21, 132, 00, 0.2);
   border-radius: 20px;
   padding: 5px;
 }
@@ -89,7 +256,95 @@ li {
   color: $red-color;
   font-weight: 600;
   margin: 0;
-  background-color: rgba(201, 69, 21, 0.3);
+  background-color: rgba(201, 69, 21, 0.2);
   border-radius: 20px;
   padding: 5px;
+}
+.delete-modal {
+  padding: 1rem;
+  position: absolute;
+  background-color: $white-color;
+
+  @include tabletView {
+    padding: 2rem 4rem;
+    top: 202px;
+    left: 48px;
+    right: 48px;
+    height: 19rem;
+  }
+  @include desktopView {
+    padding: 2rem 4rem;
+    top: 220px;
+    left: 265px;
+    right: 265px;
+  }
+
+  &__overlay {
+    // position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $white-color;
+
+    @include tabletView {
+      background-color: rgba(19, 24, 44, 0.7);
+    }
+  }
+  &__title {
+    margin: 3.75rem 0 1rem;
+    font-size: 1.75rem;
+
+    @include tabletView {
+      margin-bottom: 2rem;
+      font-size: 2rem;
+    }
+  }
+
+  &__text {
+    margin-bottom: 22rem;
+    font-size: 0.9375rem;
+
+    @include tabletView {
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__btns {
+    display: flex;
+    justify-content: right;
+    gap: 1rem;
+    cursor: pointer;
+  }
+
+  &__btn {
+    all: unset;
+    width: 100%;
+    min-height: 2.25rem;
+    border-radius: 1.25rem;
+    color: $slate-color;
+    font-weight: 600;
+    border: 0.0625rem solid #bdc5d5;
+    text-align: center;
+
+    @include tabletView {
+      height: 2.375rem;
+      width: 8.625rem;
+    }
+
+    &--delete {
+      background-color: $red-color;
+      color: $white-color;
+      border: none;
+    }
+  }
+  &__close-btn {
+    position: absolute;
+    top: 1.3125rem;
+    right: 1rem;
+    border: none;
+    width: auto;
+    height: auto;
+    cursor: pointer;
+  }
 }

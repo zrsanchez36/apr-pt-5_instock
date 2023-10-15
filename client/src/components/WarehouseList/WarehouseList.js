@@ -18,7 +18,7 @@ function WarehouseList() {
 
   function getWarehouseList() {
     axios
-      .get(`${api}/warehouses`)
+      .get(`${api}/warehouses`)  
       .then((response) => {
         setWarehouses(response.data);
       })

@@ -1,4 +1,3 @@
-
 const router = require("express").Router();
 const { body, validationResult } = require("express-validator");
 // const knex = require("knex")(require("../knexfile"));
@@ -50,5 +49,9 @@ router.route("/")
 router
   .route("/:id/inventories")
   .get(warehouseController.getInventoryFromWarehouse);
+router
+  .route("/locations/unique")
+  .get(warehouseController.getDistinctWarehouseLocations);
+
 
 module.exports = router;

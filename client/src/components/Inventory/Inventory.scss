@@ -3,21 +3,13 @@
 @use "../../styles/partials/colors" as *;
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
-ul {
+ul.inventory-list {
   width: 100%;
   border-collapse: collapse;
   list-style: none;
   padding-left: 0;
   display: flex;
   flex-direction: column;
-}
-
-li {
-  border-radius: 3px;
-  padding: 16px 24px 16px 24px;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 18px;
 }
 
 .inventory-list {

@@ -1,33 +1,32 @@
 /* mobile media query*/
 @mixin small {
-    @media only screen and (max-width:767px) {
-        @content;
-    }
+  @media only screen and (max-width: 767px) {
+    @content;
+  }
 }
 
 /* tablet media query */
 @mixin medium {
-    @media only screen and (min-width:768px) and (max-width:1023px) {
-        @content;
-    }
+  @media only screen and (min-width: 768px) and (max-width: 1023px) {
+    @content;
+  }
 }
 
 /* desktop media query medium pixel dpi */
 @mixin large {
-    @media only screen and (min-width:1024px) and (max-width:1439px) {
-        @content;
-    }
+  @media only screen and (min-width: 1024px) {
+    @content;
+  }
 }
 
 /* desktop media query high pixel dpi */
 @mixin huge {
+
     @media only screen and (min-width:1440px) {
         @content;
     }
 }
 
-// "xsH": 0,
-//     "xlH": 1480px,
 
 
 
@@ -48,3 +47,5 @@
         @content;
     }
 }
+
+
