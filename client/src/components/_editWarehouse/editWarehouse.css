@@ -88,9 +88,14 @@ body {
     z-index: 2;
   }
 }
-@media screen and (min-height: 0px) and (max-height: 1480px) and (min-width: 768px) {
+@media screen and (min-height: 0px) and (max-height: 1480px) and (min-width: 768px) and (max-width: 1023px) {
   .edit__warehouse--section {
     top: 335px;
+  }
+}
+@media screen and (min-height: 0px) and (max-height: 1480px) and (min-width: 1024px) {
+  .edit__warehouse--section {
+    top: 322px;
   }
 }
 
@@ -436,11 +441,19 @@ body {
 @media only screen and (max-width: 767px) {
   .warehouse__button--container {
     width: 100%;
-    padding-left: 1rem;
-    padding-right: 1rem;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .warehouse__button--container {
+    margin-left: 1rem;
+  }
+}
+@media only screen and (min-width: 1024px) and (max-width: 1439px) {
+  .warehouse__button--container {
+    margin-left: 1rem;
+  }
+}
+@media only screen and (min-width: 1440px) {
   .warehouse__button--container {
     margin-left: 1rem;
   }

@@ -63,9 +63,13 @@ body {
         z-index: 2;
     }
 
-    @include desktopHeight {
+    @include medDesktopHeight {
         top: 335px;
         
+    }
+
+    @include lgDesktopHeight {
+        top: 322px;
     }
 }
 
@@ -400,10 +404,17 @@ body {
 .warehouse__button--container {
     @include small {
         width: 100%;
-        padding-left: 1rem;
-        padding-right: 1rem;
     }
+    
     @include medium {
+        margin-left: 1rem;
+    }
+
+    @include large {
+        margin-left: 1rem;
+    }
+
+    @include huge{
         margin-left: 1rem;
     }
 }
