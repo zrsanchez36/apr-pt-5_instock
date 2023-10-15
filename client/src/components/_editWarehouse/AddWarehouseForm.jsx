@@ -1,8 +1,10 @@
 import React from "react";
 import WarehouseButton from "./WarehouseButton";
+import { useNavigate } from "react-router-dom";
 
 
 function WarehouseEditForm (props) {
+    const navigate = useNavigate()
    
     const placeholder = props.placeholder;
    
@@ -39,7 +41,7 @@ function WarehouseEditForm (props) {
                 <WarehouseButton className="add__warehouse--button" type="submit" label="+Add Warehouse" /> */}
             </form>
             <div className='form--warehouse__actions'>
-                <WarehouseButton className="cancel__button" type="submit" label="Cancel" />
+                <WarehouseButton className="cancel__button" type="submit" label="Cancel" onClick={() => navigate("/warehouses")} />
                 <WarehouseButton className="add__warehouse--button" type="submit" label="+ Add New Warehouse" />
             </div>
         </div>

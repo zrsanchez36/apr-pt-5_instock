@@ -64,7 +64,6 @@ function InventoryList () {
 
     return (
         <div className='inventory__page'>
-            
             <div className="warehouseList__box">
         <div className="warehouseList__search">
           <h1 className="warehouseList__title">Inventory</h1>
@@ -77,7 +76,7 @@ function InventoryList () {
               />
             </div>
             <Link to={"/inventory/new"} className="warehouseList__btn">
-              + Add New Warehouse
+              + Add New Inventory
             </Link>
           </form>
         </div>
