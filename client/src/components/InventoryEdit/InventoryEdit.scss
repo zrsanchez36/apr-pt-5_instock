@@ -46,7 +46,6 @@
       }
       option {
         width: 100%;
-        text-wrap: wrap;
         overflow: hidden;
         font-size: 11px;
       }
@@ -160,8 +159,7 @@
       border-radius: 15px;
       padding: 5px 10px;
       border: 1px $cloud-color solid;
-      text-wrap: pretty;
-
+      
       &:not(:-internal-list-box) {
         overflow: hidden;
       }
@@ -266,4 +264,9 @@
     background-color: $indigo-color;
     color: white;
   }
+}
+
+
+.incorrect{ 
+  border-color: $red-color;
 }

@@ -21,7 +21,6 @@ export default function InventoryDetails() {
   }, []);
 
   useEffect(() => {
-    console.log(`WarehouseId set as ${WarehouseId}`);
     axios
       .get(`http://localhost:8080/warehouses/${WarehouseId}`)
       .then((response) => {

@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import "./InventoryRow.scss";
 
 function InventoryRow({ id, itemName, category, status, quantity }) {
-  console.log(id)
   if (status === "In Stock") {
     return (
       <li className="inventory-list__items" key={id}>

@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import "./InventoryEdit.scss";
 import axios from "axios";
 import Button from "../Button/Button";
+import InventoryEditRadios from "../InventoryEditRadios/InventoryEditRadios";
 
 export default function InventoryEdit(props) {
   const navigate = useNavigate();
@@ -39,6 +40,7 @@ export default function InventoryEdit(props) {
       });
   }, []);
 
+
   useEffect(() => {
     if (stockStatus === true) {
       const quantitySection = document.querySelector(
@@ -46,22 +48,24 @@ export default function InventoryEdit(props) {
       );
       quantitySection.classList.remove("invisible");
 
-      const inStockStatus = document.querySelector(".instock");
-      const outOfStockStatus = document.querySelector(".outofstock");
+      const inStockStatus = document.getElementById("inStock");
+      const outOfStockStatus = document.getElementById("outOfStock");
 
       inStockStatus.classList.add("active");
       outOfStockStatus.classList.remove("active");
     }
     if (stockStatus === false) {
+
+      const inStockStatus = document.getElementById("inStock");
+      const outOfStockStatus = document.getElementById("outOfStock");
+
+      inStockStatus.classList.remove("active");
+      outOfStockStatus.classList.add("active"); 
+
       const quantitySection = document.querySelector(
         ".edit-inventory__form__top--quantity"
       );
       quantitySection.classList.add("invisible");
-      const inStockStatus = document.querySelector(".instock");
-      const outOfStockStatus = document.querySelector(".outofstock");
-
-      inStockStatus.classList.remove("active");
-      outOfStockStatus.classList.add("active");
     }
   }, [stockStatus]);
 
@@ -73,6 +77,7 @@ export default function InventoryEdit(props) {
         getUniqueWarehouses(response.data);
         for (let i in response.data) {
           if (response.data[i].id === warehouse_id) {
+
             setWarehouseName(response.data[i].warehouse_name);
           }
         }
@@ -80,46 +85,91 @@ export default function InventoryEdit(props) {
   };
 
   const textHandler = (e) => {
-    console.log(e.target.value);
+
     let updatedText = { item_name: e.target.value };
     setInventoryDetails({ ...InventoryDetails, ...updatedText });
   };
 
   const textAreaHandler = (e) => {
-    console.log(e.target.value);
+
     let updatedTextArea = { description: e.target.value };
     setInventoryDetails({ ...InventoryDetails, ...updatedTextArea });
   };
   const QuantityHandler = (e) => {
-    console.log(e.target.value);
+
     let updatedQuantity = { quantity: e.target.value };
     setInventoryDetails({ ...InventoryDetails, ...updatedQuantity });
   };
 
+  
+
   const FormHandler = (event) => {
     event.preventDefault();
+
+
     let currentStatus = "";
-    let currentQuantity = 0;
+    let currentQuantity = InventoryDetails.quantity;
+    
+    if (isNaN(currentQuantity)) {
+      const ItemNameSection = document.getElementById(
+        "quantity"
+      );
+      ItemNameSection.classList.add("incorrect");
+      console.log(isNaN(currentQuantity));
+      return;
+    }
+    else if (!currentQuantity) {
+      const ItemNameSection = document.getElementById(
+        "quantity"
+      );
+      ItemNameSection.classList.add("incorrect");
+
+      return;
+    }
+    else{
+      const ItemNameSection = document.getElementById(
+        "quantity"
+      );
+      ItemNameSection.classList.remove("incorrect");
+
     if (stockStatus === true) {
       currentStatus = "In Stock";
       currentQuantity = InventoryDetails.quantity;
-    } else if (stockStatus === false) {
+    } 
+    else if (stockStatus === false) {
       currentStatus = "Out of Stock";
       currentQuantity = "0";
-    }
+    }}
 
     if (!InventoryDetails.item_name) {
-      console.log("Item Name is Empty");
+      const ItemNameSection = document.getElementById(
+        "itemName"
+      );
+      ItemNameSection.classList.add("incorrect");
+
       return;
     }
+    else{
+      const ItemNameSection = document.getElementById(
+        "itemName"
+      );
+      ItemNameSection.classList.remove("incorrect");
+    }
+
     if (!InventoryDetails.description) {
-      console.log("Description is Empty");
+
+      const DescriptionSection = document.getElementById(
+        "itemDescription"
+      );
+      DescriptionSection.classList.add("incorrect");
       return;
     }
-    if (!currentQuantity) {
-      console.log("Quantity is Empty");
-      console.log(typeof currentQuantity);
-      return;
+    else{
+      const ItemNameSection = document.getElementById(
+        "itemDescription"
+      );
+      ItemNameSection.classList.remove("incorrect");
+
     }
 
     axios
@@ -183,7 +233,7 @@ export default function InventoryEdit(props) {
                   id="category"
                   className="edit-inventory__form--category"
                 >
-                  <option value="" selected disabled hidden>
+                  <option defaultValue={InventoryDetails.category} disabled hidden>
                     {InventoryDetails.category}
                   </option>
                   {uniqueCategory.map((category, index) => (
@@ -198,39 +248,7 @@ export default function InventoryEdit(props) {
               <h2 className="edit-inventory__subheader">Item Availability</h2>
               <div className="edit-inventory__form__bottom--status">
                 <label className="edit-inventory__form__label">Status</label>
-                <div className="edit-inventory__form__bottom--status--radios">
-                  <div className="edit-inventory__form__bottom--status--radios--input">
-                    <label className="edit-inventory__form__label--status instock">
-                      <input
-                        type="radio"
-                        id="inStock"
-                        name="itemStatus"
-                        value="In Stock"
-                        className="edit-inventory__form__bottom--status--radios--buttons"
-                        checked={stockStatus === true}
-                        onClick={() => setStockStatus(true)}
-                      />
-                      In stock
-                    </label>
-                  </div>
-                  <div className="edit-inventory__form__bottom--status--radios--input">
-                    <label
-                      
-                      className="edit-inventory__form__label--status outofstock"
-                    >
-                      <input
-                        type="radio"
-                        id="outOfStock"
-                        name="itemStatus"
-                        value="Out of Stock"
-                        className="edit-inventory__form__bottom--status--radios--buttons"
-                        checked={stockStatus === false}
-                        onClick={() => setStockStatus(false)}
-                      />
-                      Out of stock
-                    </label>
-                  </div>
-                </div>
+                    <InventoryEditRadios stockStatus={stockStatus} setStockStatus={setStockStatus}/>
                 <div className="edit-inventory__form__top--quantity">
                   <label className="edit-inventory__form__label" for="quantity">
                     Quantity
@@ -255,8 +273,8 @@ export default function InventoryEdit(props) {
                   id="warehouse"
                   className="edit-inventory__form--category"
                 >
-                  <option value="" selected disabled hidden>
-                    {WarehouseName}
+                  <option defaultValue={InventoryDetails.warehouse_id} disabled hidden>
+                    {WarehouseName} 
                   </option>
                   {uniqueWarehouses.map((warehouse, index) => (
                     <option key={index} value={warehouse.id}>
