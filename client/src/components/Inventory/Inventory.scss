@@ -13,6 +13,7 @@ ul.inventory-list {
 }
 
 .inventory-list {
+  box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
   &__headers {
     background-color: $grey-color;
     color: $slate-color;
