@@ -7,7 +7,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 function EditWarehouse() {
-
+  const navigate = useNavigate()
 
 
 
@@ -15,7 +15,7 @@ function EditWarehouse() {
   return (
     <section className="edit__warehouse--section">
        <div className="edit__warehouse--header">
-            <EditArrow /><h1>Edit Warehouse</h1>
+            <EditArrow onClick={() => navigate("/warehouses")} /><h1>Edit Warehouse</h1>
           </div>
         <div className="edit__warehouse--container">
           <WarehouseEditForm />
