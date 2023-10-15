@@ -1,6 +1,6 @@
 import React from "react";
 import WarehouseEditForm from "./WarehouseEditForm";
-import "./editWarehouse.css";
+import "./editWarehouse.scss";
 import {ReactComponent as EditArrow} from "../../assets/assets/Icons/arrow_back-24px.svg";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";

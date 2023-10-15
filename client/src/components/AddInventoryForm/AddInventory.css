@@ -32,75 +32,52 @@ body {
   border: none;
 }
 
+.edit__inventory--section {
+  border-radius: 0.1875rem;
+}
 @media only screen and (max-width: 767px) {
-  .edit__warehouse--section {
+  .edit__inventory--section {
     margin: 0 auto;
-    width: 90%;
+    width: 100%;
     background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: absolute;
+    top: 70%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-  }
-}
-@media screen and (min-height: 0px) and (max-height: 1480px) and (min-width: 0px) and (max-width: 768px) {
-  .edit__warehouse--section {
-    top: 550px;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
-  .edit__warehouse--section {
+  .edit__inventory--section {
     margin: 0 auto;
-    width: 90%;
+    width: 100%;
     background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: absolute;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
   }
 }
-@media only screen and (min-width: 1024px) and (max-width: 1439px) {
-  .edit__warehouse--section {
+@media only screen and (min-width: 1024px) {
+  .edit__inventory--section {
     margin: 0 auto;
-    width: 80%;
+    width: 100%;
     background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: absolute;
+    top: 35%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    height: -moz-fit-content;
-    height: fit-content;
   }
 }
 @media only screen and (min-width: 1440px) {
-  .edit__warehouse--section {
-    margin: 0 auto;
-    width: 80%;
+  .edit__inventory--section {
+    margin: auto;
+    width: 100%;
     background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: absolute;
-    top: 35.7%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-  }
-}
-@media screen and (min-height: 0px) and (max-height: 1480px) and (min-width: 768px) and (max-width: 1023px) {
-  .edit__warehouse--section {
-    top: 335px;
-  }
-}
-@media screen and (min-height: 0px) and (max-height: 1480px) and (min-width: 1024px) {
-  .edit__warehouse--section {
-    top: 322px;
+    margin-bottom: 0%;
+    padding-bottom: 0%;
   }
 }
 
 @media only screen and (max-width: 767px) {
-  .edit__warehouse--form {
+  .edit__inventory--form {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -109,21 +86,21 @@ body {
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
-  .edit__warehouse--form {
+  .edit__inventory--form {
     display: flex;
     justify-content: space-between;
     gap: 1rem;
   }
 }
-@media only screen and (min-width: 1024px) and (max-width: 1439px) {
-  .edit__warehouse--form {
+@media only screen and (min-width: 1024px) {
+  .edit__inventory--form {
     display: flex;
     justify-content: space-between;
     gap: 1rem;
   }
 }
 @media only screen and (min-width: 1440px) {
-  .edit__warehouse--form {
+  .edit__inventory--form {
     display: flex;
     justify-content: space-between;
     gap: 1rem;
@@ -131,7 +108,7 @@ body {
 }
 
 @media only screen and (max-width: 767px) {
-  .edit__warehouse--header {
+  .edit__inventory--header {
     display: flex;
     flex-direction: row;
     align-content: center;
@@ -141,7 +118,7 @@ body {
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
-  .edit__warehouse--header {
+  .edit__inventory--header {
     display: flex;
     flex-direction: row;
     align-content: center;
@@ -149,8 +126,8 @@ body {
     padding-left: 3rem;
   }
 }
-@media only screen and (min-width: 1024px) and (max-width: 1439px) {
-  .edit__warehouse--header {
+@media only screen and (min-width: 1024px) {
+  .edit__inventory--header {
     display: flex;
     flex-direction: row;
     align-content: center;
@@ -159,7 +136,7 @@ body {
   }
 }
 @media only screen and (min-width: 1440px) {
-  .edit__warehouse--header {
+  .edit__inventory--header {
     display: flex;
     flex-direction: row;
     align-content: center;
@@ -169,63 +146,63 @@ body {
 }
 
 @media only screen and (max-width: 767px) {
-  .edit__warehouse--header svg {
+  .edit__inventory--header svg {
     align-items: center;
     align-self: center;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
-  .edit__warehouse--header svg {
+  .edit__inventory--header svg {
     align-items: center;
     align-self: center;
   }
 }
-@media only screen and (min-width: 1024px) and (max-width: 1439px) {
-  .edit__warehouse--header svg {
+@media only screen and (min-width: 1024px) {
+  .edit__inventory--header svg {
     align-items: center;
     align-self: center;
   }
 }
 @media only screen and (min-width: 1440px) {
-  .edit__warehouse--header svg {
+  .edit__inventory--header svg {
     align-items: center;
     align-self: center;
   }
 }
 
 @media only screen and (max-width: 767px) {
-  .edit__warehouse--header h1 {
+  .edit__inventory--header h1 {
     font-size: 1.75rem;
     line-height: 2.25rem;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
-  .edit__warehouse--header h1 {
+  .edit__inventory--header h1 {
     font-size: 2rem;
     line-height: 2.5rem;
   }
 }
-@media only screen and (min-width: 1024px) and (max-width: 1439px) {
-  .edit__warehouse--header h1 {
+@media only screen and (min-width: 1024px) {
+  .edit__inventory--header h1 {
     font-size: 2rem;
     line-height: 2.5rem;
   }
 }
 @media only screen and (min-width: 1440px) {
-  .edit__warehouse--header h1 {
+  .edit__inventory--header h1 {
     font-size: 2rem;
     line-height: 2.5rem;
   }
 }
 
 @media only screen and (max-width: 767px) {
-  .edit__warehouse--container {
+  .edit__inventory--container {
     width: 100%;
   }
 }
 
 @media only screen and (max-width: 767px) {
-  .edit__warehouse--container h3 {
+  .edit__inventory--container h3 {
     margin: 0;
     line-height: 20px;
     font-size: 13px;
@@ -233,15 +210,15 @@ body {
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
-  .edit__warehouse--container h3 {
+  .edit__inventory--container h3 {
     margin: 0;
     line-height: 22px;
     font-size: 14px;
     padding-bottom: 4px;
   }
 }
-@media only screen and (min-width: 1024px) and (max-width: 1439px) {
-  .edit__warehouse--container h3 {
+@media only screen and (min-width: 1024px) {
+  .edit__inventory--container h3 {
     margin: 0;
     line-height: 22px;
     font-size: 14px;
@@ -249,7 +226,7 @@ body {
   }
 }
 @media only screen and (min-width: 1440px) {
-  .edit__warehouse--container h3 {
+  .edit__inventory--container h3 {
     margin: 0;
     line-height: 22px;
     font-size: 14px;
@@ -258,17 +235,17 @@ body {
 }
 
 @media only screen and (max-width: 767px) {
-  .warehouse__details {
+  .inventory__details {
     flex: 1;
     flex-direction: column;
     border-bottom: 1px solid #bdc5d5;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
     padding-bottom: 1rem;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
-  .warehouse__details {
+  .inventory__details {
     flex: 1;
     flex-direction: column;
     width: 50%;
@@ -277,8 +254,8 @@ body {
     padding-right: 3rem;
   }
 }
-@media only screen and (min-width: 1024px) and (max-width: 1439px) {
-  .warehouse__details {
+@media only screen and (min-width: 1024px) {
+  .inventory__details {
     flex: 1;
     flex-direction: column;
     width: 50%;
@@ -288,7 +265,7 @@ body {
   }
 }
 @media only screen and (min-width: 1440px) {
-  .warehouse__details {
+  .inventory__details {
     flex: 1;
     flex-direction: column;
     width: 50%;
@@ -302,8 +279,8 @@ body {
   .contact__details {
     flex: 1;
     flex-direction: column;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
     padding-bottom: 1rem;
   }
 }
@@ -316,7 +293,7 @@ body {
     padding-right: 3rem;
   }
 }
-@media only screen and (min-width: 1024px) and (max-width: 1439px) {
+@media only screen and (min-width: 1024px) {
   .contact__details {
     flex: 1;
     flex-direction: column;
@@ -336,7 +313,7 @@ body {
 }
 
 @media only screen and (max-width: 767px) {
-  .form__warehouse--actions {
+  .form__inventory--actions {
     display: flex;
     position: absolute;
     align-items: center;
@@ -349,7 +326,7 @@ body {
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
-  .form__warehouse--actions {
+  .form__inventory--actions {
     display: flex;
     position: absolute;
     align-items: center;
@@ -362,8 +339,8 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 }
-@media only screen and (min-width: 1024px) and (max-width: 1439px) {
-  .form__warehouse--actions {
+@media only screen and (min-width: 1024px) {
+  .form__inventory--actions {
     display: flex;
     position: absolute;
     align-items: center;
@@ -377,7 +354,7 @@ body {
   }
 }
 @media only screen and (min-width: 1440px) {
-  .form__warehouse--actions {
+  .form__inventory--actions {
     display: flex;
     position: absolute;
     align-items: center;
@@ -415,7 +392,7 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 }
-@media only screen and (min-width: 1024px) and (max-width: 1439px) {
+@media only screen and (min-width: 1024px) {
   .cancel__button {
     height: 38px;
     box-sizing: border-box;
@@ -439,28 +416,15 @@ body {
 }
 
 @media only screen and (max-width: 767px) {
-  .warehouse__button--container {
+  .inventory__button--container {
     width: 100%;
-  }
-}
-@media only screen and (min-width: 768px) and (max-width: 1023px) {
-  .warehouse__button--container {
-    margin-left: 1rem;
-  }
-}
-@media only screen and (min-width: 1024px) and (max-width: 1439px) {
-  .warehouse__button--container {
-    margin-left: 1rem;
-  }
-}
-@media only screen and (min-width: 1440px) {
-  .warehouse__button--container {
-    margin-left: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 
 @media only screen and (max-width: 767px) {
-  .add__warehouse--button {
+  .add__inventory--button {
     height: 36px;
     box-sizing: border-box;
     padding-right: 1rem;
@@ -475,7 +439,7 @@ body {
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
-  .add__warehouse--button {
+  .add__inventory--button {
     height: 38px;
     box-sizing: border-box;
     padding-right: 1rem;
@@ -488,8 +452,8 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 }
-@media only screen and (min-width: 1024px) and (max-width: 1439px) {
-  .add__warehouse--button {
+@media only screen and (min-width: 1024px) {
+  .add__inventory--button {
     height: 38px;
     box-sizing: border-box;
     padding-right: 1rem;
@@ -503,7 +467,7 @@ body {
   }
 }
 @media only screen and (min-width: 1440px) {
-  .add__warehouse--button {
+  .add__inventory--button {
     height: 38px;
     box-sizing: border-box;
     padding-right: 1rem;
@@ -541,7 +505,7 @@ body {
     box-sizing: border-box;
   }
 }
-@media only screen and (min-width: 1024px) and (max-width: 1439px) {
+@media only screen and (min-width: 1024px) {
   .default__form--field {
     height: 2.375rem;
     border-radius: 20px;
@@ -566,27 +530,121 @@ body {
   }
 }
 
+.form-inventory__actions {
+  display: flex;
+  justify-content: flex-end;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 2rem;
+}
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
-  .form--warehouse__actions {
-    display: flex;
-    justify-content: flex-end;
-    align-content: center;
-    flex-direction: row;
-    height: 4rem;
-    flex-wrap: wrap;
+  .form-inventory__actions {
+    gap: 1rem;
+    padding-bottom: 2rem;
   }
 }
-@media only screen and (min-width: 1024px) and (max-width: 1439px) {
-  .form--warehouse__actions {
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: row;
+@media only screen and (min-width: 1024px) {
+  .form-inventory__actions {
+    gap: 1rem;
+    padding-bottom: 2rem;
   }
 }
 @media only screen and (min-width: 1440px) {
-  .form--warehouse__actions {
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: row;
+  .form-inventory__actions {
+    gap: 1rem;
+    padding-bottom: 2rem;
   }
-}/*# sourceMappingURL=editWarehouse.css.map */
+}
+
+.page-header__heading-and-back-container {
+  display: flex;
+  gap: 0.5rem;
+  flex-grow: 1;
+}
+
+.page-header__back {
+  border: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: url("../../assets/assets/Icons/arrow_back-24px.svg") no-repeat center;
+  align-self: center;
+}
+
+.page-header__heading {
+  font-size: 1.75rem;
+  text-transform: capitalize;
+  font-weight: 600;
+  line-height: 2.25rem;
+}
+
+@media screen and (min-width: 768px) {
+  .page-header__heading {
+    font-size: 2rem;
+  }
+}
+.default__form--textarea {
+  resize: none;
+}
+@media only screen and (max-width: 767px) {
+  .default__form--textarea {
+    border-radius: 20px;
+    width: 100%;
+    border: 1px solid #bdc5d5;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    box-sizing: border-box;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .default__form--textarea {
+    border-radius: 20px;
+    width: 100%;
+    border: 1px solid #bdc5d5;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    box-sizing: border-box;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .default__form--textarea {
+    border-radius: 20px;
+    width: 100%;
+    border: 1px solid #bdc5d5;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    box-sizing: border-box;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .default__form--textarea {
+    border-radius: 20px;
+    width: 100%;
+    border: 1px solid #bdc5d5;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    box-sizing: border-box;
+  }
+}
+
+.form__status {
+  margin-bottom: 1rem;
+}
+
+.form__status--option {
+  display: flex;
+  gap: 4rem;
+}
+
+select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-repeat: no-repeat;
+  background-position: right 0.7rem top 50%;
+  background-size: 0.65rem auto;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23131313%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+}/*# sourceMappingURL=AddInventory.css.map */
