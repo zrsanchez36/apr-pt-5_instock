@@ -17,14 +17,23 @@ const getSingleWarehouse = (req, res) => {
   knex("warehouses")
     .where({ id: req.params.id })
     .then((warehouseDetails) => {
-      if (warehouseDetails === 0) {
+      if (warehouseDetails.length === 0) {
         return res.status(404).json({
           message: `Warehouse with ID: ${req.params.id} does not exist`,
         });
       }
-      const { created_at, updated_at, ...rest } = warehouseDetails[0];
+      const warehouseData = {
+        id: warehouseDetails[0].id,
+        warehouse_name: warehouseDetails[0].warehouse_name,
+        address: warehouseDetails[0].address,
+        city: warehouseDetails[0].city,
+        country: warehouseDetails[0].country,
+        contact_name: warehouseDetails[0].contact_name,
+        contact_position: warehouseDetails[0].contact_position,
+        contact_phone: warehouseDetails[0].contact_phone,
+        contact_email: warehouseDetails[0].contact_email,
+      };
 
-      const warehouseData = rest;
       res.status(200).json(warehouseData);
     });
 };
@@ -97,6 +106,7 @@ const getInventoryFromWarehouse = (req, res) => {
     });
 };
 
+// Deleting warehouse
 const deleteWarehouse = (req, res) => {
   knex("warehouses")
     .delete()
@@ -117,10 +127,19 @@ const deleteWarehouse = (req, res) => {
     );
 };
 
+const getDistinctWarehouseLocations = (req, res) => {
+  knex("warehouses")
+    .distinct("id", "warehouse_name")
+    .then((uniqueWarehouses) => {
+      res.status(200).json(uniqueWarehouses);
+    });
+};
+
 module.exports = {
   router,
   index,
   deleteWarehouse,
   getSingleWarehouse,
   getInventoryFromWarehouse,
+  getDistinctWarehouseLocations,
 };

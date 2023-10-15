@@ -26,7 +26,6 @@ a {
 
     @include tabletView {
       padding: 0 1rem;
-
     }
   }
 
@@ -204,9 +203,13 @@ a {
     height: 1.2rem;
     padding: 0;
     vertical-align: sub;
+    transition: transform 0.3s ease-out;
 
     @include tabletView {
       vertical-align: bottom;
+    }
+    &:hover {
+      transform: translateX(4px);
     }
   }
 
