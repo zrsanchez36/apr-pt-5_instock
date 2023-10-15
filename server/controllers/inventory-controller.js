@@ -2,67 +2,71 @@ const knex = require("knex")(require("../knexfile"));
 
 // Add new Inventory Item
 const addNewInventory = (req, res) => {
-    console.log("reqbody", req.body)
-    const requiredFields = ['warehouse_id', 'item_name', 'description', 'category', 'status', 'quantity'];
-    for (let field of requiredFields) {
-        console.log('req.body[field] ', req.body[field])
-        if (req.body[field] === undefined || req.body[field] === null) {
-            return res.status(400).json({ message: `Missing ${field} in request body` });
-        }
+  console.log("reqbody", req.body);
+  const requiredFields = [
+    "warehouse_id",
+    "item_name",
+    "description",
+    "category",
+    "status",
+    "quantity",
+  ];
+  for (let field of requiredFields) {
+    console.log("req.body[field] ", req.body[field]);
+    if (req.body[field] === undefined || req.body[field] === null) {
+      return res
+        .status(400)
+        .json({ message: `Missing ${field} in request body` });
     }
-    if (typeof req.body.quantity !== 'number') {
-        return res.status(400).json({ message: 'Quantity must be a number.' });
-    }
-    knex("warehouses")
-        .where({ id: req.body.warehouse_id })
-        .first()
-        .then(warehouseExists => {
-            if (!warehouseExists) {
-                throw new Error('Provided warehouse_id does not exist.');
-            }
-            return knex("inventories")
-                .insert({
-                    warehouse_id: req.body.warehouse_id,
-                    item_name: req.body.item_name,
-                    description: req.body.description,
-                    category: req.body.category,
-                    status: req.body.status,
-                    quantity: req.body.quantity,
-                });
-        })
-        .then(result => {
-            return knex("inventories").where({ id: result[0] });
-        })
-        .then(data => {
-            console.log('is it success? ', data)
-            res.status(201).send(data[0]);
-        })
-        .catch(error => {
-            if (error.message === 'Provided warehouse_id does not exist.') {
-                return res.status(400).json({ message: error.message });
-            }
-            console.log("error while inserting inventory item", error)
-            res.status(500).json({ message: 'Internal Server Error' });
-        });
+  }
+  if (typeof req.body.quantity !== "number") {
+    return res.status(400).json({ message: "Quantity must be a number." });
+  }
+  knex("warehouses")
+    .where({ id: req.body.warehouse_id })
+    .first()
+    .then((warehouseExists) => {
+      if (!warehouseExists) {
+        throw new Error("Provided warehouse_id does not exist.");
+      }
+      return knex("inventories").insert({
+        warehouse_id: req.body.warehouse_id,
+        item_name: req.body.item_name,
+        description: req.body.description,
+        category: req.body.category,
+        status: req.body.status,
+        quantity: req.body.quantity,
+      });
+    })
+    .then((result) => {
+      return knex("inventories").where({ id: result[0] });
+    })
+    .then((data) => {
+      console.log("is it success? ", data);
+      res.status(201).send(data[0]);
+    })
+    .catch((error) => {
+      if (error.message === "Provided warehouse_id does not exist.") {
+        return res.status(400).json({ message: error.message });
+      }
+      console.log("error while inserting inventory item", error);
+      res.status(500).json({ message: "Internal Server Error" });
+    });
 };
-
-
 
 //function to get all inventories
-const getAllInventories = async (req, res) => {
-    try {
-        const inventories = await knex('inventories')  
-            .join('warehouses', 'inventories.warehouse_id', 'warehouses.id')  
-            .select('inventories.*', 'warehouses.warehouse_name');  
-        
-        res.status(200).json(inventories);
-    } catch (error) {
-        console.error("Error fetching inventories:", error); 
-        return res.status(500).json({ error: 'Database error' });
-    }
+const getAllInventories = async (_req, res) => {
+  try {
+    const inventories = await knex("inventories")
+      .join("warehouses", "inventories.warehouse_id", "warehouses.id")
+      .select("inventories.*", "warehouses.warehouse_name");
+
+    res.status(200).json(inventories);
+  } catch (error) {
+    console.error("Error fetching inventories:", error);
+    return res.status(500).json({ error: "Database error" });
+  }
 };
-
-
 
 const deleteInventory = (req, res) => {
   knex("inventories")
@@ -79,7 +83,6 @@ const deleteInventory = (req, res) => {
         .send(`Could not delete inventory item ${req.params.id}. ${err}`);
     });
 };
-
 
 const getSingleInventory = (req, res) => {
   knex("inventories")
@@ -136,7 +139,6 @@ const EditInventory = (req, res) => {
         .update(req.body)
         .then(() => {
           return knex("inventories").where({ id: req.params.id });
-
         })
         .then((updatedInventory) => {
           res.json(updatedInventory[0]);
@@ -154,8 +156,6 @@ const getUniqueCategory = (req, res) => {
     });
 };
 
-
-
 module.exports = {
   getAllInventories,
   deleteInventory,
@@ -163,6 +163,4 @@ module.exports = {
   getSingleInventory,
   EditInventory,
   getUniqueCategory,
-
 };
-
