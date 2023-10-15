@@ -8,7 +8,7 @@ function WarehouseDelete({ deleteModalInfo, onCancel, onConfirm }) {
   // console.log(modalIsOpen);
 
   return (
-    <Modal
+    <Modal  
       className="delete-modal"
       overlayClassName="delete-modal__overlay"
       ariaHideApp={false} // gets rid of warning in console

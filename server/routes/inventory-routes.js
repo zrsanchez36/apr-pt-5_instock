@@ -5,6 +5,8 @@ router.post("/new", inventoryController.addNewInventory);
 router
   .route("/:id")
   .get(inventoryController.getSingleInventory)
-  .put(inventoryController.EditInventory);
+  .put(inventoryController.EditInventory)
+  .delete(inventoryController.deleteInventory);
 router.route("/category/unique").get(inventoryController.getUniqueCategory);
+
 module.exports = router;

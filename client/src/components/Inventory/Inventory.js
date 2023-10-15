@@ -4,23 +4,40 @@ import "./Inventory.scss";
 import InventoryRow from "../InventoryRow/InventoryRow";
 
 function Inventory(props) {
-  const [InventoryList, SetInventoryList] = useState([]);
+  const [inventoryList, setInventoryList] = useState([]);
 
+  const api = process.env.REACT_APP_BASEURL;
+
+  // Use Effect to get Warehouse ID from param and receieve warehouse details
   useEffect(() => {
     if (props.WarehouseInventory) {
       axios
-        .get(
-          `http://localhost:8080/warehouses/${props.WarehouseInventory}/inventories`
-        )
+        .get(`${api}/warehouses/${props.WarehouseInventory}/inventories`)
         .then((response) => {
-          SetInventoryList(response.data);
+          setInventoryList(response.data);
         });
     }
-  }, []);
+  }, [props.WarehouseInventory]);
+
+  // Delete inventory item
+  function deleteInventoryItem(id) {
+    axios
+      .delete(`${api}/inventories/${id}`)
+      .then(() => {
+        // Update the InventoryList by filtering out the deleted item
+        setInventoryList((prevInventoryList) =>
+          prevInventoryList.filter((item) => item.id !== id)
+        );
+      })
+      .catch((err) => console.log(err));
+  }
+
+  // on confirming the delte 
+  function confirmDeleteItem(id) {
+    deleteInventoryItem(id);
+  }
 
   if (props.WarehouseInventory) {
-    // Use Effect to get Warehouse ID from param and receieve warehouse details
-
     return (
       <div className="inventory">
         <ul className="inventory-list">
@@ -31,7 +48,7 @@ function Inventory(props) {
             <div className="col col-4 header">QUANTITY</div>
             <div className="col col-5 header">ACTIONS</div>
           </li>
-          {InventoryList.map((inventory) => (
+          {inventoryList.map((inventory) => (
             <InventoryRow
               key={inventory.id}
               id={inventory.id}
@@ -39,6 +56,9 @@ function Inventory(props) {
               category={inventory.category}
               status={inventory.status}
               quantity={inventory.quantity}
+              onConfirm={confirmDeleteItem}
+              inventoryList={inventoryList}
+              inventoryId={inventory.id}
             />
           ))}
         </ul>

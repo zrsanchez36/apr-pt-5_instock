@@ -1,5 +1,6 @@
 const knex = require("knex")(require("../knexfile"));
 
+// Add new Inventory Item
 const addNewInventory = (req, res) => {
   console.log("reqbody", req.body);
   const requiredFields = [
@@ -25,7 +26,11 @@ const addNewInventory = (req, res) => {
     .first()
     .then((warehouseExists) => {
       if (!warehouseExists) {
-        throw new Error("Provided warehouse_id does not exist.");
+
+        throw new Error(`Provided ${warehouse_id} does not exist.`);
+
+//         throw new Error("Provided warehouse_id does not exist.");
+
       }
 
       return knex("inventories").insert({
@@ -52,6 +57,24 @@ const addNewInventory = (req, res) => {
       res.status(500).json({ message: "Internal Server Error" });
     });
 };
+
+
+const deleteInventory = (req, res) => {
+  knex("inventories")
+    .where({ id: req.params.id })
+    .delete()
+    .then(() => {
+      res
+        .status(200)
+        .send(`Inventory item with id: ${req.params.id} has been deleted`);
+    })
+    .catch((err) => {
+      res
+        .status(404)
+        .send(`Could not delete inventory item ${req.params.id}. ${err}`);
+    });
+};
+
 
 const getSingleInventory = (req, res) => {
   knex("inventories")
@@ -126,8 +149,10 @@ const getUniqueCategory = (req, res) => {
 };
 
 module.exports = {
+  deleteInventory,
   addNewInventory,
   getSingleInventory,
   EditInventory,
   getUniqueCategory,
+
 };
