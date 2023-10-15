@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import InventoryButton from "./../InventoryButton/InventoryButton";
 import "../AddInventoryForm/AddInventory.scss";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const categories = [
     { id: 1, name: 'Electronics' },
@@ -13,6 +13,7 @@ const categories = [
 ]
 
 function AddInventorytForm(props) {
+    const navigate = useNavigate()
     const [warehouseList, setWarehouseList] = useState([])
 
     const [formData, setFormData] = useState({
@@ -65,9 +66,9 @@ function AddInventorytForm(props) {
                     <h3>Item Name</h3>
                     <input type="text" id="ItemName" value={formData.item_name} onChange={(e) => setFormData((prev) => ({ ...prev, item_name: e.target.value }))} className="default__form--field" placeholder="Inventory Name"></input>
                     <h3>Description</h3>
-                    <input type="text" id="Description" value={formData.description} onChange={(e) => setFormData((prev) => ({ ...prev, description: e.target.value }))} className="default__form--field" placeholder="Please enter a brief Item discription" maxLength={5}></input>
+                    <textarea rows={5} onChange={(e) => setFormData((prev) => ({ ...prev, description: e.target.value }))} className="default__form--textarea" placeholder="Please enter a brief Item discription">{formData.description}</textarea>
                     <h3>Category</h3>
-                    <select name="category" id="category" onChange={(e) => setFormData(prev => ({ ...prev, category: e.target.value }))} className="default__form--field">
+                    <select name="category" id="category" onChange={(e) => setFormData(prev => ({ ...prev, category: e.target.value }))} className="default__form--field minimal">
                         <option value='' selected disabled> Please Select</option>
                         {categories.map(category => (<>
                             <option key={category.id} value={category.name}>{category.name}</option>
@@ -79,11 +80,19 @@ function AddInventorytForm(props) {
                     <div className="form__title">
                         <h2>Item Availability</h2>
                     </div>
-                    <h3>Status</h3>
-                    <input onChange={(e) => setFormData(prev => ({ ...prev, status: e.target.value }))} type="radio" id="in-stock" name="status" value="In stock" />
-                    <label for="in-stock">In stock</label>
-                    <input onChange={(e) => setFormData(prev => ({ ...prev, status: e.target.value }))} type="radio" id="out-of-stock" name="status" value="Out of stock" />
-                    <label for="out-of-stock">Out of stock</label>
+                    <div className="form__status">
+                        <h3>Status</h3>
+                        <div className="form__status--option">
+                            <div>
+                                <input onChange={(e) => setFormData(prev => ({ ...prev, status: e.target.value }))} type="radio" id="in-stock" name="status" value="In stock" />
+                                <label for="in-stock">In stock</label>
+                            </div>
+                            <div>
+                                <input onChange={(e) => setFormData(prev => ({ ...prev, status: e.target.value }))} type="radio" id="out-of-stock" name="status" value="Out of stock" />
+                                <label for="out-of-stock">Out of stock</label>
+                            </div>
+                        </div>
+                    </div>
                     {
                         (formData.status !== 'Out of stock') && (
                             <> <h3>Quantity</h3>
@@ -101,9 +110,7 @@ function AddInventorytForm(props) {
                 </section>
             </form>
             <div className='form-inventory__actions'>
-                <Link to={"/inventory"}>
-                    <InventoryButton className="cancel__button" type="submit" label="Cancel" />
-                </Link>
+                <InventoryButton className="cancel__button" type="submit" label="Cancel" onClick={() => navigate("/inventory")} />
                 <InventoryButton className="add__inventory--button" type="submit" label="+ Add Item" onClick={saveInventoyItem} />
             </div>
         </div>

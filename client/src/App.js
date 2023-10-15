@@ -14,8 +14,8 @@ import AddNewInventory from "./components/AddNewInventory/AddNewInventory";
 function App() {
   return (
     <BrowserRouter>
+      <Header />
       <div className="app">
-        <Header />
         <Routes>
           <Route path="/" element={<WarehouseList />} />
           <Route path="/warehouses" element={<WarehouseList />} />
@@ -28,8 +28,8 @@ function App() {
           <Route path="/warehouses/edit/:id" element={<EditWarehouse />} />
           <Route path="/AddWarehouse" element={<AddWarehouse />} />
         </Routes>
-        <Footer />
       </div>
+      <Footer />
     </BrowserRouter>
   );
 }
