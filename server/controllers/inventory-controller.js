@@ -47,6 +47,23 @@ const addNewInventory = (req, res) => {
 };
 
 
+
+//function to get all inventories
+const getAllInventories = async (req, res) => {
+    try {
+        const inventories = await knex('inventories')  
+            .join('warehouses', 'inventories.warehouse_id', 'warehouses.id')  
+            .select('inventories.*', 'warehouses.warehouse_name');  
+        
+        res.status(200).json(inventories);
+    } catch (error) {
+        console.error("Error fetching inventories:", error); 
+        return res.status(500).json({ error: 'Database error' });
+    }
+};
+
+
+
 const deleteInventory = (req, res) => {
   knex("inventories")
     .where({ id: req.params.id })
@@ -137,7 +154,10 @@ const getUniqueCategory = (req, res) => {
     });
 };
 
+
+
 module.exports = {
+  getAllInventories,
   deleteInventory,
   addNewInventory,
   getSingleInventory,
@@ -145,3 +165,4 @@ module.exports = {
   getUniqueCategory,
 
 };
+

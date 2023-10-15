@@ -38,9 +38,9 @@ function WarehouseEditForm (props) {
                 {/* <WarehouseButton className="cancel__button" type="submit" label="cancel" />
                 <WarehouseButton className="add__warehouse--button" type="submit" label="+Add Warehouse" /> */}
             </form>
-            <div className='form-warehouse__actions'>
+            <div className='form--warehouse__actions'>
                 <WarehouseButton className="cancel__button" type="submit" label="Cancel" />
-                <WarehouseButton className="add__warehouse--button" type="submit" label="Save" />
+                <WarehouseButton className="add__warehouse--button" type="submit" label="+ Add New Warehouse" />
             </div>
         </div>
     )

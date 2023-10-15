@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@font-face {
+  font-family: "TitilliumWebRegular";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../../assets/fonts/TitilliumWeb-Regular.ttf");
+}
+@font-face {
+  font-family: "TitilliumWebItalic";
+  font-style: italic;
+  font-weight: 400;
+  src: url("../../assets/fonts/TitilliumWeb-Italic.ttf");
+}
+@font-face {
+  font-family: "TitilliumWebBold";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../../assets/fonts/TitilliumWeb-Bold.ttf");
+}
+@font-face {
+  font-family: "TitilliumWebBoldItalic";
+  font-style: italic;
+  font-weight: 700;
+  src: url("../../assets/fonts/TitilliumWeb-BoldItalic.ttf");
+}
+/* mobile media query*/
+/* tablet media query */
+/* desktop media query medium pixel dpi */
+/* desktop media query high pixel dpi */
+ul {
+  width: 100%;
+  border-collapse: collapse;
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+li {
+  border-radius: 3px;
+  padding: 16px 24px 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.inventory-list__headers {
+  background-color: #f7f8f9;
+  color: #5c667e;
+  text-align: left;
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 600;
+}
+
+.col {
+  text-align: left;
+}
+.col.header {
+  background-color: #f7f8f9;
+  color: #5c667e;
+  text-align: left;
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 600;
+  display: initial;
+  height: 1rem;
+  padding: 0;
+}
+
+.col-1 {
+  flex-basis: 20%;
+}
+
+.col-2 {
+  flex-basis: 20%;
+}
+
+.col-3 {
+  flex-basis: 20%;
+}
+
+.col-4 {
+  flex-basis: 20%;
+}
+
+.col-5 {
+  flex-basis: 20%;
+}/*# sourceMappingURL=Inventory.css.map */

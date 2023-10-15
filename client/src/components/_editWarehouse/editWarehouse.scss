@@ -16,10 +16,14 @@ body {
         background-color: white;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
         position: absolute;
-        top: 70%; 
         left: 50%;
         transform: translate(-50%, -50%); 
         z-index: 2;
+    }
+
+    @include miniHeight {
+        top: 550px;
+
     }
 
     @include medium {
@@ -27,26 +31,20 @@ body {
         width: 90%;
         background-color: white;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-        position: absolute;
-        top: 50%; 
+        position: absolute; 
         left: 50%;
         transform: translate(-50%, -50%); 
         z-index: 2;
     }
 
     @include large {
-        // display: flex;
-        // justify-content: center;
-        // align-items: center;
-        // right: 20%;
-        // left: 20%;
+        
         margin: 0 auto;
         width: 80%;
         // padding: 3rem;
         background-color: white;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
         position: absolute;
-        top: 35%; 
         left: 50%;
         transform: translate(-50%, -50%); 
         z-index: 2;
@@ -59,10 +57,19 @@ body {
         background-color: white;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
         position: absolute;
-        top: 35%; 
+        top: 35.7%; 
         left: 50%;
         transform: translate(-50%, -50%); 
         z-index: 2;
+    }
+
+    @include medDesktopHeight {
+        top: 335px;
+        
+    }
+
+    @include lgDesktopHeight {
+        top: 322px;
     }
 }
 
@@ -397,8 +404,18 @@ body {
 .warehouse__button--container {
     @include small {
         width: 100%;
-        padding-left: 1rem;
-        padding-right: 1rem;
+    }
+    
+    @include medium {
+        margin-left: 1rem;
+    }
+
+    @include large {
+        margin-left: 1rem;
+    }
+
+    @include huge{
+        margin-left: 1rem;
     }
 }
 
@@ -502,5 +519,28 @@ body {
         padding-left: 1rem;
         padding-right: 1rem;
         box-sizing: border-box;
+    }
+}
+
+.form--warehouse__actions {
+    @include medium {
+        display: flex;
+        justify-content: flex-end;
+        align-content: center;
+        flex-direction: row;
+        height: 4rem;
+        flex-wrap: wrap;
+    }
+
+    @include large {
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: row;
+    }
+
+    @include huge {
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: row;
     }
 }

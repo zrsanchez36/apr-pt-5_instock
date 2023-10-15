@@ -21,7 +21,31 @@
 
 /* desktop media query high pixel dpi */
 @mixin huge {
-  @media only screen and (min-width: 1440px) {
-    @content;
-  }
+
+    @media only screen and (min-width:1440px) {
+        @content;
+    }
 }
+
+
+
+
+@mixin medDesktopHeight {
+    @media screen and (min-height: 0px) and (max-height: 1480px) and (min-width:768px) and (max-width:1023px) {
+        @content;
+    }
+}
+
+@mixin miniHeight {
+    @media screen and (min-height: 0px) and (max-height: 1480px) and (min-width:0px) and (max-width:768px){
+        @content;
+    }
+}
+
+@mixin lgDesktopHeight {
+    @media screen and (min-height: 0px) and (max-height: 1480px) and (min-width:1024px) {
+        @content;
+    }
+}
+
+
