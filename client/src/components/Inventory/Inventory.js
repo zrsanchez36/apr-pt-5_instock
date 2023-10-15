@@ -51,6 +51,7 @@ function Inventory(props) {
           {inventoryList.map((inventory) => (
             <InventoryRow
               key={inventory.id}
+              id={inventory.id}
               itemName={inventory.item_name}
               category={inventory.category}
               status={inventory.status}

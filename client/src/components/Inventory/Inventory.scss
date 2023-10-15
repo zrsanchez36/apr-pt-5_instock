@@ -12,14 +12,6 @@ ul.inventory-list {
   flex-direction: column;
 }
 
-li.inventory-list__items {
-  border-radius: 3px;
-  padding: 16px 24px 16px 24px;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 18px;
-}
-
 .inventory-list {
   &__headers {
     background-color: $grey-color;
