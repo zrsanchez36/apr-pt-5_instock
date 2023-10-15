@@ -11,12 +11,13 @@ import InventoryDetails from "./components/InventoryDetails/InventoryDetails";
 import InventoryEdit from "./components/InventoryEdit/InventoryEdit";
 import EditWarehouse from "./components/_editWarehouse/EditWarehouse";
 import AddWarehouse from "./components/_editWarehouse/AddWarehouse";
+import AddNewInventory from "./components/AddNewInventory/AddNewInventory";
 
 function App() {
   return (
     <BrowserRouter>
+      <Header />
       <div className="app">
-        <Header />
         <Routes>
           <Route path="/" element={<WarehouseList />} />
           <Route path="/warehouses" element={<WarehouseList />} />
@@ -25,6 +26,10 @@ function App() {
             element={<WarehouseDetails />}
           />
           <Route path="/inventory" element={<Inventory />} />
+
+          <Route path="/inventory/new" element={<AddNewInventory />} />
+          <Route path="/warehouses/edit/:id" element={<EditWarehouse />} />
+
           <Route
             path="/inventory/:inventoryId"
             element={<InventoryDetails />}
@@ -33,11 +38,12 @@ function App() {
             path="/inventory/edit/:inventoryId"
             element={<InventoryEdit />}
           />
-          <Route path="/warehouses/:id/edit" element={<EditWarehouse />} />
+//           <Route path="/warehouses/:id/edit" element={<EditWarehouse />} />
+
           <Route path="/AddWarehouse" element={<AddWarehouse />} />
         </Routes>
-        <Footer />
       </div>
+      <Footer />
     </BrowserRouter>
   );
 }
