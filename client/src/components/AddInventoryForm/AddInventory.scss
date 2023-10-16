@@ -536,6 +536,7 @@ body {
 
 .default__form--textarea {
     resize: none;
+    font-family: TitilliumWebRegular;
 
     @include small {
         border-radius: 20px;
