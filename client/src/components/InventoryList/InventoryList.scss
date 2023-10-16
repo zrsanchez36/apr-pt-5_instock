@@ -1,31 +1,32 @@
 
-// @import "../../styles/partials/colors";
-// @import "../../styles/partials/mixins";
-// @import "../../styles/partials/breakpoints";
+@import "../../styles/partials/colors";
+@import "../../styles/partials/mixins";
+@import "../../styles/partials/breakpoints";
 
 
 // a {
 //   text-decoration: none;
 // }
 
-// .inventory__page {
-//   display: flex;
-//   flex-direction: column;
-//   border-radius: 0.1875rem;
-//   width: 100%;
-//   position: relative;
-//   margin: auto;
-//   bottom: 4rem;
-//   background-color: $white-color;
-//   box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+.inventory__page {
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.1875rem;
+  width: 100%;
+  position: relative;
+  margin: auto;
+  bottom: 4rem;
+  background-color: $white-color;
+  box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
 
-//   @include tabletView {
-//     margin-top: 5rem;
-//   }
+  @include tabletView {
+    margin-top: 5rem;
+  }
 
-//   @include desktopView {
-//     margin-top: 5rem;
-//   }
+  @include desktopView {
+    margin-top: 5rem;
+  }
+}
 
 //   &__box {
 //     padding-top: 2rem;
@@ -395,20 +396,18 @@
 //   transform: translateX(4px);
 // }
 
-// //zsoreign
+//zsoreign
 
-// .inventoryList__container {
-//   @include small {
-//     display: flex;
-//   }
+.inventoryList__container {
+  @include small {
+    display: flex;
+  }
 
-// }
+}
 
-// .inventory__page {
-//   position: relative;
-//   width: 90%;
-// }
+.inventory__page {
+  position: relative;
+  width: 90%;
+}
 
-// // .warehouseList__item {
 
-// // }

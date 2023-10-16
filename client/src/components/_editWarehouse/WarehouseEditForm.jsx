@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import WarehouseButton from "./WarehouseButton";
 
 
@@ -39,7 +40,9 @@ function WarehouseEditForm (props) {
                 <WarehouseButton className="add__warehouse--button" type="submit" label="Save" /> */}
             </form>
             <div className='form__warehouse--actions'>
-                <WarehouseButton className="cancel__button" type="submit" label="Cancel" />
+                <Link to={`/warehouses`}>
+                <WarehouseButton className="cancel__button" type="button" label="Cancel" />
+                </Link>
                 <WarehouseButton className="add__warehouse--button" type="submit" label="Save" />
             </div>
         </div>

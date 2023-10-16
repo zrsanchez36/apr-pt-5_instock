@@ -15,16 +15,10 @@ body {
         width: 90%;
         background-color: white;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-        position: absolute;
-        left: 50%;
-        transform: translate(-50%, -50%); 
-        z-index: 2;
-    }
-
-    @include miniHeight {
-        top: 550px;
 
     }
+
+
 
     @include medium {
         margin: 0 auto;
@@ -291,7 +285,7 @@ body {
 
     @include small {
         display: flex;
-        position: absolute;
+        // position: absolute;
         align-items:center;
         justify-content: center;
         width: 100%;
