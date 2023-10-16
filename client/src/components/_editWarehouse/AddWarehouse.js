@@ -1,7 +1,7 @@
 import React from "react";
 // import Header from "../Header/Header";
 import AddWarehouseForm from "./AddWarehouseForm";
-import "./editWarehouse.css";
+import "./editWarehouse.scss";
 import {ReactComponent as Arrow} from "../../assets/Icons/arrow_back-24px.svg"
 import {useNavigate} from "react-router-dom";
 

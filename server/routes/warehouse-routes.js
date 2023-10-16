@@ -3,7 +3,25 @@ const { body, validationResult } = require("express-validator");
 // const knex = require("knex")(require("../knexfile"));
 const warehouseController = require("../controllers/warehouse-controller");
 
-router.route("/warehouses").get(warehouseController.index);
+router.route("/").get(warehouseController.index);
+router
+  .route("/")
+  .post(
+    [
+      body("warehouse_name").notEmpty(),
+      body("address").notEmpty(),
+      body("city").notEmpty(),
+      body("country").notEmpty(),
+      body("contact_name").notEmpty(),
+      body("contact_position").notEmpty(),
+      body("contact_phone")
+        .notEmpty()
+        .matches(/^\+\d{1,3} \(\d{1,4}\) \d{3}-\d{4}$/),
+      body("contact_email").isEmail(),
+    ],
+    warehouseController.addNewWarehouse
+  );
+
 router.route("/:id").get(warehouseController.getSingleWarehouse);
 router.route("/:id").delete(warehouseController.deleteWarehouse);
 router
@@ -27,7 +45,6 @@ router
 
 router
   .route("/")
-
   .post(
     [
       body("warehouse_name").notEmpty(),
