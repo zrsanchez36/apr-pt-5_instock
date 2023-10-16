@@ -1,0 +1,42 @@
+@import './styles/partials/breakpoints';
+@import './styles/partials/colors';
+@import './styles/partials/fonts';
+
+html,
+body {
+    font-family: TitilliumWebRegular;
+    box-sizing: border-box;
+    color: $black-color;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.app {
+    position: relative;
+    top: -3rem;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: calc(100% - 3rem);
+
+    @include medium {
+        top: -5.9rem;
+        width: calc(100% - 4rem);
+        max-width: 63.5rem;
+    }
+
+    @include large {
+        top: -5.9rem;
+        width: calc(100% - 10rem);
+    }
+
+    @include huge {
+        top: -5.9rem;
+        width: calc(100% - 15rem);
+    }
+}
+
+@import './components/Header/Header';
+@import './components/Footer/Footer';

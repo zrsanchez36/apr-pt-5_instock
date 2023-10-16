@@ -1,0 +1,78 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/breakpoints" as *;
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+a {
+  text-decoration: none;
+}
+
+.button {
+  height: 36px;
+
+  &__edit {
+    @extend .button;
+    color: $white-color;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 25px;
+    width: 36px;
+    padding: 4px;
+    background-color: $indigo-color;
+    @include medium {
+      background-color: $indigo-color;
+      color: $white-color;
+      padding: 5px;
+      width: 100px;
+      border-radius: 20px;
+      text-align: center;
+      text-decoration: none;
+    }
+    @include large{ 
+      background-color: $indigo-color;
+      color: $white-color;
+      padding: 5px;
+      width: 100px;
+      border-radius: 20px;
+      text-align: center;
+      text-decoration: none;
+    }
+  }
+}
+
+.material-icons.edit {
+  display: inline;
+  vertical-align: middle;
+}
+
+.material-icons.indigo-blue {
+  color: $indigo-color;
+}
+
+.material-icons.md-24 {
+  font-size: 24px;
+}
+
+.button-text {
+  display: none;
+
+  @include medium {
+    text-decoration: none;
+    display: inline;
+    vertical-align: middle;
+    font-size: 18px;
+    line-height: 24px;
+    margin: 0;
+    padding-left: 5px;
+    text-decoration: none;
+  }
+  @include large{
+    text-decoration: none;
+    display: inline;
+    vertical-align: middle;
+    font-size: 18px;
+    line-height: 24px;
+    margin: 0;
+    padding-left: 5px;
+    text-decoration: none;
+  }
+}

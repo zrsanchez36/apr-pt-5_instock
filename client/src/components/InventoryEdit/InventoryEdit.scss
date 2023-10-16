@@ -1,0 +1,275 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/colors" as *;
+
+.edit-inventory {
+  position: relative;
+  margin: 0 auto;
+  top: 0;
+  bottom: 0;
+  width: auto;
+  height: fit-content;
+  border-radius: 5px;
+  background-color: $white-color;
+  box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+  &__header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 24px;
+    border-bottom: 1px $cloud-color solid;
+
+    &--text {
+      font-size: 28px;
+      line-height: 36px;
+      margin: 0 0 0 24px;
+    }
+  }
+  &__subheader {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  &__form {
+    width: 100%;
+    box-sizing: content-box;
+
+    &__information {
+      padding: 0 24px 24px 24px;
+      @include medium {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+      }
+      @include large {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+      }
+      option {
+        width: 100%;
+        overflow: hidden;
+        font-size: 11px;
+      }
+    }
+
+    &__top {
+      @include medium {
+        width: 45%;
+      }
+      @include large {
+        width: 45%;
+      }
+      &--item-name {
+        width: 100%;
+        box-sizing: border-box;
+        @include medium {
+          width: 100%;
+          margin-bottom: 24px;
+          box-sizing: border-box;
+        }
+        @include large {
+          width: 100%;
+          margin-bottom: 24px;
+          box-sizing: border-box;
+        }
+      }
+      &--quantity {
+        @include medium {
+          margin-top: 24px;
+        }
+        @include large {
+          margin-top: 24px;
+        }
+      }
+    }
+
+    &__bottom {
+      @include medium {
+        width: 45%;
+      }
+      @include large {
+        width: 45%;
+      }
+      &--status {
+        display: flex;
+        flex-direction: column;
+        color: $slate-color;
+        @include medium {
+          margin-bottom: 24px;
+        }
+        @include large {
+          margin-bottom: 24px;
+        }
+
+        &--radios {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          width: 70%;
+
+          &--buttons {
+            height: 15px;
+            width: 15px;
+            accent-color: $indigo-color;
+          }
+        }
+      }
+    }
+    &__label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 5px;
+      font-size: 13px;
+      line-height: 20px;
+      color: black;
+
+      &--status {
+        &.active {
+          color: black;
+        }
+        input {
+          margin: 5px;
+          border: 1px $cloud-color solid;
+        }
+      }
+    }
+
+    &--input {
+      border-radius: 15px;
+      box-sizing: border-box;
+      border: 1px $cloud-color solid;
+      height: 25px;
+      padding: 2px 10px;
+      margin: 0;
+      width: 100%;
+      text-align: left;
+    }
+
+    &--textarea {
+      border-radius: 15px;
+      box-sizing: border-box;
+      padding: 5px 10px;
+      border: 1px $cloud-color solid;
+      width: 100%;
+      text-align: left;
+      font-family: TitilliumWebRegular;
+      color: black;
+    }
+
+    &--category {
+      width: 100%;
+      border-radius: 15px;
+      padding: 5px 10px;
+      border: 1px $cloud-color solid;
+      
+      &:not(:-internal-list-box) {
+        overflow: hidden;
+      }
+    }
+    &__top--item-name {
+      width: 100%;
+    }
+
+    &__buttons {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      background: $grey-color;
+      padding: 24px 0;
+
+      @include medium {
+        justify-content: flex-end;
+      }
+      @include large {
+        justify-content: flex-end;
+      }
+    }
+  }
+
+  &__container {
+    &__text {
+      font-size: 11px;
+      line-height: 16px;
+      color: $black-color;
+      margin: 0;
+    }
+
+    &__table-header {
+      color: $slate-color;
+      font-weight: 600;
+      font-size: 11px;
+      line-height: 16px;
+      margin: 0;
+    }
+
+    &__upper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 0;
+      border-bottom: $cloud-color solid 1px;
+
+      &--left {
+        width: 300px;
+      }
+    }
+    &__lower {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 24px;
+
+      &-right {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        border-left: $cloud-color solid 1px;
+        width: 70%;
+      }
+    }
+  }
+}
+
+.editButton {
+  font-size: 13px;
+  line-height: 20px;
+  width: 45%;
+  border-radius: 20px;
+  border: none;
+  height: 36px;
+  font-weight: 600;
+  margin-left: 24px;
+  margin-right: 24px;
+  @include medium {
+    width: 10%;
+    margin: 0 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  @include large {
+    width: 8%;
+    margin: 0 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  &--cancel {
+    @extend .editButton;
+    background-color: white;
+    border: 1px $cloud-color solid;
+    color: $slate-color;
+  }
+  &--submit {
+    @extend .editButton;
+    background-color: $indigo-color;
+    color: white;
+  }
+}
+
+
+.incorrect{ 
+  border: $red-color 2px solid;
+}

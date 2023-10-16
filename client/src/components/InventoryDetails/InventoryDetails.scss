@@ -1,0 +1,144 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/colors" as *;
+
+.inventory-details {
+  position: relative;
+  margin: 0 24px;
+  padding: 24px 0 0 0;
+  top: 20%;
+  bottom: 0;
+  width: 90%;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+
+  @include medium {
+    min-height: 400px;
+    border-radius: 5px;
+    padding: 24px 0;
+  }
+  @include large {
+    min-height: 400px;
+    border-radius: 5px;
+    padding: 24px 0;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+    padding: 0;
+
+    &__text {
+      font-size: 13px;
+      display: inline-block;
+      @include medium {
+        font-size: 12px;
+        line-height: 16px;
+        color: $black-color;
+        margin: 0;
+      }
+      @include large {
+        font-size: 12px;
+        line-height: 16px;
+        color: $black-color;
+        margin: 0;
+      }
+    }
+
+    &__header {
+      display: inline;
+      font-size: 28px;
+      line-height: 36px;
+      margin-left: 24px;
+    }
+
+    &__info-header {
+      margin: 16px 0 0 0;
+      color: $slate-color;
+      font-weight: 600;
+      font-size: 11px;
+      line-height: 16px;
+    }
+
+    &__upper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 24px;
+      border-bottom: $cloud-color solid 1px;
+
+      &--left {
+        width: 300px;
+      }
+    }
+    &__lower {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      padding-left: 24px;
+      padding-right: 24px;
+      margin-top: 24px;
+
+      @include medium {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 24px;
+      }
+
+      @include large {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 24px;
+      }
+
+      &-left {
+        @include medium {
+          padding-right: 24px;
+        }
+        @include large {
+          padding-right: 24px;
+        }
+      }
+      &-right {
+        @include medium {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-evenly;
+          border-left: $cloud-color solid 1px;
+          padding-left: 24px;
+          width: 70%;
+        }
+        @include large {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-evenly;
+          border-left: $cloud-color solid 1px;
+          padding-left: 24px;
+          width: 70%;
+        }
+
+        &--statusandquantity {
+          display: flex;
+          flex-direction: row;
+          width: 80%;
+          justify-content: space-between;
+          @include medium {
+            width: 50%;
+          }
+          @include large {
+            width: 50%;
+          }
+        }
+      }
+    }
+  }
+}
+
+.invisible {
+  display: none;
+}
