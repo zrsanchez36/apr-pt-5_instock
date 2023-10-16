@@ -21,6 +21,7 @@ a {
 .warehouseList__box {
   padding-top: 2rem;
   box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+  background-color: white;
 }
 @media (min-width: 768px) and (max-width: 1279px) {
   .warehouseList__box {
@@ -67,7 +68,7 @@ a {
     font-size: 0.9rem;
   }
 }
-@media (min-width: 1280px) {
+@media screen and (min-width: 1280px) {
   .warehouseList__btn {
     width: 25%;
   }
@@ -100,7 +101,7 @@ a {
     height: 38px;
   }
 }
-@media (min-width: 1280px) {
+@media screen and (min-width: 1280px) {
   .warehouseList__text {
     width: 35%;
   }
@@ -185,7 +186,7 @@ a {
 .warehouseList__info p {
   margin: 0px;
 }
-@media (min-width: 1280px) {
+@media screen and (min-width: 1280px) {
   .warehouseList__info {
     display: flex;
   }
@@ -228,7 +229,7 @@ a {
     border-bottom: 1px solid #bdc5d5;
   }
 }
-@media (min-width: 1280px) {
+@media screen and (min-width: 1280px) {
   .warehouseList__container {
     padding-bottom: 0.5rem;
   }
@@ -271,4 +272,4 @@ a {
 
 h3:hover .warehouseList__icon {
   transform: translateX(4px);
-}/*# sourceMappingURL=InventoryList.css.map */
+}

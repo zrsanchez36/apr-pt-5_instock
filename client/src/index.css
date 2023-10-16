@@ -1,0 +1,39 @@
+@font-face {
+  font-family: "TitilliumWebRegular";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../../assets/fonts/TitilliumWeb-Regular.ttf");
+}
+@font-face {
+  font-family: "TitilliumWebItalic";
+  font-style: italic;
+  font-weight: 400;
+  src: url("../../assets/fonts/TitilliumWeb-Italic.ttf");
+}
+@font-face {
+  font-family: "TitilliumWebBold";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../../assets/fonts/TitilliumWeb-Bold.ttf");
+}
+@font-face {
+  font-family: "TitilliumWebBoldItalic";
+  font-style: italic;
+  font-weight: 700;
+  src: url("../../assets/fonts/TitilliumWeb-BoldItalic.ttf");
+}
+/* mobile media query*/
+/* tablet media query */
+/* desktop media query medium pixel dpi */
+/* desktop media query high pixel dpi */
+* {
+  font-family: "TitilliumWebRegular";
+}
+
+body {
+  margin: 0;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}

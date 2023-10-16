@@ -13,12 +13,12 @@ function WarehouseList() {
   const { warehouseId } = useParams();
   const [warehouses, setWarehouses] = useState([]);
   const [deleteModalInfo, setDeleteModalInfo] = useState({});
-
+  console.log(setWarehouses);
   const api = process.env.REACT_APP_BASEURL;
 
   function getWarehouseList() {
     axios
-      .get(`${api}/warehouses`)  
+      .get(`${api}/warehouses`)
       .then((response) => {
         setWarehouses(response.data);
       })
@@ -129,22 +129,24 @@ function WarehouseList() {
                   </Link>
                 </div>
               </div>
-              {/* address */}
-              <div className="warehouseList__item">
-                <div className="warehouseList__subtitle">address</div>
-                <div className="warehouseList__info">
-                  <p>{warehouse.address + ", "}</p>
-                  <p>{warehouse.city + ", " + warehouse.country}</p>
+              
+                {/* address */}
+                <div className="warehouseList__item">
+                  <div className="warehouseList__subtitle">address</div>
+                  <div className="warehouseList__info">
+                    <p>{warehouse.address + ", "}</p>
+                    <p>{warehouse.city + ", " + warehouse.country}</p>
+                  </div>
                 </div>
-              </div>
-              {/*Contact name and info */}
-              <div className="warehouseList__item">
-                <div className="warehouseList__subtitle">contact name</div>
 
-                <div className="warehouseList__info">
-                  {warehouse.contact_name}
+                {/*Contact name and info */}
+                <div className="warehouseList__item">
+                  <div className="warehouseList__subtitle">contact name</div>
+                  <div className="warehouseList__info">
+                    {warehouse.contact_name}
+                  </div>
                 </div>
-              </div>
+              
 
               <div className="warehouseList__item">
                 <div className="warehouseList__subtitle">
@@ -157,6 +159,7 @@ function WarehouseList() {
                   {warehouse.contact_email}
                 </div>
               </div>
+
               <div className="warehouseList__item warehouseList__item--last">
                 <div className="warehouseList__delete">
                   <img
