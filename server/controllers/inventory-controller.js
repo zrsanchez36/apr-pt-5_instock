@@ -18,7 +18,7 @@ const addNewInventory = (req, res) => {
         .first()
         .then(warehouseExists => {
             if (!warehouseExists) {
-                throw new Error('Provided warehouse_id does not exist.');
+                throw new Error(`Provided ${req.body.warehouse_id} does not exist.`);
             }
             return knex("inventories")
                 .insert({
@@ -46,23 +46,19 @@ const addNewInventory = (req, res) => {
         });
 };
 
-
-
 //function to get all inventories
-const getAllInventories = async (req, res) => {
-    try {
-        const inventories = await knex('inventories')  
-            .join('warehouses', 'inventories.warehouse_id', 'warehouses.id')  
-            .select('inventories.*', 'warehouses.warehouse_name');  
-        
-        res.status(200).json(inventories);
-    } catch (error) {
-        console.error("Error fetching inventories:", error); 
-        return res.status(500).json({ error: 'Database error' });
-    }
+const getAllInventories = async (_req, res) => {
+  try {
+    const inventories = await knex("inventories")
+      .join("warehouses", "inventories.warehouse_id", "warehouses.id")
+      .select("inventories.*", "warehouses.warehouse_name");
+
+    res.status(200).json(inventories);
+  } catch (error) {
+    console.error("Error fetching inventories:", error);
+    return res.status(500).json({ error: "Database error" });
+  }
 };
-
-
 
 const deleteInventory = (req, res) => {
   knex("inventories")
@@ -79,7 +75,6 @@ const deleteInventory = (req, res) => {
         .send(`Could not delete inventory item ${req.params.id}. ${err}`);
     });
 };
-
 
 const getSingleInventory = (req, res) => {
   knex("inventories")
@@ -140,7 +135,6 @@ const EditInventory = (req, res) => {
         .update(req.body)
         .then(() => {
           return knex("inventories").where({ id: req.params.id });
-
         })
         .then((updatedInventory) => {
           res.json(updatedInventory[0]);
@@ -158,8 +152,6 @@ const getUniqueCategory = (req, res) => {
     });
 };
 
-
-
 module.exports = {
   getAllInventories,
   deleteInventory,
@@ -167,6 +159,4 @@ module.exports = {
   getSingleInventory,
   EditInventory,
   getUniqueCategory,
-
 };
-

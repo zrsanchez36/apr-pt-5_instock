@@ -11,6 +11,7 @@
   width: 90%;
   background-color: white;
   border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
 
   @include medium {
     min-height: 400px;

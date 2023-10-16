@@ -159,7 +159,7 @@ function InventoryList () {
           <li className="warehouseList__items">
             <div className="warehouseList__container">
               <div className="warehouseList__item">
-                <div className="warehouseList__subtitle"> IINVENTORY ITEM</div>
+                <div className="warehouseList__subtitle"> INVENTORY ITEM</div>
                 <div className="warehouseList__info">
                   <Link
                     to={`/inventory/${inventory.id}`}
@@ -220,11 +220,11 @@ function InventoryList () {
                     onClick={() => deleteButtonClick(inventory)}
                   />
                 </div>
-                {/* <Link to={`/warehouses/edit/${warehouse.id}`}> */}
+                <Link to={`/inventory/edit/${inventory.id}`}>
                   <div className="warehouseList__edit">
                     <img src={editicon} alt="edit icon" onClick={() => navigate(`/inventory/${inventory.id}`)}/>
                   </div>
-                {/* </Link> */}
+                </Link>
               </div>
             </div>
           </li>
