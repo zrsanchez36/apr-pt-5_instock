@@ -22,6 +22,10 @@ a {
     margin-top: 5rem;
   }
 
+  @include desktopView {
+    margin-top: 5rem;
+  }
+
   &__box {
     padding-top: 2rem;
     box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
@@ -29,6 +33,11 @@ a {
     @include tabletView {
       padding: 0 1rem;
     }
+
+    @include desktopView {
+      padding: 0 1rem;
+    }
+
   }
 
   &__search {
@@ -42,6 +51,13 @@ a {
       padding: 0.5rem;
       align-items: center;
     }
+
+    @include desktopView {
+      flex-direction: row;
+      padding: 0.5rem;
+      align-items: center;
+    }
+
   }
 
   &__title {
@@ -73,7 +89,10 @@ a {
     }
 
     @include desktopView {
+      margin: 0;
       width: 25%;
+      height: 38px;
+      font-size: 0.9rem;
     }
   }
 
@@ -84,6 +103,11 @@ a {
     gap: 1rem;
 
     @include tabletView {
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+
+    @include desktopView {
       flex-direction: row;
       justify-content: flex-end;
     }
@@ -106,6 +130,7 @@ a {
 
     @include desktopView {
       width: 35%;
+      height: 38px;
     }
   }
 
@@ -118,6 +143,10 @@ a {
     @include tabletView {
       padding-left: 0 35px;
     }
+
+    @include desktopView {
+      padding-left: 0 35px;
+    }
   }
 
   &__items {
@@ -125,6 +154,11 @@ a {
     padding: 1rem 1.5rem 0 1rem;
 
     @include tabletView {
+      border-top: none;
+      padding: 0;
+    }
+
+    @include desktopView {
       border-top: none;
       padding: 0;
     }
@@ -153,6 +187,22 @@ a {
         margin: 0 0.5rem;
       }
     }
+
+    @include desktopView {
+      flex: 1;
+
+      &--last {
+        display: inline-block;
+        text-align: center;
+      }
+
+      &--last div {
+        display: inline-block;
+        margin: 0 0.5rem;
+      }
+    }
+
+
   }
 
   &__delete {
@@ -163,6 +213,18 @@ a {
     display: none;
 
     @include tabletView {
+      display: flex;
+      justify-content: space-between;
+      background-color: rgba(247, 248, 249, 0.7);
+      padding: 1rem 2rem;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      line-height: 1rem;
+      font-weight: 600;
+      color: $slate-color;
+    }
+
+    @include desktopView {
       display: flex;
       justify-content: space-between;
       background-color: rgba(247, 248, 249, 0.7);
@@ -185,6 +247,11 @@ a {
     @include tabletView {
       display: none;
     }
+
+    @include desktopView {
+      display: none;
+    }
+
   }
 
   &__info {
@@ -213,6 +280,15 @@ a {
     &:hover {
       transform: translateX(4px);
     }
+
+    
+    @include desktopView {
+      vertical-align: bottom;
+    }
+    &:hover {
+      transform: translateX(4px);
+    }
+
   }
 
   &__link {
@@ -243,6 +319,11 @@ a {
 
     @include desktopView {
       padding-bottom: 0.5rem;
+      gap: 0;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem 0 0;
+      border-bottom: 1px solid $cloud-color;
     }
 
     &:hover {
@@ -263,6 +344,18 @@ a {
         text-align: center;
       }
     }
+    @include desktopView {
+      flex: 1;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      line-height: 1rem;
+      font-weight: 600;
+      color: $slate-color;
+
+      &:nth-child(5) {
+        text-align: center;
+      }
+    }
   }
 
   &__sort {
@@ -271,6 +364,13 @@ a {
       vertical-align: text-top;
       padding-left: 0.2rem;
     }
+
+    @include desktopView {
+      height: 15px;
+      vertical-align: text-top;
+      padding-left: 0.2rem;
+    }
+    
   }
 }
 
@@ -285,6 +385,9 @@ a {
   @include tabletView {
     vertical-align: bottom;
   }
+  @include desktopView {
+    vertical-align: bottom;
+  }
 }
 
 h3:hover .warehouseList__icon {
@@ -293,7 +396,7 @@ h3:hover .warehouseList__icon {
 
 //zsoreign
 
-.inventoryList__container{
+.inventoryList__container {
   @include small {
     display: flex;
   }
@@ -302,7 +405,7 @@ h3:hover .warehouseList__icon {
 
 .inventory__page {
   position: relative;
-  width: 90;
+  width: 90%;
 }
 
 // .warehouseList__item {
