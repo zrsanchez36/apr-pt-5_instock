@@ -44,7 +44,7 @@ function AddInventorytForm(props) {
             .get(`${api}/warehouses`)
             .then((response) => {
                 setWarehouseList(response.data);
-                console.log("warehouselist-", response.data)
+            
             })
             .catch((err) => {
                 console.log(err);

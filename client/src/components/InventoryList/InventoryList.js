@@ -159,7 +159,7 @@ function InventoryList () {
           <li className="warehouseList__items">
             <div className="warehouseList__container">
               <div className="warehouseList__item">
-                <div className="warehouseList__subtitle"> IINVENTORY ITEM</div>
+                <div className="warehouseList__subtitle"> INVENTORY ITEM</div>
                 <div className="warehouseList__info">
                   <Link
                     to={`/inventory/${inventory.id}`}
