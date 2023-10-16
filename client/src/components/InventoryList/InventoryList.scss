@@ -21,7 +21,6 @@ a {
   }
 
   &__box {
-    padding-top: 2rem;
     box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
     background-color: $white-color;
     @include tabletView {
@@ -36,6 +35,11 @@ a {
     padding-right: 20px;
 
     @include tabletView {
+      flex-direction: row;
+      padding: 0.5rem;
+      align-items: center;
+    }
+    @include desktopView {
       flex-direction: row;
       padding: 0.5rem;
       align-items: center;
@@ -65,13 +69,14 @@ a {
 
     @include tabletView {
       margin: 0;
-      width: 25%;
+      width: 30%;
       height: 38px;
       font-size: 0.9rem;
     }
 
     @include desktopView {
-      width: 25%;
+      width: 20%;
+      margin-left: 1rem;
     }
   }
 
@@ -84,6 +89,11 @@ a {
     @include tabletView {
       flex-direction: row;
       justify-content: flex-end;
+    }
+    @include desktopView {
+      flex-direction: row;
+      justify-content: flex-end;
+      padding-top: 1rem;
     }
   }
 
@@ -100,10 +110,6 @@ a {
     @include tabletView {
       width: 80%;
       height: 38px;
-    }
-
-    @include desktopView {
-      width: 35%;
     }
   }
 
@@ -161,6 +167,17 @@ a {
     display: none;
 
     @include tabletView {
+      display: flex;
+      justify-content: space-between;
+      background-color: rgba(247, 248, 249, 0.7);
+      padding: 1rem 2rem;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      line-height: 1rem;
+      font-weight: 600;
+      color: $slate-color;
+    }
+    @include desktopView {
       display: flex;
       justify-content: space-between;
       background-color: rgba(247, 248, 249, 0.7);
